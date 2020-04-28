@@ -1,15 +1,9 @@
-﻿<Properties StartupConfiguration="{27E593F3-CBEE-4389-819E-A162F996A90A}|Default">
+﻿<Properties StartupConfiguration="{A914B7F7-473F-4BE9-A196-58035B25D033}|Default">
   <MonoDevelop.Ide.ItemProperties.ConsoleAppTest PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="ConsoleAppTest/Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ML.Net_POC/TaxiTrip.cs">
     <Files>
-      <File FileName="DataLayer/Context/DataContext.cs" Line="14" Column="10" />
-      <File FileName="DataLayer/Entities/User.cs" Line="10" Column="2" />
-      <File FileName="DataLayer/Infrastructure/IRepository.cs" Line="11" Column="31" />
-      <File FileName="DataLayer/Infrastructure/Repository.cs" Line="21" Column="1" />
-      <File FileName="DataLayer/Infrastructure/IUnitOfWork.cs" Line="7" Column="6" />
-      <File FileName="DataLayer/Infrastructure/UnitOfWork.cs" Line="8" Column="28" />
-      <File FileName="DataLayer/Infrastructure/DataContainer.cs" Line="16" Column="10" />
-      <File FileName="ConsoleAppTest/Program.cs" Line="16" Column="6" />
+      <File FileName="ML.Net_POC/Program.cs" Line="32" Column="27" />
+      <File FileName="ML.Net_POC/TaxiTrip.cs" Line="28" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -21,6 +15,10 @@
               <Node name="Entities" expanded="True" />
               <Node name="Infrastructure" expanded="True" />
             </Node>
+            <Node name="ML.Net_POC" expanded="True">
+              <Node name="Data" expanded="True" />
+              <Node name="TaxiTrip.cs" selected="True" />
+            </Node>
           </Node>
         </State>
       </Pad>
@@ -28,6 +26,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|anycpu" />
+  <MonoDevelop.Ide.ItemProperties.ML.Net__POC PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

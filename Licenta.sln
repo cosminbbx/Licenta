@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\Data
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppTest", "ConsoleAppTest\ConsoleAppTest.csproj", "{27E593F3-CBEE-4389-819E-A162F996A90A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ML.Net_POC", "ML.Net_POC\ML.Net_POC.csproj", "{A914B7F7-473F-4BE9-A196-58035B25D033}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|anycpu = Debug|anycpu
@@ -19,5 +21,9 @@ Global
 		{27E593F3-CBEE-4389-819E-A162F996A90A}.Debug|anycpu.Build.0 = Debug|Any CPU
 		{27E593F3-CBEE-4389-819E-A162F996A90A}.Release|anycpu.ActiveCfg = Release|Any CPU
 		{27E593F3-CBEE-4389-819E-A162F996A90A}.Release|anycpu.Build.0 = Release|Any CPU
+		{A914B7F7-473F-4BE9-A196-58035B25D033}.Debug|anycpu.ActiveCfg = Debug|Any CPU
+		{A914B7F7-473F-4BE9-A196-58035B25D033}.Debug|anycpu.Build.0 = Debug|Any CPU
+		{A914B7F7-473F-4BE9-A196-58035B25D033}.Release|anycpu.ActiveCfg = Release|Any CPU
+		{A914B7F7-473F-4BE9-A196-58035B25D033}.Release|anycpu.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
