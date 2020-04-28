@@ -1,0 +1,12 @@
+/Users/macbook1/Projects/Licenta/DataLayer/bin/Debug/netcoreapp3.1/DataLayer.deps.json
+/Users/macbook1/Projects/Licenta/DataLayer/bin/Debug/netcoreapp3.1/DataLayer.runtimeconfig.json
+/Users/macbook1/Projects/Licenta/DataLayer/bin/Debug/netcoreapp3.1/DataLayer.runtimeconfig.dev.json
+/Users/macbook1/Projects/Licenta/DataLayer/bin/Debug/netcoreapp3.1/DataLayer.dll
+/Users/macbook1/Projects/Licenta/DataLayer/bin/Debug/netcoreapp3.1/DataLayer.pdb
+/Users/macbook1/Projects/Licenta/DataLayer/obj/Debug/netcoreapp3.1/DataLayer.csprojAssemblyReference.cache
+/Users/macbook1/Projects/Licenta/DataLayer/obj/Debug/netcoreapp3.1/DataLayer.csproj.CoreCompileInputs.cache
+/Users/macbook1/Projects/Licenta/DataLayer/obj/Debug/netcoreapp3.1/DataLayer.AssemblyInfoInputs.cache
+/Users/macbook1/Projects/Licenta/DataLayer/obj/Debug/netcoreapp3.1/DataLayer.AssemblyInfo.cs
+/Users/macbook1/Projects/Licenta/DataLayer/obj/Debug/netcoreapp3.1/DataLayer.dll
+/Users/macbook1/Projects/Licenta/DataLayer/obj/Debug/netcoreapp3.1/DataLayer.pdb
+/Users/macbook1/Projects/Licenta/DataLayer/obj/Debug/netcoreapp3.1/DataLayer.genruntimeconfig.cache

@@ -1,0 +1,35 @@
+﻿<Properties StartupConfiguration="{27E593F3-CBEE-4389-819E-A162F996A90A}|Default">
+  <MonoDevelop.Ide.ItemProperties.ConsoleAppTest PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="ConsoleAppTest/Program.cs">
+    <Files>
+      <File FileName="DataLayer/Context/DataContext.cs" Line="14" Column="10" />
+      <File FileName="DataLayer/Entities/User.cs" Line="10" Column="2" />
+      <File FileName="DataLayer/Infrastructure/IRepository.cs" Line="11" Column="31" />
+      <File FileName="DataLayer/Infrastructure/Repository.cs" Line="21" Column="1" />
+      <File FileName="DataLayer/Infrastructure/IUnitOfWork.cs" Line="7" Column="6" />
+      <File FileName="DataLayer/Infrastructure/UnitOfWork.cs" Line="8" Column="28" />
+      <File FileName="DataLayer/Infrastructure/DataContainer.cs" Line="16" Column="10" />
+      <File FileName="ConsoleAppTest/Program.cs" Line="16" Column="6" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Licenta" expanded="True">
+            <Node name="ConsoleAppTest" expanded="True" />
+            <Node name="DataLayer" expanded="True">
+              <Node name="Context" expanded="True" />
+              <Node name="Entities" expanded="True" />
+              <Node name="Infrastructure" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|anycpu" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
