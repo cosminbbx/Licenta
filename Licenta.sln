@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppTest", "ConsoleAp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ML.Net_POC", "ML.Net_POC\ML.Net_POC.csproj", "{A914B7F7-473F-4BE9-A196-58035B25D033}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ML.Net_POC_MovieRecommander", "ML.Net_POC_MovieRecommander\ML.Net_POC_MovieRecommander.csproj", "{041E02D0-94A4-4507-A254-9A1E85B6C8E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FaceRecognition_POC", "FaceRecognition_POC\FaceRecognition_POC.csproj", "{9908A73F-4127-47FE-AEDA-22056F659F43}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|anycpu = Debug|anycpu
@@ -25,5 +29,13 @@ Global
 		{A914B7F7-473F-4BE9-A196-58035B25D033}.Debug|anycpu.Build.0 = Debug|Any CPU
 		{A914B7F7-473F-4BE9-A196-58035B25D033}.Release|anycpu.ActiveCfg = Release|Any CPU
 		{A914B7F7-473F-4BE9-A196-58035B25D033}.Release|anycpu.Build.0 = Release|Any CPU
+		{041E02D0-94A4-4507-A254-9A1E85B6C8E8}.Debug|anycpu.ActiveCfg = Debug|Any CPU
+		{041E02D0-94A4-4507-A254-9A1E85B6C8E8}.Debug|anycpu.Build.0 = Debug|Any CPU
+		{041E02D0-94A4-4507-A254-9A1E85B6C8E8}.Release|anycpu.ActiveCfg = Release|Any CPU
+		{041E02D0-94A4-4507-A254-9A1E85B6C8E8}.Release|anycpu.Build.0 = Release|Any CPU
+		{9908A73F-4127-47FE-AEDA-22056F659F43}.Debug|anycpu.ActiveCfg = Debug|Any CPU
+		{9908A73F-4127-47FE-AEDA-22056F659F43}.Debug|anycpu.Build.0 = Debug|Any CPU
+		{9908A73F-4127-47FE-AEDA-22056F659F43}.Release|anycpu.ActiveCfg = Release|Any CPU
+		{9908A73F-4127-47FE-AEDA-22056F659F43}.Release|anycpu.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
