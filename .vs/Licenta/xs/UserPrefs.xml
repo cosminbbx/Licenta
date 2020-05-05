@@ -1,47 +1,27 @@
 ﻿<Properties StartupConfiguration="{27E593F3-CBEE-4389-819E-A162F996A90A}|Default">
   <MonoDevelop.Ide.ItemProperties.ConsoleAppTest PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="ML.Net_POC/Data/taxi-fare-train.csv">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DataLayer/Entities/User.cs">
     <Files>
-      <File FileName="ML.Net_POC/Program.cs" Line="21" Column="10" />
-      <File FileName="ML.Net_POC/TaxiTrip.cs" Line="28" Column="1" />
-      <File FileName="ML.Net_POC_MovieRecommander/Program.cs" Line="43" Column="63" />
-      <File FileName="ML.Net_POC_MovieRecommander/MovieRatingData.cs" />
-      <File FileName="ML.Net_POC_MovieRecommander/MovieRatingPrediction.cs" />
-      <File FileName="ML.Net_POC_MovieRecommander/Data/recommendation-ratings-test.csv" />
-      <File FileName="ML.Net_POC_MovieRecommander/Data/recommendation-ratings-train.csv" />
-      <File FileName="FaceRecognition_POC/Program.cs" />
-      <File FileName="DataLayer/Entities/Event.cs" Line="16" Column="1" />
-      <File FileName="DataLayer/Entities/User.cs" Line="1" Column="1" />
-      <File FileName="DataLayer/Entities/Services.cs" Line="13" Column="1" />
-      <File FileName="DataLayer/Entities/EventService.cs" Line="8" Column="14" />
-      <File FileName="DataLayer/Context/DataContext.cs" Line="20" Column="1" />
-      <File FileName="ConsoleAppTest/Program.cs" Line="72" Column="10" />
-      <File FileName="DataLayer/Infrastructure/UnitOfWork.cs" Line="21" Column="1" />
-      <File FileName="DataLayer/Infrastructure/Repository.cs" Line="18" Column="1" />
-      <File FileName="ConsoleAppTest/Data/event-test.csv" Line="5" Column="18" />
-      <File FileName="ConsoleAppTest/Data/event-train.csv" Line="1" Column="1" />
-      <File FileName="ConsoleAppTest/EventBuget.cs" Line="7" Column="65" />
       <File FileName="ML.Net_POC/Data/taxi-fare-train.csv" Line="1" Column="1" />
+      <File FileName="DataLayer/Context/DataContext.cs" Line="20" Column="1" />
+      <File FileName="DataLayer/Entities/User.cs" Line="15" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Licenta" expanded="True">
-            <Node name="ConsoleAppTest" expanded="True">
-              <Node name="Data" expanded="True" />
-            </Node>
             <Node name="DataLayer" expanded="True">
               <Node name="Context" expanded="True" />
-              <Node name="Entities" expanded="True" />
+              <Node name="Entities" expanded="True">
+                <Node name="User.cs" selected="True" />
+              </Node>
               <Node name="Infrastructure" expanded="True" />
             </Node>
             <Node name="ML.Net_POC" expanded="True">
               <Node name="Dependencies" expanded="True">
                 <Node name="PackageDependencies" expanded="True" />
               </Node>
-              <Node name="Data" expanded="True">
-                <Node name="taxi-fare-train.csv" selected="True" />
-              </Node>
+              <Node name="Data" expanded="True" />
             </Node>
           </Node>
         </State>

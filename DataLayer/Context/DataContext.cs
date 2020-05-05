@@ -13,7 +13,7 @@ namespace DataLayer.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=localhost,1433;Initial Catalog=Test;User Id=SA;Password=dockersql123;");
+            optionsBuilder.UseSqlServer("Data Source=localhost,1433;Initial Catalog=DigitalEventPlanner;User Id=SA;Password=dockersql123;");
         }
     }
 }
