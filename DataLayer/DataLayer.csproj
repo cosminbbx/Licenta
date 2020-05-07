@@ -16,5 +16,6 @@
     <Folder Include="Context\" />
     <Folder Include="Entities\" />
     <Folder Include="Infrastructure\" />
+    <Folder Include="Enumerations\" />
   </ItemGroup>
 </Project>

@@ -6,12 +6,14 @@ using DataLayer.Context;
 using DataLayer.Entities;
 using DataLayer.Infrastructure;
 using Microsoft.ML;
+using System.Security.Cryptography;
 
 namespace ConsoleAppTest
 {
     public class Program
     {
         public static DataContext context = new DataContext();
+        public static Repository<User> userRepo = new Repository<User>(context);
         public static Repository<Event> eventRepo = new Repository<Event>(context);
         public static Repository<Service>  serviceRepo = new Repository<Service>(context);
         public static Repository<EventService> eventServiceRepo = new Repository<EventService>(context);
@@ -23,6 +25,82 @@ namespace ConsoleAppTest
 
         public static Random random = new Random();
         static void Main(string[] args)
+        {
+            var source = "Test";
+            MD5 md5Hash = MD5.Create();
+
+            string hash = GetMd5Hash(md5Hash, source);
+
+            Console.WriteLine("The MD5 hash of " + source + " is: " + hash + ".");
+
+            Console.WriteLine("Verifying the hash...");
+
+            if (VerifyMd5Hash(md5Hash, source, hash))
+            {
+                Console.WriteLine("The hashes are the same.");
+            }
+            else
+            {
+                Console.WriteLine("The hashes are not same.");
+            }
+
+            var user = new User()
+            {
+                UserName = "Test",
+                Address = "Street Test",
+                DateCreated = DateTime.Now,
+                Email = "email@email",
+                FirstName = "FirstNameTest",
+                IsDeleted = false,
+                LastName = "LastNameTest",
+                Password = hash,
+                Phone = "098765483",
+                UserType = DataLayer.Enumerations.UserType.Customer
+            };
+            userRepo.Add(user);
+            unit.Commit();
+        }
+
+        static string GetMd5Hash(MD5 md5Hash, string input)
+        {
+
+            // Convert the input string to a byte array and compute the hash.
+            byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
+
+            // Create a new Stringbuilder to collect the bytes
+            // and create a string.
+            StringBuilder sBuilder = new StringBuilder();
+
+            // Loop through each byte of the hashed data
+            // and format each one as a hexadecimal string.
+            for (int i = 0; i < data.Length; i++)
+            {
+                sBuilder.Append(data[i].ToString("x2"));
+            }
+
+            // Return the hexadecimal string.
+            return sBuilder.ToString();
+        }
+
+        static bool VerifyMd5Hash(MD5 md5Hash, string input, string hash)
+        {
+            // Hash the input.
+            string hashOfInput = GetMd5Hash(md5Hash, input);
+
+            // Create a StringComparer an compare the hashes.
+            StringComparer comparer = StringComparer.OrdinalIgnoreCase;
+
+            if (0 == comparer.Compare(hashOfInput, hash))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public static void MLExemple()
         {
             MLContext mlContext = new MLContext(seed: 0);
 

@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Infrastructure\" />
+    <Folder Include="Services\" />
+    <Folder Include="Services\User\" />
+    <Folder Include="Services\User\Dto\" />
+    <Folder Include="Services\Event\" />
+    <Folder Include="Services\Event\Dto\" />
+    <Folder Include="Services\Services\" />
+    <Folder Include="Services\Services\Dto\" />
+    <Folder Include="Services\ServicePackage\" />
+    <Folder Include="Services\ServicePackage\Dto\" />
+    <Folder Include="Services\Resource\" />
+    <Folder Include="Services\Resource\Dto\" />
+    <Folder Include="Services\EventService\" />
+    <Folder Include="Services\EventService\Dto\" />
+    <Folder Include="Services\ContainerName\" />
+    <Folder Include="Services\ContainerName\Dto\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataLayer\DataLayer.csproj" />
+  </ItemGroup>
+</Project>

@@ -10,6 +10,9 @@ namespace DataLayer.Context
         public DbSet<Event> Events { get; set; }
         public DbSet<Service> Services { get; set; }
         public DbSet<EventService> EventServices { get; set; }
+        public DbSet<ServicePackage> ServicePackages { get; set; }
+        public DbSet<Resource> Resources { get; set; }
+        public DbSet<ContainerName> ContainerNames { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

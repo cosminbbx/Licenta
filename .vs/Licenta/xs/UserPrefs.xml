@@ -1,21 +1,52 @@
 ﻿<Properties StartupConfiguration="{27E593F3-CBEE-4389-819E-A162F996A90A}|Default">
   <MonoDevelop.Ide.ItemProperties.ConsoleAppTest PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="DataLayer/Entities/User.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DigitalEventPlaner.Services/Infrastructure/ServiceContainer.cs">
     <Files>
-      <File FileName="ML.Net_POC/Data/taxi-fare-train.csv" Line="1" Column="1" />
-      <File FileName="DataLayer/Context/DataContext.cs" Line="20" Column="1" />
-      <File FileName="DataLayer/Entities/User.cs" Line="15" Column="1" />
+      <File FileName="DigitalEventPlaner.Services/Infrastructure/ServiceContainer.cs" Line="32" Column="1" />
+      <File FileName="DigitalEventPlaner.Services/Services/User/Dto/UserDto.cs" Line="13" Column="20" />
+      <File FileName="DataLayer/Entities/User.cs" Line="10" Column="9" />
+      <File FileName="DigitalEventPlaner.Services/Services/User/IUserService.cs" Line="5" Column="6" />
+      <File FileName="DigitalEventPlaner.Services/Services/User/UserService.cs" Line="4" Column="44" />
+      <File FileName="DigitalEventPlaner.Services/Services/Event/Dto/EventDto.cs" Line="10" Column="18" />
+      <File FileName="DataLayer/Entities/Event.cs" Line="10" Column="9" />
+      <File FileName="DigitalEventPlaner.Services/Services/Event/IEventService.cs" Line="1" Column="1" />
+      <File FileName="DigitalEventPlaner.Services/Services/Event/EventService.cs" Line="4" Column="46" />
+      <File FileName="DigitalEventPlaner.Services/Services/Services/Dto/ServiceDto.cs" Line="10" Column="23" />
+      <File FileName="DataLayer/Entities/Service.cs" Line="10" Column="9" />
+      <File FileName="DigitalEventPlaner.Services/Services/Services/IServiceService.cs" Line="1" Column="1" />
+      <File FileName="DigitalEventPlaner.Services/Services/Services/ServiceService.cs" Line="4" Column="50" />
+      <File FileName="DigitalEventPlaner.Services/Services/ServicePackage/IServicePackageService.cs" Line="1" Column="1" />
+      <File FileName="DigitalEventPlaner.Services/Services/ServicePackage/Dto/ServiceDto.cs" Line="13" Column="2" />
+      <File FileName="DataLayer/Entities/ServicePackage.cs" Line="9" Column="9" />
+      <File FileName="DigitalEventPlaner.Services/Services/ServicePackage/ServicePackageService.cs" Line="4" Column="64" />
+      <File FileName="DigitalEventPlaner.Services/Services/Resource/Dto/ResourceDto.cs" Line="9" Column="50" />
+      <File FileName="DataLayer/Entities/Resource.cs" Line="9" Column="9" />
+      <File FileName="DigitalEventPlaner.Services/Services/Resource/IResourceService.cs" Line="1" Column="1" />
+      <File FileName="DigitalEventPlaner.Services/Services/Resource/ResourceService.cs" Line="4" Column="52" />
+      <File FileName="DigitalEventPlaner.Services/Services/EventService/Dto/EventServiceDto.cs" Line="12" Column="23" />
+      <File FileName="DataLayer/Entities/EventService.cs" Line="10" Column="9" />
+      <File FileName="DigitalEventPlaner.Services/Services/EventService/IEventServiceService.cs" Line="1" Column="1" />
+      <File FileName="DigitalEventPlaner.Services/Services/EventService/EventServiceService.cs" Line="4" Column="60" />
+      <File FileName="DigitalEventPlaner.Services/Services/ContainerName/Dto/ContainerNameDto.cs" Line="11" Column="22" />
+      <File FileName="DataLayer/Entities/ContainerName.cs" Line="10" Column="9" />
+      <File FileName="DigitalEventPlaner.Services/Services/ContainerName/IContainerNameService.cs" Line="6" Column="1" />
+      <File FileName="DigitalEventPlaner.Services/Services/ContainerName/ContainerNameService.cs" Line="4" Column="62" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Licenta" expanded="True">
+            <Node name="ConsoleAppTest" expanded="True" />
             <Node name="DataLayer" expanded="True">
+              <Node name="Dependencies" expanded="True" />
               <Node name="Context" expanded="True" />
-              <Node name="Entities" expanded="True">
-                <Node name="User.cs" selected="True" />
-              </Node>
+              <Node name="Entities" expanded="True" />
+              <Node name="Enumerations" expanded="True" />
               <Node name="Infrastructure" expanded="True" />
+            </Node>
+            <Node name="DigitalEventPlaner.Services" expanded="True">
+              <Node name="Infrastructure" expanded="True" />
+              <Node name="Services" expanded="True" />
             </Node>
             <Node name="ML.Net_POC" expanded="True">
               <Node name="Dependencies" expanded="True">
@@ -29,6 +60,7 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.ML.Net__POC__MovieRecommander PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.ItemProperties.DigitalEventPlaner.Services FirstBuild="True" />
   <MonoDevelop.Ide.ItemProperties.FaceRecognition__POC PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|anycpu" />

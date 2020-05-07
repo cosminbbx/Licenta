@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ML.Net_POC_MovieRecommander
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FaceRecognition_POC", "FaceRecognition_POC\FaceRecognition_POC.csproj", "{9908A73F-4127-47FE-AEDA-22056F659F43}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalEventPlaner.Services", "DigitalEventPlaner.Services\DigitalEventPlaner.Services.csproj", "{D69C5397-FB87-4D0F-AB2C-D271303D9952}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|anycpu = Debug|anycpu
@@ -37,5 +39,9 @@ Global
 		{9908A73F-4127-47FE-AEDA-22056F659F43}.Debug|anycpu.Build.0 = Debug|Any CPU
 		{9908A73F-4127-47FE-AEDA-22056F659F43}.Release|anycpu.ActiveCfg = Release|Any CPU
 		{9908A73F-4127-47FE-AEDA-22056F659F43}.Release|anycpu.Build.0 = Release|Any CPU
+		{D69C5397-FB87-4D0F-AB2C-D271303D9952}.Debug|anycpu.ActiveCfg = Debug|Any CPU
+		{D69C5397-FB87-4D0F-AB2C-D271303D9952}.Debug|anycpu.Build.0 = Debug|Any CPU
+		{D69C5397-FB87-4D0F-AB2C-D271303D9952}.Release|anycpu.ActiveCfg = Release|Any CPU
+		{D69C5397-FB87-4D0F-AB2C-D271303D9952}.Release|anycpu.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
