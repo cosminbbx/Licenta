@@ -63,3 +63,6 @@
 /Users/macbook1/Projects/Licenta/ConsoleAppTest/bin/Debug/netcoreapp3.1/runtimes/osx-x64/native/libFastTreeNative.dylib
 /Users/macbook1/Projects/Licenta/ConsoleAppTest/bin/Debug/netcoreapp3.1/runtimes/win-x64/native/FastTreeNative.dll
 /Users/macbook1/Projects/Licenta/ConsoleAppTest/bin/Debug/netcoreapp3.1/runtimes/win-x86/native/FastTreeNative.dll
+/Users/macbook1/Projects/Licenta/ConsoleAppTest/bin/Debug/netcoreapp3.1/Omu.ValueInjecter.dll
+/Users/macbook1/Projects/Licenta/ConsoleAppTest/bin/Debug/netcoreapp3.1/DigitalEventPlaner.Services.dll
+/Users/macbook1/Projects/Licenta/ConsoleAppTest/bin/Debug/netcoreapp3.1/DigitalEventPlaner.Services.pdb

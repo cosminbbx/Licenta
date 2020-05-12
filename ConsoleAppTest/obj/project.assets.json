@@ -2102,6 +2102,15 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "ValueInjecter/3.2.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Omu.ValueInjecter.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Omu.ValueInjecter.dll": {}
+        }
+      },
       "DataLayer/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
@@ -2114,6 +2123,20 @@
         },
         "runtime": {
           "bin/placeholder/DataLayer.dll": {}
+        }
+      },
+      "DigitalEventPlaner.Services/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "DataLayer": "1.0.0",
+          "ValueInjecter": "3.2.0"
+        },
+        "compile": {
+          "bin/placeholder/DigitalEventPlaner.Services.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DigitalEventPlaner.Services.dll": {}
         }
       }
     }
@@ -7130,15 +7153,38 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
+    "ValueInjecter/3.2.0": {
+      "sha512": "cB+YW4Jb9DRwLkAEsLZhK1mKvi5gwhPav9zMDrKaCH6CfheDcy7eJREEqshK81aP5j+48FyBeFE5PxbWwjpwYg==",
+      "type": "package",
+      "path": "valueinjecter/3.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/Omu.ValueInjecter.dll",
+        "lib/net45/Omu.ValueInjecter.xml",
+        "lib/netstandard1.6/Omu.ValueInjecter.dll",
+        "lib/netstandard1.6/Omu.ValueInjecter.xml",
+        "lib/netstandard2.0/Omu.ValueInjecter.dll",
+        "lib/netstandard2.0/Omu.ValueInjecter.xml",
+        "valueinjecter.3.2.0.nupkg.sha512",
+        "valueinjecter.nuspec"
+      ]
+    },
     "DataLayer/1.0.0": {
       "type": "project",
       "path": "../DataLayer/DataLayer.csproj",
       "msbuildProject": "../DataLayer/DataLayer.csproj"
+    },
+    "DigitalEventPlaner.Services/1.0.0": {
+      "type": "project",
+      "path": "../DigitalEventPlaner.Services/DigitalEventPlaner.Services.csproj",
+      "msbuildProject": "../DigitalEventPlaner.Services/DigitalEventPlaner.Services.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "DataLayer >= 1.0.0",
+      "DigitalEventPlaner.Services >= 1.0.0",
       "Microsoft.ML >= 1.4.0",
       "Microsoft.ML.FastTree >= 1.4.0"
     ]
@@ -7173,6 +7219,9 @@
           "projectReferences": {
             "/Users/macbook1/Projects/Licenta/DataLayer/DataLayer.csproj": {
               "projectPath": "/Users/macbook1/Projects/Licenta/DataLayer/DataLayer.csproj"
+            },
+            "/Users/macbook1/Projects/Licenta/DigitalEventPlaner.Services/DigitalEventPlaner.Services.csproj": {
+              "projectPath": "/Users/macbook1/Projects/Licenta/DigitalEventPlaner.Services/DigitalEventPlaner.Services.csproj"
             }
           }
         }

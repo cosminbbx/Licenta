@@ -7,6 +7,8 @@ using DataLayer.Entities;
 using DataLayer.Infrastructure;
 using Microsoft.ML;
 using System.Security.Cryptography;
+using DigitalEventPlaner.Services.Services.User;
+using DigitalEventPlaner.Services.Services.User.Dto;
 
 namespace ConsoleAppTest
 {
@@ -18,6 +20,7 @@ namespace ConsoleAppTest
         public static Repository<Service>  serviceRepo = new Repository<Service>(context);
         public static Repository<EventService> eventServiceRepo = new Repository<EventService>(context);
         public static UnitOfWork unit = new UnitOfWork(context);
+        public static IUserService userService = new UserService(userRepo, unit);
 
         static readonly string _trainDataPath = Path.Combine("/Users/macbook1/Projects/Licenta/ConsoleAppTest/Data/", "event-train.csv");
         static readonly string _testDataPath = Path.Combine("/Users/macbook1/Projects/Licenta/ConsoleAppTest/Data/", "event-test.csv");
@@ -44,21 +47,22 @@ namespace ConsoleAppTest
                 Console.WriteLine("The hashes are not same.");
             }
 
-            var user = new User()
+            var user = new UserDto()
             {
-                UserName = "Test",
+                UserName = "Service",
                 Address = "Street Test",
                 DateCreated = DateTime.Now,
                 Email = "email@email",
                 FirstName = "FirstNameTest",
                 IsDeleted = false,
                 LastName = "LastNameTest",
-                Password = hash,
+                Password = "password",
                 Phone = "098765483",
-                UserType = DataLayer.Enumerations.UserType.Customer
+                UserType = DataLayer.Enumerations.UserType.Service
             };
-            userRepo.Add(user);
-            unit.Commit();
+            userService.Create(user);
+            //var userTest = userService.Login(user.UserName,"Test");
+            //unit.Commit();
         }
 
         static string GetMd5Hash(MD5 md5Hash, string input)
@@ -177,69 +181,69 @@ namespace ConsoleAppTest
 
             var eventList = eventRepo.GetAll();
 
-            for (var i = 0; i <= (eventList.Count / 2) - 1; i++)
-            {
-                var eventLine = eventList[i];
-                var line = eventLine.EventId.ToString() + "," +
-                           eventLine.UserId.ToString() + "," +
-                           eventLine.NumberOfServices.ToString() + "," +
-                           eventLine.Participants.ToString() + "," +
-                           eventLine.BugetNeeded.ToString() +
-                           Environment.NewLine;
-                csvTrain.Append(line);
-            }
+            //for (var i = 0; i <= (eventList.Count / 2) - 1; i++)
+            //{
+            //    var eventLine = eventList[i];
+            //    var line = eventLine.EventId.ToString() + "," +
+            //               eventLine.UserId.ToString() + "," +
+            //               eventLine.NumberOfServices.ToString() + "," +
+            //               eventLine.Participants.ToString() + "," +
+            //               eventLine.BugetNeeded.ToString() +
+            //               Environment.NewLine;
+            //    csvTrain.Append(line);
+            //}
 
-            for (var i = (eventList.Count / 2); i <= eventList.Count - 1; i++)
-            {
-                var eventLine = eventList[i];
-                var line = eventLine.EventId.ToString() + "," +
-                           eventLine.UserId.ToString() + "," +
-                           eventLine.NumberOfServices.ToString() + "," +
-                           eventLine.Participants.ToString() + "," +
-                           eventLine.BugetNeeded.ToString() +
-                           Environment.NewLine;
-                csvTest.Append(line);
-            }
-            using (var stream = File.CreateText(trainPath))
-            {
-                stream.WriteLine(csvTrain);
-            }
-            using (var stream = File.CreateText(testPath))
-            {
-                stream.WriteLine(csvTest);
-            }
+            //for (var i = (eventList.Count / 2); i <= eventList.Count - 1; i++)
+            //{
+            //    var eventLine = eventList[i];
+            //    var line = eventLine.EventId.ToString() + "," +
+            //               eventLine.UserId.ToString() + "," +
+            //               eventLine.NumberOfServices.ToString() + "," +
+            //               eventLine.Participants.ToString() + "," +
+            //               eventLine.BugetNeeded.ToString() +
+            //               Environment.NewLine;
+            //    csvTest.Append(line);
+            //}
+            //using (var stream = File.CreateText(trainPath))
+            //{
+            //    stream.WriteLine(csvTrain);
+            //}
+            //using (var stream = File.CreateText(testPath))
+            //{
+            //    stream.WriteLine(csvTest);
+            //}
         }
         static void GenerateEvents(int number)
         {
-            for (var i = 0; i < number; i++)
-            {
-                var eventEntity = new Event()
-                {
-                    UserId = random.Next(1, 50),
-                    NumberOfServices = random.Next(1, 5),
-                    Participants = random.Next(100, 400),
-                };
+            //for (var i = 0; i < number; i++)
+            //{
+            //    var eventEntity = new Event()
+            //    {
+            //        UserId = random.Next(1, 50),
+            //        NumberOfServices = random.Next(1, 5),
+            //        Participants = random.Next(100, 400),
+            //    };
 
-                var buget = 0;
+            //    var buget = 0;
 
-                var list = GetRandomServicesId(eventEntity.NumberOfServices);
+            //    var list = GetRandomServicesId(eventEntity.NumberOfServices);
 
-                foreach (var item in list)
-                {
-                    var service = serviceRepo.GetById(item);
-                    buget = buget + (service.PricePerPerson * eventEntity.Participants);
+            //    foreach (var item in list)
+            //    {
+            //        var service = serviceRepo.GetById(item);
+            //        buget = buget + (service.PricePerPerson * eventEntity.Participants);
 
-                    var eventServiceEntity = new EventService()
-                    {
-                        ServiceId = service.ServiceId,
-                        UserId = eventEntity.UserId
-                    };
-                    eventServiceRepo.Add(eventServiceEntity);
-                }
+            //        var eventServiceEntity = new EventService()
+            //        {
+            //            ServiceId = service.ServiceId,
+            //            UserId = eventEntity.UserId
+            //        };
+            //        eventServiceRepo.Add(eventServiceEntity);
+            //    }
 
-                eventEntity.BugetNeeded = buget;
-                eventRepo.Add(eventEntity);
-            }
+            //    eventEntity.BugetNeeded = buget;
+            //    eventRepo.Add(eventEntity);
+            //}
 
 
             //var eventServiceEntity = new EventService()

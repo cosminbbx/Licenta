@@ -1,36 +1,53 @@
-﻿<Properties StartupConfiguration="{27E593F3-CBEE-4389-819E-A162F996A90A}|Default">
+﻿<Properties StartupConfiguration="{29B536E6-802B-49EC-8376-40D70D03DCF5}|Default">
+  <MonoDevelop.Ide.ItemProperties.DigitalEventPlaner.Web PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.ItemProperties.ConsoleAppTest PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="DigitalEventPlaner.Services/Infrastructure/ServiceContainer.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DigitalEventPlaner.Web/Controllers/HomeController.cs">
     <Files>
       <File FileName="DigitalEventPlaner.Services/Infrastructure/ServiceContainer.cs" Line="32" Column="1" />
-      <File FileName="DigitalEventPlaner.Services/Services/User/Dto/UserDto.cs" Line="13" Column="20" />
+      <File FileName="DigitalEventPlaner.Services/Services/User/Dto/UserDto.cs" />
       <File FileName="DataLayer/Entities/User.cs" Line="10" Column="9" />
-      <File FileName="DigitalEventPlaner.Services/Services/User/IUserService.cs" Line="5" Column="6" />
-      <File FileName="DigitalEventPlaner.Services/Services/User/UserService.cs" Line="4" Column="44" />
-      <File FileName="DigitalEventPlaner.Services/Services/Event/Dto/EventDto.cs" Line="10" Column="18" />
-      <File FileName="DataLayer/Entities/Event.cs" Line="10" Column="9" />
-      <File FileName="DigitalEventPlaner.Services/Services/Event/IEventService.cs" Line="1" Column="1" />
-      <File FileName="DigitalEventPlaner.Services/Services/Event/EventService.cs" Line="4" Column="46" />
-      <File FileName="DigitalEventPlaner.Services/Services/Services/Dto/ServiceDto.cs" Line="10" Column="23" />
-      <File FileName="DataLayer/Entities/Service.cs" Line="10" Column="9" />
-      <File FileName="DigitalEventPlaner.Services/Services/Services/IServiceService.cs" Line="1" Column="1" />
-      <File FileName="DigitalEventPlaner.Services/Services/Services/ServiceService.cs" Line="4" Column="50" />
-      <File FileName="DigitalEventPlaner.Services/Services/ServicePackage/IServicePackageService.cs" Line="1" Column="1" />
-      <File FileName="DigitalEventPlaner.Services/Services/ServicePackage/Dto/ServiceDto.cs" Line="13" Column="2" />
-      <File FileName="DataLayer/Entities/ServicePackage.cs" Line="9" Column="9" />
-      <File FileName="DigitalEventPlaner.Services/Services/ServicePackage/ServicePackageService.cs" Line="4" Column="64" />
-      <File FileName="DigitalEventPlaner.Services/Services/Resource/Dto/ResourceDto.cs" Line="9" Column="50" />
-      <File FileName="DataLayer/Entities/Resource.cs" Line="9" Column="9" />
-      <File FileName="DigitalEventPlaner.Services/Services/Resource/IResourceService.cs" Line="1" Column="1" />
-      <File FileName="DigitalEventPlaner.Services/Services/Resource/ResourceService.cs" Line="4" Column="52" />
-      <File FileName="DigitalEventPlaner.Services/Services/EventService/Dto/EventServiceDto.cs" Line="12" Column="23" />
-      <File FileName="DataLayer/Entities/EventService.cs" Line="10" Column="9" />
-      <File FileName="DigitalEventPlaner.Services/Services/EventService/IEventServiceService.cs" Line="1" Column="1" />
-      <File FileName="DigitalEventPlaner.Services/Services/EventService/EventServiceService.cs" Line="4" Column="60" />
-      <File FileName="DigitalEventPlaner.Services/Services/ContainerName/Dto/ContainerNameDto.cs" Line="11" Column="22" />
-      <File FileName="DataLayer/Entities/ContainerName.cs" Line="10" Column="9" />
-      <File FileName="DigitalEventPlaner.Services/Services/ContainerName/IContainerNameService.cs" Line="6" Column="1" />
-      <File FileName="DigitalEventPlaner.Services/Services/ContainerName/ContainerNameService.cs" Line="4" Column="62" />
+      <File FileName="DigitalEventPlaner.Services/Services/User/IUserService.cs" />
+      <File FileName="DigitalEventPlaner.Services/Services/User/UserService.cs" />
+      <File FileName="DigitalEventPlaner.Services/Services/Event/Dto/EventDto.cs" />
+      <File FileName="DataLayer/Entities/Event.cs" />
+      <File FileName="DigitalEventPlaner.Services/Services/Event/IEventService.cs" />
+      <File FileName="DigitalEventPlaner.Services/Services/Event/EventService.cs" />
+      <File FileName="DigitalEventPlaner.Services/Services/Services/Dto/ServiceDto.cs" />
+      <File FileName="DataLayer/Entities/Service.cs" />
+      <File FileName="DigitalEventPlaner.Services/Services/Services/IServiceService.cs" />
+      <File FileName="DigitalEventPlaner.Services/Services/Services/ServiceService.cs" />
+      <File FileName="DigitalEventPlaner.Services/Services/ServicePackage/IServicePackageService.cs" />
+      <File FileName="DataLayer/Entities/ServicePackage.cs" />
+      <File FileName="DigitalEventPlaner.Services/Services/ServicePackage/ServicePackageService.cs" />
+      <File FileName="DigitalEventPlaner.Services/Services/Resource/Dto/ResourceDto.cs" />
+      <File FileName="DataLayer/Entities/Resource.cs" />
+      <File FileName="DigitalEventPlaner.Services/Services/Resource/IResourceService.cs" />
+      <File FileName="DigitalEventPlaner.Services/Services/Resource/ResourceService.cs" />
+      <File FileName="DigitalEventPlaner.Services/Services/EventService/Dto/EventServiceDto.cs" />
+      <File FileName="DataLayer/Entities/EventService.cs" />
+      <File FileName="DigitalEventPlaner.Services/Services/EventService/IEventServiceService.cs" />
+      <File FileName="DigitalEventPlaner.Services/Services/EventService/EventServiceService.cs" />
+      <File FileName="DigitalEventPlaner.Services/Services/ContainerName/Dto/ContainerNameDto.cs" />
+      <File FileName="DataLayer/Entities/ContainerName.cs" />
+      <File FileName="DigitalEventPlaner.Services/Services/ContainerName/IContainerNameService.cs" />
+      <File FileName="DigitalEventPlaner.Services/Services/ContainerName/ContainerNameService.cs" />
+      <File FileName="DataLayer/Infrastructure/Repository.cs" />
+      <File FileName="ConsoleAppTest/Program.cs" Line="61" Column="67" />
+      <File FileName="DigitalEventPlaner.Services/Services/ServicePackage/Dto/ServicePackageDto.cs" />
+      <File FileName="DataLayer/Infrastructure/UnitOfWork.cs" />
+      <File FileName="DigitalEventPlaner.Web/Startup.cs" Line="59" Column="30" />
+      <File FileName="DigitalEventPlaner.Web/Controllers/HomeController.cs" Line="41" Column="31" />
+      <File FileName="DigitalEventPlaner.Web/Views/Home/Index.cshtml" Line="7" Column="1" />
+      <File FileName="DigitalEventPlaner.Web/Views/Home/CustomerProfile.cshtml" Line="5" Column="12" />
+      <File FileName="DigitalEventPlaner.Web/Controllers/AccountController.cs" Line="45" Column="42" />
+      <File FileName="DigitalEventPlaner.Web/Views/Account/Login.cshtml" Line="1" Column="15" />
+      <File FileName="DigitalEventPlaner.Web/Views/Account/Register.cshtml" Line="1" Column="1" />
+      <File FileName="DataLayer/Enumerations/UserType.cs" Line="1" Column="1" />
+      <File FileName="DigitalEventPlaner.Web/Views/Account/CustomerProfile.cshtml" Line="5" Column="14" />
+      <File FileName="DigitalEventPlaner.Web/Views/Account/AccessDenied.cshtml" Line="1" Column="18" />
+      <File FileName="DigitalEventPlaner.Web/Infrastructure/Identity.cs" Line="18" Column="43" />
+      <File FileName="DigitalEventPlaner.Web/Infrastructure/UserIdentity.cs" Line="13" Column="24" />
+      <File FileName="DigitalEventPlaner.Web/Views/Account/ServiceProfile.cshtml" Line="1" Column="19" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -38,15 +55,22 @@
           <Node name="Licenta" expanded="True">
             <Node name="ConsoleAppTest" expanded="True" />
             <Node name="DataLayer" expanded="True">
-              <Node name="Dependencies" expanded="True" />
-              <Node name="Context" expanded="True" />
               <Node name="Entities" expanded="True" />
               <Node name="Enumerations" expanded="True" />
-              <Node name="Infrastructure" expanded="True" />
             </Node>
             <Node name="DigitalEventPlaner.Services" expanded="True">
               <Node name="Infrastructure" expanded="True" />
-              <Node name="Services" expanded="True" />
+            </Node>
+            <Node name="DigitalEventPlaner.Web" expanded="True">
+              <Node name="Dependencies" expanded="True" />
+              <Node name="Controllers" expanded="True" selected="True" />
+              <Node name="Infrastructure" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="Properties" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Account" expanded="True" />
+                <Node name="Home" expanded="True" />
+              </Node>
             </Node>
             <Node name="ML.Net_POC" expanded="True">
               <Node name="Dependencies" expanded="True">
@@ -60,7 +84,6 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.ML.Net__POC__MovieRecommander PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.ItemProperties.DigitalEventPlaner.Services FirstBuild="True" />
   <MonoDevelop.Ide.ItemProperties.FaceRecognition__POC PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|anycpu" />
