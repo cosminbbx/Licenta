@@ -6,6 +6,7 @@ using DigitalEventPlaner.Services.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -24,6 +25,13 @@ namespace DigitalEventPlaner.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc().AddViewOptions(options =>
+            {
+
+                    options.HtmlHelperOptions.ClientValidationEnabled = true;
+                
+            });
+            services.Configure<HtmlHelperOptions>(o => o.ClientValidationEnabled = true);
             services.AddToContainer();
             services.AddAuthentication("CookieAuth")
                 .AddCookie("CookieAuth", config => {

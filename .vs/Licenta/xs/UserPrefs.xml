@@ -1,53 +1,33 @@
 ﻿<Properties StartupConfiguration="{29B536E6-802B-49EC-8376-40D70D03DCF5}|Default">
   <MonoDevelop.Ide.ItemProperties.DigitalEventPlaner.Web PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.ItemProperties.ConsoleAppTest PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="DigitalEventPlaner.Web/Controllers/HomeController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DigitalEventPlaner.Web/Controllers/AccountController.cs">
     <Files>
-      <File FileName="DigitalEventPlaner.Services/Infrastructure/ServiceContainer.cs" Line="32" Column="1" />
-      <File FileName="DigitalEventPlaner.Services/Services/User/Dto/UserDto.cs" />
-      <File FileName="DataLayer/Entities/User.cs" Line="10" Column="9" />
-      <File FileName="DigitalEventPlaner.Services/Services/User/IUserService.cs" />
-      <File FileName="DigitalEventPlaner.Services/Services/User/UserService.cs" />
-      <File FileName="DigitalEventPlaner.Services/Services/Event/Dto/EventDto.cs" />
-      <File FileName="DataLayer/Entities/Event.cs" />
-      <File FileName="DigitalEventPlaner.Services/Services/Event/IEventService.cs" />
-      <File FileName="DigitalEventPlaner.Services/Services/Event/EventService.cs" />
-      <File FileName="DigitalEventPlaner.Services/Services/Services/Dto/ServiceDto.cs" />
-      <File FileName="DataLayer/Entities/Service.cs" />
-      <File FileName="DigitalEventPlaner.Services/Services/Services/IServiceService.cs" />
-      <File FileName="DigitalEventPlaner.Services/Services/Services/ServiceService.cs" />
-      <File FileName="DigitalEventPlaner.Services/Services/ServicePackage/IServicePackageService.cs" />
-      <File FileName="DataLayer/Entities/ServicePackage.cs" />
-      <File FileName="DigitalEventPlaner.Services/Services/ServicePackage/ServicePackageService.cs" />
-      <File FileName="DigitalEventPlaner.Services/Services/Resource/Dto/ResourceDto.cs" />
-      <File FileName="DataLayer/Entities/Resource.cs" />
-      <File FileName="DigitalEventPlaner.Services/Services/Resource/IResourceService.cs" />
-      <File FileName="DigitalEventPlaner.Services/Services/Resource/ResourceService.cs" />
-      <File FileName="DigitalEventPlaner.Services/Services/EventService/Dto/EventServiceDto.cs" />
-      <File FileName="DataLayer/Entities/EventService.cs" />
-      <File FileName="DigitalEventPlaner.Services/Services/EventService/IEventServiceService.cs" />
-      <File FileName="DigitalEventPlaner.Services/Services/EventService/EventServiceService.cs" />
-      <File FileName="DigitalEventPlaner.Services/Services/ContainerName/Dto/ContainerNameDto.cs" />
-      <File FileName="DataLayer/Entities/ContainerName.cs" />
-      <File FileName="DigitalEventPlaner.Services/Services/ContainerName/IContainerNameService.cs" />
-      <File FileName="DigitalEventPlaner.Services/Services/ContainerName/ContainerNameService.cs" />
-      <File FileName="DataLayer/Infrastructure/Repository.cs" />
-      <File FileName="ConsoleAppTest/Program.cs" Line="61" Column="67" />
-      <File FileName="DigitalEventPlaner.Services/Services/ServicePackage/Dto/ServicePackageDto.cs" />
-      <File FileName="DataLayer/Infrastructure/UnitOfWork.cs" />
-      <File FileName="DigitalEventPlaner.Web/Startup.cs" Line="59" Column="30" />
-      <File FileName="DigitalEventPlaner.Web/Controllers/HomeController.cs" Line="41" Column="31" />
-      <File FileName="DigitalEventPlaner.Web/Views/Home/Index.cshtml" Line="7" Column="1" />
-      <File FileName="DigitalEventPlaner.Web/Views/Home/CustomerProfile.cshtml" Line="5" Column="12" />
-      <File FileName="DigitalEventPlaner.Web/Controllers/AccountController.cs" Line="45" Column="42" />
-      <File FileName="DigitalEventPlaner.Web/Views/Account/Login.cshtml" Line="1" Column="15" />
-      <File FileName="DigitalEventPlaner.Web/Views/Account/Register.cshtml" Line="1" Column="1" />
-      <File FileName="DataLayer/Enumerations/UserType.cs" Line="1" Column="1" />
-      <File FileName="DigitalEventPlaner.Web/Views/Account/CustomerProfile.cshtml" Line="5" Column="14" />
-      <File FileName="DigitalEventPlaner.Web/Views/Account/AccessDenied.cshtml" Line="1" Column="18" />
-      <File FileName="DigitalEventPlaner.Web/Infrastructure/Identity.cs" Line="18" Column="43" />
-      <File FileName="DigitalEventPlaner.Web/Infrastructure/UserIdentity.cs" Line="13" Column="24" />
       <File FileName="DigitalEventPlaner.Web/Views/Account/ServiceProfile.cshtml" Line="1" Column="19" />
+      <File FileName="DigitalEventPlaner.Web/Views/Account/Login.cshtml" />
+      <File FileName="DigitalEventPlaner.Web/Views/Shared/_Layout.cshtml" />
+      <File FileName="DigitalEventPlaner.Web/Views/Shared/_BlankLayout.cshtml" />
+      <File FileName="DigitalEventPlaner.Web/Views/Home/Index.cshtml" />
+      <File FileName="DigitalEventPlaner.Web/Views/_ViewStart.cshtml" />
+      <File FileName="DigitalEventPlaner.Web/Controllers/AccountController.cs" Line="106" Column="10" />
+      <File FileName="DigitalEventPlaner.Web/Views/Account/Register.cshtml" Line="53" Column="11" />
+      <File FileName="DigitalEventPlaner.Web/Models/User/UserViewModel.cs" Line="29" Column="16" />
+      <File FileName="DataLayer/Entities/User.cs" />
+      <File FileName="DigitalEventPlaner.Services/Services/User/UserService.cs" />
+      <File FileName="DigitalEventPlaner.Services/Services/User/IUserService.cs" />
+      <File FileName="DigitalEventPlaner.Web/wwwroot/lib/jquery-validation/dist/additional-methods.js" />
+      <File FileName="DigitalEventPlaner.Web/wwwroot/lib/jquery-validation/dist/jquery.validate.js" />
+      <File FileName="DigitalEventPlaner.Web/appsettings.json" />
+      <File FileName="DigitalEventPlaner.Web/Views/Shared/_ValidationScriptsPartial.cshtml" />
+      <File FileName="DigitalEventPlaner.Web/Views/_ViewImports.cshtml" />
+      <File FileName="DigitalEventPlaner.Web/Startup.cs" Line="60" Column="1" />
+      <File FileName="DigitalEventPlaner.Web/appsettings.Development.json" Line="1" Column="1" />
+      <File FileName="DigitalEventPlaner.Web/Program.cs" Line="1" Column="1" />
+      <File FileName="DataLayer/Infrastructure/Repository.cs" Line="25" Column="10" />
+      <File FileName="DigitalEventPlaner.Web/wwwroot/js/site.js" Line="19" Column="73" />
+      <File FileName="DataLayer/Enumerations/UserType.cs" Line="4" Column="11" />
+      <File FileName="DigitalEventPlaner.Services/Services/User/Dto/UserDto.cs" Line="19" Column="6" />
+      <File FileName="DigitalEventPlaner.Web/Controllers/HomeController.cs" Line="30" Column="13" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -57,20 +37,36 @@
             <Node name="DataLayer" expanded="True">
               <Node name="Entities" expanded="True" />
               <Node name="Enumerations" expanded="True" />
+              <Node name="Infrastructure" expanded="True" />
             </Node>
             <Node name="DigitalEventPlaner.Services" expanded="True">
               <Node name="Infrastructure" expanded="True" />
+              <Node name="Services" expanded="True">
+                <Node name="User" expanded="True">
+                  <Node name="Dto" expanded="True" />
+                </Node>
+              </Node>
             </Node>
             <Node name="DigitalEventPlaner.Web" expanded="True">
               <Node name="Dependencies" expanded="True" />
-              <Node name="Controllers" expanded="True" selected="True" />
+              <Node name="Controllers" expanded="True">
+                <Node name="HomeController.cs" selected="True" />
+              </Node>
               <Node name="Infrastructure" expanded="True" />
-              <Node name="Models" expanded="True" />
+              <Node name="Models" expanded="True">
+                <Node name="User" expanded="True" />
+              </Node>
               <Node name="Properties" expanded="True" />
               <Node name="Views" expanded="True">
                 <Node name="Account" expanded="True" />
                 <Node name="Home" expanded="True" />
+                <Node name="Shared" expanded="True" />
               </Node>
+              <Node name="wwwroot" expanded="True">
+                <Node name="js" expanded="True" />
+                <Node name="lib" expanded="True" />
+              </Node>
+              <Node name="appsettings.json" expanded="True" />
             </Node>
             <Node name="ML.Net_POC" expanded="True">
               <Node name="Dependencies" expanded="True">
