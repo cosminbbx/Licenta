@@ -77,3 +77,4 @@
 /Users/macbook1/Projects/Licenta/DigitalEventPlaner.Web/obj/Debug/netcoreapp3.1/Razor/Views/Account/ServiceProfile.cshtml.g.cs
 /Users/macbook1/Projects/Licenta/DigitalEventPlaner.Web/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_BlankLayout.cshtml.g.cs
 /Users/macbook1/Projects/Licenta/DigitalEventPlaner.Web/bin/Debug/netcoreapp3.1/mono_crash.42f6ec1fa.0.json
+/Users/macbook1/Projects/Licenta/DigitalEventPlaner.Web/bin/Debug/netcoreapp3.1/Microsoft.WindowsAzure.Storage.dll

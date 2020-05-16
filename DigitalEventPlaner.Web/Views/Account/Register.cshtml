@@ -10,7 +10,7 @@
 
 <input type="hidden" id="username-validation-url" value="@Url.Action("VerifyUserName")" />
 
-<form method="POST" id="user-register-form">
+<form method="POST" id="user-register-form" enctype="multipart/form-data">
     <div class="form-group">
         <label for="FirstName">Firstname</label>
         <input type="text" class="form-control" name="FirstName" placeholder="Enter Firstname" />
@@ -58,7 +58,11 @@
         </select>
         <span asp-validation-for="UserType" class="text-danger"></span>
     </div>
-
+    <div class="form-group">
+        <label for="ProfilePicture">Upload Profile Picture</label>
+        <input type="file" class="form-control" name="ProfilePicture" />
+        <span asp-validation-for="ProfilePicture" class="text-danger"></span>
+    </div>
 
     <button id="subimt-button" class="btn btn-default">Register</button>
 </form>

@@ -1,5 +1,12 @@
-﻿@{
+﻿@model List<string>
+@{
     ViewData["Title"] = "profile Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h3>Customer Profile</h3>
+
+@foreach (var uri in Model)
+{
+    <img src="@uri" />
+}

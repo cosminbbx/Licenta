@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using DataLayer.Enumerations;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DigitalEventPlaner.Web.Models.User
@@ -35,5 +37,8 @@ namespace DigitalEventPlaner.Web.Models.User
 
         [Required]
         public string Address { get; set; }
+
+        [Required]
+        public List<IFormFile> ProfilePicture { get; set; }
     }
 }

@@ -32,7 +32,7 @@ namespace DigitalEventPlaner.Web
                 
             });
             services.Configure<HtmlHelperOptions>(o => o.ClientValidationEnabled = true);
-            services.AddToContainer();
+            services.AddToContainer(Configuration);
             services.AddAuthentication("CookieAuth")
                 .AddCookie("CookieAuth", config => {
                     config.Cookie.Name = "User.Cookie";

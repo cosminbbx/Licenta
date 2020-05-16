@@ -11,6 +11,10 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
 using DigitalEventPlaner.Web.Infrastructure;
 using DigitalEventPlaner.Services.Services.User;
+using Microsoft.Extensions.Configuration;
+using DigitalEventPlaner.Services.Services.BlobService;
+using Microsoft.AspNetCore.Http;
+using System.IO;
 
 namespace DigitalEventPlaner.Web.Controllers
 {
@@ -18,11 +22,15 @@ namespace DigitalEventPlaner.Web.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IUserService userService;
+        private readonly IConfiguration config;
+        private readonly IBlobService blobService;
 
-        public HomeController(ILogger<HomeController> logger,IUserService userService)
+        public HomeController(ILogger<HomeController> logger,IUserService userService, IConfiguration configuration,IBlobService blobService)
         {
             _logger = logger;
             this.userService = userService;
+            this.config = configuration;
+            this.blobService = blobService;
         }
 
         public IActionResult Index()

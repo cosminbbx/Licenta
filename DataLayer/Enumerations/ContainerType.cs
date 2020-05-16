@@ -3,7 +3,7 @@ namespace DataLayer.Enumerations
 {
     public enum ContainerType
     {
-        Folder = 1,
+        Container = 1,
         ProfilePicture = 2,
         SmartRateImage = 3
     }

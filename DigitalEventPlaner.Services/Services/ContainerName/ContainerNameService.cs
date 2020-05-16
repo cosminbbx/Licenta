@@ -42,6 +42,17 @@ namespace DigitalEventPlaner.Services.Services.ContainerName
             return containerListDto;
         }
 
+        public ContainerNameDto GetContainerByUserId(int id)
+        {
+            var containerNameEntity = repository.Query(x => x.UserId == id && x.ContainerType == DataLayer.Enumerations.ContainerType.Container).FirstOrDefault();
+            return new ContainerNameDto().InjectFrom(containerNameEntity) as ContainerNameDto;
+        }
+        public ContainerNameDto GetProfilePictureByUserId(int id)
+        {
+            var containerNameEntity = repository.Query(x => x.UserId == id && x.ContainerType == DataLayer.Enumerations.ContainerType.ProfilePicture).FirstOrDefault();
+            return new ContainerNameDto().InjectFrom(containerNameEntity) as ContainerNameDto;
+        }
+
         public ContainerNameDto GetById(int id)
         {
             if (id < 1) throw new ArgumentNullException(nameof(ContainerNameDto));

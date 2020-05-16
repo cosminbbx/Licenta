@@ -14,9 +14,13 @@ namespace DataLayer.Context
         public DbSet<Resource> Resources { get; set; }
         public DbSet<ContainerName> ContainerNames { get; set; }
 
+        public DataContext(DbContextOptions<DataContext> options) : base(options)
+        {
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=localhost,1433;Initial Catalog=DigitalEventPlanner;User Id=SA;Password=dockersql123;");
+            //optionsBuilder.UseSqlServer("Data Source=localhost,1433;Initial Catalog=DigitalEventPlanner;User Id=SA;Password=dockersql123;");
         }
     }
 }
