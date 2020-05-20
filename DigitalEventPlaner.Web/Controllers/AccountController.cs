@@ -8,6 +8,7 @@ using DataLayer.Enumerations;
 using DigitalEventPlaner.Services.Services.BlobService;
 using DigitalEventPlaner.Services.Services.ContainerName;
 using DigitalEventPlaner.Services.Services.ContainerName.Dto;
+using DigitalEventPlaner.Services.Services.FaceRecognition;
 using DigitalEventPlaner.Services.Services.User;
 using DigitalEventPlaner.Services.Services.User.Dto;
 using DigitalEventPlaner.Web.Infrastructure;
@@ -17,6 +18,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Routing;
 using Omu.ValueInjecter;
 
 namespace DigitalEventPlaner.Web.Controllers
@@ -45,11 +47,11 @@ namespace DigitalEventPlaner.Web.Controllers
                 var userId = Int32.Parse(HttpContext.User.Claims.ToList()[0].Value);
                 if (userService.GetById(userId).UserType == DataLayer.Enumerations.UserType.Customer)
                 {
-                    return RedirectToAction(nameof(AccountController.CustomerProfile), "Account");
+                    return RedirectToAction(nameof(CustomerProfileController.Profile), "CustomerProfile");
                 }
                 if (userService.GetById(userId).UserType == DataLayer.Enumerations.UserType.Service)
                 {
-                    return RedirectToAction(nameof(AccountController.ServiceProfile), "Account");
+                    return RedirectToAction(nameof(ServiceProfileController.Profile), "ServiceProfile");
                 }
                 return View();
             }
@@ -69,7 +71,7 @@ namespace DigitalEventPlaner.Web.Controllers
                     var userModel = new UserIdentity();
                     userModel.InjectFrom(user);
                     HttpContext.Session.SetUser(userModel);
-                    return RedirectToAction("CustomerProfile");
+                    return RedirectToAction("Profile","CustomerProfile");
                 }
                 else
                 {
@@ -77,29 +79,11 @@ namespace DigitalEventPlaner.Web.Controllers
                     var userModel = new UserIdentity();
                     userModel.InjectFrom(user);
                     HttpContext.Session.SetUser(userModel);
-                    return RedirectToAction("ServiceProfile");
+                    return RedirectToAction("Profile","ServiceProfile");
                 }
                     
                 
             }
-            return View();
-        }
-
-        [Authorize(Roles = "Customer")]
-        public async Task<IActionResult> CustomerProfile()
-        {
-            var userId = Int32.Parse(HttpContext.User.Claims.ToList()[0].Value);
-            var profilePicture = await blobService.GetProfilePicture(userId);
-            ViewBag.Url = profilePicture;
-            return View(profilePicture);
-        }
-
-        [Authorize(Roles = "Service")]
-        public IActionResult ServiceProfile()
-        {
-            var userId = Int32.Parse(HttpContext.User.Claims.ToList()[0].Value);
-            var profilePicture = blobService.GetProfilePicture(userId);
-            ViewBag.Url = profilePicture;
             return View();
         }
 
@@ -133,25 +117,16 @@ namespace DigitalEventPlaner.Web.Controllers
                 userService.Create(userDto);
 
                 var user = userService.GetByUsername(userDto.UserName);
-
-                var containerGuid = Guid.NewGuid();
                 var profilePictureGuid = Guid.NewGuid();
-                var comtainerDto = new ContainerNameDto()
-                {
-                    Name = containerGuid.ToString(),
-                    ContainerType = ContainerType.Container,
-                    UserId = user.Id
-                };
                 var profilePictureDto = new ContainerNameDto()
                 {
                     Name = profilePictureGuid.ToString() + Path.GetExtension(model.ProfilePicture[0].FileName),
                     ContainerType = ContainerType.ProfilePicture,
                     UserId = user.Id
                 };
-                containerNameService.Create(comtainerDto);
                 containerNameService.Create(profilePictureDto);
 
-                await UploadProfilePicture(model.ProfilePicture, containerGuid.ToString(), profilePictureGuid.ToString() + Path.GetExtension(model.ProfilePicture[0].FileName));
+                await UploadProfilePicture(model.ProfilePicture, profilePictureGuid.ToString() + Path.GetExtension(model.ProfilePicture[0].FileName));
 
                 return RedirectToAction("Login");
             }
@@ -185,7 +160,7 @@ namespace DigitalEventPlaner.Web.Controllers
             return RedirectToAction(nameof(HomeController.Index), "Home");
         }
 
-        private async Task<IActionResult> UploadProfilePicture(List<IFormFile> imagelist,string containerGuid, string profilePictureGuid)
+        private async Task<IActionResult> UploadProfilePicture(List<IFormFile> imagelist, string profilePictureGuid)
         {
             var tasklist = new List<Task<string>>();
             foreach (var image in imagelist)
@@ -193,7 +168,7 @@ namespace DigitalEventPlaner.Web.Controllers
                 using (var stream = new MemoryStream())
                 {
                     await image.CopyToAsync(stream);
-                    tasklist.Add(blobService.UploadInNewContainer(stream.GetBuffer(), image.FileName, containerGuid, profilePictureGuid));
+                    tasklist.Add(blobService.UploadProfilePicture(stream.GetBuffer(), image.FileName, profilePictureGuid));
                 }
             }
             await Task.WhenAll(tasklist);

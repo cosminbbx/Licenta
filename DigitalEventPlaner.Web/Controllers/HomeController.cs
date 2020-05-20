@@ -15,6 +15,7 @@ using Microsoft.Extensions.Configuration;
 using DigitalEventPlaner.Services.Services.BlobService;
 using Microsoft.AspNetCore.Http;
 using System.IO;
+using DigitalEventPlaner.Services.Services.ContainerName.Dto;
 
 namespace DigitalEventPlaner.Web.Controllers
 {
@@ -40,11 +41,11 @@ namespace DigitalEventPlaner.Web.Controllers
                 var userId = Int32.Parse(HttpContext.User.Claims.ToList()[0].Value);
                 if (userService.GetById(userId).UserType == DataLayer.Enumerations.UserType.Customer)
                 {
-                    return RedirectToAction(nameof(AccountController.CustomerProfile), "Account");
+                    return RedirectToAction(nameof(CustomerProfileController.Profile), "CustomerProfile");
                 }
                 if (userService.GetById(userId).UserType == DataLayer.Enumerations.UserType.Service)
                 {
-                    return RedirectToAction(nameof(AccountController.ServiceProfile), "Account");
+                    return RedirectToAction(nameof(ServiceProfileController.Profile), "ServiceProfile");
                 }
                 return View();
             }
@@ -55,8 +56,6 @@ namespace DigitalEventPlaner.Web.Controllers
         {
             return View();
         }
-
-        
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

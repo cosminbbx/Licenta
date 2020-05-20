@@ -9,7 +9,8 @@ namespace DigitalEventPlaner.Services.Services.BlobService
     {
 
         Task<CloudBlobContainer> CreateSampleContainerAsync(string guid);
-        Task<string> UploadInNewContainer(byte[] image, string name, string containerGuid, string profileImageGuid);
+        Task<string> UploadProfilePicture(byte[] image, string name, string profileImageGuid);
+        Task<string> UploadSmartRateImage(byte[] image, string name, string profileImageGuid);
         Task<List<string>> GetProfilePicture(int id);
     }
 }

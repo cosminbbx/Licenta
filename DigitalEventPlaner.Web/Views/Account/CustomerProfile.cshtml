@@ -8,5 +8,24 @@
 
 @foreach (var uri in Model)
 {
-    <img src="@uri" />
+    <div class="profile-image-container">
+        <img src="@uri" class="profile-image"/>
+    </div>
+
+}
+
+<form method="post" action="/Account/Upload" enctype="multipart/form-data">
+    <div class="form-group">
+        <div class="col-md-10">
+            <p>Upload one or more files using this form:</p>
+            <input type="file" name="imagelist" accept="image/x-png,image/gif,image/jpeg, image/jpg" multiple />
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-default" />
+    </div>
+</form>
+@if (ViewData["SmartRate"] != null)
+{
+    <p>Smart rate test @ViewData["SmartRate"]</p>
 }

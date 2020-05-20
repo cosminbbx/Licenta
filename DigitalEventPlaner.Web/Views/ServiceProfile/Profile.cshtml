@@ -1,0 +1,26 @@
+﻿@using DigitalEventPlaner.Web.Models.User
+@model ProfileViewModel
+@{
+    ViewData["Title"] = "Profile Page";
+    Layout = "~/Views/Shared/_ServiceLayout.cshtml";
+}
+
+<h3>Customer Profile</h3>
+
+<div class="profile-info-container">
+    @foreach (var uri in Model.ProfilePictureUrl)
+    {
+        <div class="profile-image-container">
+            <img src="@uri" class="profile-image" />
+        </div>
+
+    }
+    <div class="profile-info">
+        <div>Username: @Model.UserName</div>
+        <div>FirstName: @Model.FirstName</div>
+        <div>LastName: @Model.LastName</div>
+        <div>Email: @Model.Email</div>
+        <div>Phone: @Model.Phone</div>
+        <div>Address: @Model.Address</div>
+    </div>
+</div>

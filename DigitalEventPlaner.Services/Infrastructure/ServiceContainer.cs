@@ -5,6 +5,7 @@ using DigitalEventPlaner.Services.Services.BlobService;
 using DigitalEventPlaner.Services.Services.ContainerName;
 using DigitalEventPlaner.Services.Services.Event;
 using DigitalEventPlaner.Services.Services.EventService;
+using DigitalEventPlaner.Services.Services.FaceRecognition;
 using DigitalEventPlaner.Services.Services.Resource;
 using DigitalEventPlaner.Services.Services.ServicePackage;
 using DigitalEventPlaner.Services.Services.Services;
@@ -28,6 +29,7 @@ namespace DigitalEventPlaner.Services.Infrastructure
             services.AddTransient(typeof(IEventService), typeof(EventService));
             services.AddTransient(typeof(IContainerNameService), typeof(ContainerNameService));
             services.AddTransient(typeof(IBlobService), typeof(BlobService));
+            services.AddTransient(typeof(IFaceRecognitionService), typeof(FaceRecognitionService));
             return services;
         }
     }

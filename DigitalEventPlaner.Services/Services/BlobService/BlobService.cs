@@ -26,18 +26,19 @@ namespace DigitalEventPlaner.Services.Services.BlobService
 
         public async Task<List<string>> GetProfilePicture(int id)
         {
-            var container = containerNameService.GetContainerByUserId(id);
             var profilePicture = containerNameService.GetProfilePictureByUserId(id);
 
-            var blob = await blobClient.GetContainerReference(container.Name.ToString()).ListBlobsSegmentedAsync(null);
+            var blob = await blobClient.GetContainerReference("profilepicture").ListBlobsSegmentedAsync(null);
 
-            //var image = blob.Results.Where(x => x.Container).First;
             var urilist = new List<string>();
             foreach (var image in blob.Results)
             {
                 if (image is CloudBlockBlob)
                 {
-                    urilist.Add(image.Uri.AbsoluteUri);
+                    if(((CloudBlockBlob)image).Name == profilePicture.Name)
+                    {
+                        urilist.Add(image.Uri.AbsoluteUri);
+                    }
                 }
             }
             return urilist;
@@ -66,20 +67,34 @@ namespace DigitalEventPlaner.Services.Services.BlobService
 
             return container;
         }
-        public async Task<string> UploadInNewContainer(byte[] image, string name, string containerGuid, string profileImageGuid)
+        public async Task<string> UploadProfilePicture(byte[] image, string name, string profileImageGuid)
         {
             var ext = Path.GetExtension(name);
             if (!extensions.Contains(ext.ToLower()))
             {
                 throw new Exception("Error");
             }
-            CloudBlobContainer container = await CreateSampleContainerAsync(containerGuid);
+            CloudBlobContainer container = blobClient.GetContainerReference("profilepicture");
             CloudBlockBlob blockBlob = container.GetBlockBlobReference(profileImageGuid);
 
             await blockBlob.UploadFromByteArrayAsync(image, 0, image.Length);
 
             return blockBlob.Uri.AbsoluteUri;
+        }
 
+        public async Task<string> UploadSmartRateImage(byte[] image, string name, string profileImageGuid)
+        {
+            var ext = Path.GetExtension(name);
+            if (!extensions.Contains(ext.ToLower()))
+            {
+                throw new Exception("Error");
+            }
+            CloudBlobContainer container = blobClient.GetContainerReference("smartrate");
+            CloudBlockBlob blockBlob = container.GetBlockBlobReference(profileImageGuid);
+
+            await blockBlob.UploadFromByteArrayAsync(image, 0, image.Length);
+
+            return blockBlob.Uri.AbsoluteUri;
         }
     }
 }

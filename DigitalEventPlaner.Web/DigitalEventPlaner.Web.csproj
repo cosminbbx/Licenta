@@ -18,6 +18,8 @@
     <Folder Include="Views\Account\" />
     <Folder Include="Infrastructure\" />
     <Folder Include="Models\User\" />
+    <Folder Include="Views\CustomerProfile\" />
+    <Folder Include="Views\ServiceProfile\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
