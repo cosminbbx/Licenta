@@ -10,3 +10,15 @@
 /Users/macbook1/Projects/Licenta/DigitalEventPlaner.Services/obj/Debug/netcoreapp3.1/DigitalEventPlaner.Services.csproj.CopyComplete
 /Users/macbook1/Projects/Licenta/DigitalEventPlaner.Services/obj/Debug/netcoreapp3.1/DigitalEventPlaner.Services.dll
 /Users/macbook1/Projects/Licenta/DigitalEventPlaner.Services/obj/Debug/netcoreapp3.1/DigitalEventPlaner.Services.pdb
+/Users/cosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Services/bin/Debug/netcoreapp3.1/DigitalEventPlaner.Services.deps.json
+/Users/cosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Services/bin/Debug/netcoreapp3.1/DigitalEventPlaner.Services.dll
+/Users/cosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Services/bin/Debug/netcoreapp3.1/DigitalEventPlaner.Services.pdb
+/Users/cosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Services/bin/Debug/netcoreapp3.1/DataLayer.dll
+/Users/cosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Services/bin/Debug/netcoreapp3.1/DataLayer.pdb
+/Users/cosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Services/obj/Debug/netcoreapp3.1/DigitalEventPlaner.Services.csprojAssemblyReference.cache
+/Users/cosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Services/obj/Debug/netcoreapp3.1/DigitalEventPlaner.Services.AssemblyInfoInputs.cache
+/Users/cosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Services/obj/Debug/netcoreapp3.1/DigitalEventPlaner.Services.AssemblyInfo.cs
+/Users/cosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Services/obj/Debug/netcoreapp3.1/DigitalEventPlaner.Services.csproj.CoreCompileInputs.cache
+/Users/cosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Services/obj/Debug/netcoreapp3.1/DigitalEventPlaner.Services.csproj.CopyComplete
+/Users/cosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Services/obj/Debug/netcoreapp3.1/DigitalEventPlaner.Services.dll
+/Users/cosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Services/obj/Debug/netcoreapp3.1/DigitalEventPlaner.Services.pdb

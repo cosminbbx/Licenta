@@ -1,57 +1,15 @@
 ﻿<Properties StartupConfiguration="{29B536E6-802B-49EC-8376-40D70D03DCF5}|Default">
-  <MonoDevelop.Ide.ItemProperties.DigitalEventPlaner.Web PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.ItemProperties.DigitalEventPlaner.Web PreferredExecutionTarget="/Applications/Safari.app" />
   <MonoDevelop.Ide.ItemProperties.ConsoleAppTest PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="DigitalEventPlaner.Web/Views/ServiceProfile/Profile.cshtml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DigitalEventPlaner.Services/Services/ContainerName/Dto/ContainerNameDto.cs">
     <Files>
-      <File FileName="DigitalEventPlaner.Web/Views/Account/ServiceProfile.cshtml" Line="1" Column="1" />
-      <File FileName="DigitalEventPlaner.Web/Views/Account/Login.cshtml" />
-      <File FileName="DigitalEventPlaner.Web/Views/Shared/_Layout.cshtml" Line="33" Column="14" />
-      <File FileName="DigitalEventPlaner.Web/Views/Shared/_BlankLayout.cshtml" />
-      <File FileName="DigitalEventPlaner.Web/Views/Home/Index.cshtml" />
-      <File FileName="DigitalEventPlaner.Web/Views/_ViewStart.cshtml" />
-      <File FileName="DigitalEventPlaner.Web/Controllers/AccountController.cs" Line="31" Column="128" />
-      <File FileName="DigitalEventPlaner.Web/Views/Account/Register.cshtml" />
-      <File FileName="DigitalEventPlaner.Web/Models/User/UserViewModel.cs" Line="1" Column="1" />
-      <File FileName="DataLayer/Entities/User.cs" Line="11" Column="9" />
-      <File FileName="DigitalEventPlaner.Services/Services/User/UserService.cs" />
-      <File FileName="DigitalEventPlaner.Services/Services/User/IUserService.cs" />
-      <File FileName="DigitalEventPlaner.Web/wwwroot/lib/jquery-validation/dist/additional-methods.js" />
-      <File FileName="DigitalEventPlaner.Web/wwwroot/lib/jquery-validation/dist/jquery.validate.js" />
-      <File FileName="DigitalEventPlaner.Web/appsettings.json" />
-      <File FileName="DigitalEventPlaner.Web/Views/Shared/_ValidationScriptsPartial.cshtml" />
-      <File FileName="DigitalEventPlaner.Web/Views/_ViewImports.cshtml" />
-      <File FileName="DigitalEventPlaner.Web/Startup.cs" />
-      <File FileName="DigitalEventPlaner.Web/appsettings.Development.json" />
-      <File FileName="DigitalEventPlaner.Web/Program.cs" />
-      <File FileName="DataLayer/Infrastructure/Repository.cs" />
-      <File FileName="DigitalEventPlaner.Web/wwwroot/js/site.js" />
-      <File FileName="DataLayer/Enumerations/UserType.cs" />
-      <File FileName="DigitalEventPlaner.Services/Services/User/Dto/UserDto.cs" />
-      <File FileName="DigitalEventPlaner.Web/Controllers/HomeController.cs" Line="53" Column="10" />
-      <File FileName="DigitalEventPlaner.Services/Services/BlobService/IBlobService.cs" />
-      <File FileName="DigitalEventPlaner.Services/Services/BlobService/BlobService.cs" />
-      <File FileName="DigitalEventPlaner.Services/Infrastructure/ServiceContainer.cs" />
-      <File FileName="DataLayer/Context/DataContext.cs" />
-      <File FileName="DataLayer/Infrastructure/DataContainer.cs" />
-      <File FileName="DigitalEventPlaner.Services/Services/ContainerName/IContainerNameService.cs" />
-      <File FileName="DigitalEventPlaner.Services/Services/ContainerName/Dto/ContainerNameDto.cs" />
-      <File FileName="DigitalEventPlaner.Services/Services/ContainerName/ContainerNameService.cs" />
-      <File FileName="DataLayer/Entities/ContainerName.cs" />
-      <File FileName="DataLayer/Enumerations/ContainerType.cs" />
-      <File FileName="DigitalEventPlaner.Web/Views/Account/CustomerProfile.cshtml" Line="9" Column="1" />
-      <File FileName="FaceRecognition_POC/Program.cs" />
-      <File FileName="DigitalEventPlaner.Services/Services/FaceRecognition/IFaceRecognitionService.cs" />
-      <File FileName="DigitalEventPlaner.Services/Services/FaceRecognition/FaceRecognitionService.cs" />
-      <File FileName="DigitalEventPlaner.Web/Controllers/CustomerProfileController.cs" Line="36" Column="9" />
-      <File FileName="DigitalEventPlaner.Web/Views/CustomerProfile/Profile.cshtml" Line="1" Column="1" />
-      <File FileName="DigitalEventPlaner.Web/Controllers/ServiceProfileController.cs" Line="30" Column="54" />
-      <File FileName="DigitalEventPlaner.Web/Views/ServiceProfile/Profile.cshtml" Line="5" Column="38" />
-      <File FileName="DigitalEventPlaner.Web/Views/Home/Privacy.cshtml" Line="1" Column="1" />
-      <File FileName="DigitalEventPlaner.Web/wwwroot/css/site.css" Line="19" Column="2" />
-      <File FileName="DigitalEventPlaner.Web/Models/User/CustomerProfileViewModel.cs" Line="6" Column="18" />
-      <File FileName="DigitalEventPlaner.Web/Views/Shared/_CustomerLayout.cshtml" Line="44" Column="25" />
-      <File FileName="DataLayer/Entities/ServicePackage.cs" Line="1" Column="1" />
-      <File FileName="DigitalEventPlaner.Web/Views/Shared/_ServiceLayout.cshtml" Line="28" Column="127" />
+      <File FileName="DigitalEventPlaner.Web/Controllers/ServiceProfileController.cs" Line="32" Column="10" IsPinned="True" />
+      <File FileName="DigitalEventPlaner.Web/Views/Shared/_ServiceLayout.cshtml" Line="1" Column="1" />
+      <File FileName="DigitalEventPlaner.Services/Services/BlobService/BlobService.cs" Line="36" Column="45" />
+      <File FileName="DigitalEventPlaner.Web/Controllers/AccountController.cs" Line="127" Column="42" />
+      <File FileName="DigitalEventPlaner.Web/Controllers/CustomerProfileController.cs" Line="77" Column="23" />
+      <File FileName="DigitalEventPlaner.Services/Services/ContainerName/ContainerNameService.cs" Line="50" Column="26" />
+      <File FileName="DigitalEventPlaner.Services/Services/ContainerName/Dto/ContainerNameDto.cs" Line="14" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -69,6 +27,11 @@
               <Node name="Infrastructure" expanded="True" />
               <Node name="Services" expanded="True">
                 <Node name="BlobService" expanded="True" />
+                <Node name="ContainerName" expanded="True">
+                  <Node name="Dto" expanded="True">
+                    <Node name="ContainerNameDto.cs" selected="True" />
+                  </Node>
+                </Node>
                 <Node name="FaceRecognition" expanded="True" />
               </Node>
             </Node>
@@ -81,9 +44,7 @@
                 <Node name="Account" expanded="True" />
                 <Node name="CustomerProfile" expanded="True" />
                 <Node name="Home" expanded="True" />
-                <Node name="ServiceProfile" expanded="True">
-                  <Node name="Profile.cshtml" selected="True" />
-                </Node>
+                <Node name="ServiceProfile" expanded="True" />
                 <Node name="Shared" expanded="True" />
               </Node>
               <Node name="wwwroot" expanded="True">
@@ -101,6 +62,9 @@
           </Node>
         </State>
       </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.ML.Net__POC__MovieRecommander PreferredExecutionTarget="MonoDevelop.Default" />
@@ -109,7 +73,10 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|anycpu" />
   <MonoDevelop.Ide.ItemProperties.ML.Net__POC PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/cosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Services/Services/ContainerName/ContainerNameService.cs" relfile="DigitalEventPlaner.Services/Services/ContainerName/ContainerNameService.cs" line="52" column="1" />
+      <Breakpoint file="/Users/cosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Services/Services/BlobService/BlobService.cs" relfile="DigitalEventPlaner.Services/Services/BlobService/BlobService.cs" line="29" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>

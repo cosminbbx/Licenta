@@ -10,3 +10,15 @@
 /Users/macbook1/Projects/Licenta/DataLayer/obj/Debug/netcoreapp3.1/DataLayer.dll
 /Users/macbook1/Projects/Licenta/DataLayer/obj/Debug/netcoreapp3.1/DataLayer.pdb
 /Users/macbook1/Projects/Licenta/DataLayer/obj/Debug/netcoreapp3.1/DataLayer.genruntimeconfig.cache
+/Users/cosmin/Documents/GitHub/Licenta/DataLayer/bin/Debug/netcoreapp3.1/DataLayer.deps.json
+/Users/cosmin/Documents/GitHub/Licenta/DataLayer/bin/Debug/netcoreapp3.1/DataLayer.runtimeconfig.json
+/Users/cosmin/Documents/GitHub/Licenta/DataLayer/bin/Debug/netcoreapp3.1/DataLayer.runtimeconfig.dev.json
+/Users/cosmin/Documents/GitHub/Licenta/DataLayer/bin/Debug/netcoreapp3.1/DataLayer.dll
+/Users/cosmin/Documents/GitHub/Licenta/DataLayer/bin/Debug/netcoreapp3.1/DataLayer.pdb
+/Users/cosmin/Documents/GitHub/Licenta/DataLayer/obj/Debug/netcoreapp3.1/DataLayer.csprojAssemblyReference.cache
+/Users/cosmin/Documents/GitHub/Licenta/DataLayer/obj/Debug/netcoreapp3.1/DataLayer.AssemblyInfoInputs.cache
+/Users/cosmin/Documents/GitHub/Licenta/DataLayer/obj/Debug/netcoreapp3.1/DataLayer.AssemblyInfo.cs
+/Users/cosmin/Documents/GitHub/Licenta/DataLayer/obj/Debug/netcoreapp3.1/DataLayer.csproj.CoreCompileInputs.cache
+/Users/cosmin/Documents/GitHub/Licenta/DataLayer/obj/Debug/netcoreapp3.1/DataLayer.dll
+/Users/cosmin/Documents/GitHub/Licenta/DataLayer/obj/Debug/netcoreapp3.1/DataLayer.pdb
+/Users/cosmin/Documents/GitHub/Licenta/DataLayer/obj/Debug/netcoreapp3.1/DataLayer.genruntimeconfig.cache

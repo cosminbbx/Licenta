@@ -7285,23 +7285,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/macbook1/.nuget/packages/": {},
-    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "/Users/cosmin/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/macbook1/Projects/Licenta/ConsoleAppTest/ConsoleAppTest.csproj",
+      "projectUniqueName": "/Users/cosmin/Documents/GitHub/Licenta/ConsoleAppTest/ConsoleAppTest.csproj",
       "projectName": "ConsoleAppTest",
-      "projectPath": "/Users/macbook1/Projects/Licenta/ConsoleAppTest/ConsoleAppTest.csproj",
-      "packagesPath": "/Users/macbook1/.nuget/packages/",
-      "outputPath": "/Users/macbook1/Projects/Licenta/ConsoleAppTest/obj/",
+      "projectPath": "/Users/cosmin/Documents/GitHub/Licenta/ConsoleAppTest/ConsoleAppTest.csproj",
+      "packagesPath": "/Users/cosmin/.nuget/packages/",
+      "outputPath": "/Users/cosmin/Documents/GitHub/Licenta/ConsoleAppTest/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "/Users/macbook1/.config/NuGet/NuGet.Config"
+        "/Users/cosmin/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -7312,11 +7308,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "/Users/macbook1/Projects/Licenta/DataLayer/DataLayer.csproj": {
-              "projectPath": "/Users/macbook1/Projects/Licenta/DataLayer/DataLayer.csproj"
+            "/Users/cosmin/Documents/GitHub/Licenta/DataLayer/DataLayer.csproj": {
+              "projectPath": "/Users/cosmin/Documents/GitHub/Licenta/DataLayer/DataLayer.csproj"
             },
-            "/Users/macbook1/Projects/Licenta/DigitalEventPlaner.Services/DigitalEventPlaner.Services.csproj": {
-              "projectPath": "/Users/macbook1/Projects/Licenta/DigitalEventPlaner.Services/DigitalEventPlaner.Services.csproj"
+            "/Users/cosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Services/DigitalEventPlaner.Services.csproj": {
+              "projectPath": "/Users/cosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Services/DigitalEventPlaner.Services.csproj"
             }
           }
         }
@@ -7354,7 +7350,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.200/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.402/RuntimeIdentifierGraph.json"
       }
     }
   }
