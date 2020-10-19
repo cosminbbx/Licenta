@@ -82,7 +82,7 @@ CREATE TABLE Resources(
 CREATE TABLE ContainerNames(
     Id int PRIMARY KEY IDENTITY,
     UserId int not null,
-    [Name] uniqueidentifier not null,
+    [Name] varchar(50) not null,
     ContainerType int not null,
     CONSTRAINT FK_Users_ImageContainer FOREIGN KEY (UserId)
         REFERENCES Users (Id)
