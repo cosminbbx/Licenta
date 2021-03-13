@@ -14,6 +14,7 @@ namespace DataLayer.Entities
         public string Description { get; set; }
         public int EventsPerDay { get; set; }
         public float SmartRate { get; set; }
+        public int NumberOfRatings { get; set; }
         public bool IsDeleted { get; set; }
     }
 }

@@ -73,5 +73,16 @@ namespace DigitalEventPlaner.Services.Services.Services
             repository.Update(serviceEntity);
             unit.Commit();
         }
+
+        public void AddSmartRating(int id, float smartRate)
+        {
+            if (id < 1) throw new ArgumentNullException(nameof(ServiceDto));
+
+            var serviceEntity = repository.GetById(id);
+            serviceEntity.SmartRate = serviceEntity.SmartRate + smartRate;
+            serviceEntity.NumberOfRatings++;
+            repository.Update(serviceEntity);
+            unit.Commit();
+        }
     }
 }

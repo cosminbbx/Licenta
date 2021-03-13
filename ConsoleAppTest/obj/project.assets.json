@@ -7307,6 +7307,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {
             "/Users/cosmin/Documents/GitHub/Licenta/DataLayer/DataLayer.csproj": {
               "projectPath": "/Users/cosmin/Documents/GitHub/Licenta/DataLayer/DataLayer.csproj"
@@ -7325,6 +7326,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "Microsoft.ML": {
             "target": "Package",
@@ -7350,7 +7352,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.402/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.201/RuntimeIdentifierGraph.json"
       }
     }
   }

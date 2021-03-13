@@ -66,3 +66,9 @@
 /Users/macbook1/Projects/Licenta/ConsoleAppTest/bin/Debug/netcoreapp3.1/Omu.ValueInjecter.dll
 /Users/macbook1/Projects/Licenta/ConsoleAppTest/bin/Debug/netcoreapp3.1/DigitalEventPlaner.Services.dll
 /Users/macbook1/Projects/Licenta/ConsoleAppTest/bin/Debug/netcoreapp3.1/DigitalEventPlaner.Services.pdb
+/Users/cosmin/Documents/GitHub/Licenta/ConsoleAppTest/obj/Debug/netcoreapp3.1/ConsoleAppTest.csprojAssemblyReference.cache
+/Users/cosmin/Documents/GitHub/Licenta/ConsoleAppTest/obj/Debug/netcoreapp3.1/ConsoleAppTest.AssemblyInfoInputs.cache
+/Users/cosmin/Documents/GitHub/Licenta/ConsoleAppTest/obj/Debug/netcoreapp3.1/ConsoleAppTest.AssemblyInfo.cs
+/Users/cosmin/Documents/GitHub/Licenta/ConsoleAppTest/obj/Debug/netcoreapp3.1/ConsoleAppTest.csproj.CoreCompileInputs.cache
+/Users/cosmin/Documents/GitHub/Licenta/ConsoleAppTest/obj/Debug/netcoreapp3.1/ConsoleAppTest.dll
+/Users/cosmin/Documents/GitHub/Licenta/ConsoleAppTest/obj/Debug/netcoreapp3.1/ConsoleAppTest.pdb

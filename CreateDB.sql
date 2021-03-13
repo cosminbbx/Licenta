@@ -36,6 +36,7 @@ CREATE TABLE Services(
     [Description] varchar(500),
     EventsPerDay int not null,
     SmartRate float not null,
+    NumberOfRatings int not null,
     IsDeleted bit not null,
     CONSTRAINT FK_Users_Services FOREIGN KEY (UserId)
         REFERENCES Users (Id)
@@ -49,7 +50,7 @@ CREATE TABLE ServicePackages(
     PricePerParticipant int not null,
     [Description] varchar(500),
     MaxCapacity int not NULL,
-    isDeleted bit not null,
+    IsDeleted bit not null,
     CONSTRAINT FK_Service_ServicePackages FOREIGN KEY (ServiceID)
         REFERENCES Services (Id)
         ON DELETE CASCADE
@@ -89,12 +90,3 @@ CREATE TABLE ContainerNames(
         ON DELETE CASCADE
         ON UPDATE CASCADE
 );
-
-Drop table Users;
-
-Drop table Services;
-
-Drop table ServicePackages;
-Drop table Events;
-Drop table EventServices;
-Drop table ContainerNames;

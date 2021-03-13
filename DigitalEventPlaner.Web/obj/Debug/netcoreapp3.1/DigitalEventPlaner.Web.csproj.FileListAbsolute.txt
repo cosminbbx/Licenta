@@ -87,7 +87,6 @@
 /Users/macbook1/Projects/Licenta/DigitalEventPlaner.Web/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_ServiceLayout.cshtml.g.cs
 /Users/cosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Web/bin/Debug/netcoreapp3.1/appsettings.Development.json
 /Users/cosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Web/bin/Debug/netcoreapp3.1/appsettings.json
-/Users/cosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Web/bin/Debug/netcoreapp3.1/Properties/launchSettings.json
 /Users/cosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Web/bin/Debug/netcoreapp3.1/mono_crash.42f6ec1fa.0.json
 /Users/cosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Web/bin/Debug/netcoreapp3.1/DigitalEventPlaner.Web.deps.json
 /Users/cosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Web/bin/Debug/netcoreapp3.1/DigitalEventPlaner.Web.runtimeconfig.json
@@ -172,3 +171,4 @@
 /Users/cosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Web/obj/Debug/netcoreapp3.1/DigitalEventPlaner.Web.dll
 /Users/cosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Web/obj/Debug/netcoreapp3.1/DigitalEventPlaner.Web.pdb
 /Users/cosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Web/obj/Debug/netcoreapp3.1/DigitalEventPlaner.Web.genruntimeconfig.cache
+/Users/cosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Web/obj/Debug/netcoreapp3.1/scopedcss/bundle/DigitalEventPlaner.Web.styles.css
