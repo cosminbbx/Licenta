@@ -1,0 +1,32 @@
+﻿@using DigitalEventPlaner.Web.Models.Services
+@model List<ServiceViewModel>
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_ServiceLayout";
+}
+
+<h3>Manage Services</h3>
+
+
+<input type="button" class="btn btn-primary" value="Redirect" onclick="window.location='@Url.Action("AddService", "ServiceManage")'" />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Type</th>
+            <th scope="col">Events per day</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.ServiceType</td>
+            <td>@item.EventsPerDay</td>
+        </tr>
+        }
+    </tbody>
+</table>
+
