@@ -73,7 +73,7 @@ namespace DigitalEventPlaner.Services.Services.User
 
         public List<UserDto> GetAll()
         {
-            var userList = repository.GetAll();
+            var userList = repository.GetAll().Where(x => x.IsDeleted = false);
             var userListDto = new List<UserDto>();
             foreach(var user in userList)
             {
@@ -85,7 +85,7 @@ namespace DigitalEventPlaner.Services.Services.User
         public UserDto GetById(int id)
         {
             if (id < 1) throw new ArgumentNullException(nameof(UserDto));
-            var user = repository.Query(x => x.Id == id).FirstOrDefault();
+            var user = repository.Query(x => x.Id == id && x.IsDeleted == false).FirstOrDefault();
             return user == null ? null : new UserDto().InjectFrom(user) as UserDto;
         }
 

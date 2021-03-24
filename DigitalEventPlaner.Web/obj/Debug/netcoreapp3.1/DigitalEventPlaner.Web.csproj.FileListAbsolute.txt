@@ -174,3 +174,6 @@
 /Users/cosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Web/obj/Debug/netcoreapp3.1/scopedcss/bundle/DigitalEventPlaner.Web.styles.css
 /Users/cosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Web/obj/Debug/netcoreapp3.1/Razor/Views/ServiceManage/Index.cshtml.g.cs
 /Users/cosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Web/obj/Debug/netcoreapp3.1/Razor/Views/ServiceManage/AddService.cshtml.g.cs
+/Users/cosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Web/obj/Debug/netcoreapp3.1/Razor/Views/ServiceManage/EditService.cshtml.g.cs
+/Users/cosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Web/obj/Debug/netcoreapp3.1/Razor/Views/ServiceManage/DeletedServices.cshtml.g.cs
+/Users/cosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Web/obj/Debug/netcoreapp3.1/Razor/Views/ServiceManage/AddServicePackage.cshtml.g.cs

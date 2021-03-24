@@ -13,5 +13,8 @@ namespace DigitalEventPlaner.Services.Services.Services
         void Update(ServiceDto service);
         void AddSmartRating(int id, float smartRate);
         void SoftDelete(int id);
+        void Undelete(int id);
+        List<ServiceDto> GetDeletedByUserId(int id);
+        List<ServiceWrapper> GetServiceWrappersByUserId(int id);
     }
 }

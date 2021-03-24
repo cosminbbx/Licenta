@@ -1,5 +1,5 @@
 ﻿@using DigitalEventPlaner.Web.Models.Services
-@model List<ServiceViewModel>
+@model List<ServiceWrapperViewModel>
 @{
     ViewData["Title"] = "Home Page";
     Layout = "_ServiceLayout";
@@ -8,7 +8,7 @@
 <h3>Manage Services</h3>
 
 
-<input type="button" class="btn btn-primary" value="Redirect" onclick="window.location='@Url.Action("AddService", "ServiceManage")'" />
+<input type="button" class="btn btn-primary" value="Add service" onclick="window.location='@Url.Action("AddService", "ServiceManage")'" />
 
 <table class="table">
     <thead>
@@ -21,12 +21,25 @@
     <tbody>
         @foreach (var item in Model)
         {
-        <tr>
-            <td>@item.Name</td>
-            <td>@item.ServiceType</td>
-            <td>@item.EventsPerDay</td>
-        </tr>
+            <tr>
+                <td>@item.Service.Name</td>
+                <td>@item.Service.ServiceType</td>
+                <td>@item.Service.EventsPerDay</td>
+                <td>@Html.ActionLink("AddPackage", "AddServicePackage", "ServiceManage", new { item.Service.Id }, new { @class = "btn btn-primary" })</td>
+                <td>@Html.ActionLink("Edit", "EditService", "ServiceManage", new { item.Service.Id }, new { @class = "btn btn-primary" })</td>
+                <td>@Html.ActionLink("Delete", "DeleteService", "ServiceManage", new { item.Service.Id }, new { @class = "btn btn-primary" })</td>
+            </tr>
+            @foreach (var package in item.ServicePackages)
+            {
+                <tr>
+                    <td>@package.Description</td>
+                    <td>@package.PricePerParticipant</td>
+                    <td>@package.MaxCapacity</td>
+                </tr>
+            }
         }
     </tbody>
 </table>
+
+@Html.ActionLink("View deleted services", "DeletedServices", "ServiceManage", new { @class = "btn btn-primary" })
 

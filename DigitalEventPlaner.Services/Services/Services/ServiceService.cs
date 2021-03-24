@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using DataLayer.Infrastructure;
+using DigitalEventPlaner.Services.Services.ServicePackage;
 using DigitalEventPlaner.Services.Services.Services.Dto;
 using Omu.ValueInjecter;
 
@@ -11,10 +12,12 @@ namespace DigitalEventPlaner.Services.Services.Services
     {
 
         private IRepository<DataLayer.Entities.Service> repository;
+        private IServicePackageService servicePackage;
         private IUnitOfWork unit;
-        public ServiceService(IRepository<DataLayer.Entities.Service> repository, IUnitOfWork unit)
+        public ServiceService(IRepository<DataLayer.Entities.Service> repository, IServicePackageService servicePackage, IUnitOfWork unit)
         {
             this.repository = repository;
+            this.servicePackage = servicePackage;
             this.unit = unit;
         }
 
@@ -39,14 +42,14 @@ namespace DigitalEventPlaner.Services.Services.Services
         public ServiceDto GetById(int id)
         {
             if (id < 1) throw new ArgumentNullException(nameof(ServiceDto));
-            var service = repository.Query(x => x.Id == id).FirstOrDefault();
+            var service = repository.Query(x => x.Id == id && x.IsDeleted == false).FirstOrDefault();
             return service == null ? null : new ServiceDto().InjectFrom(service) as ServiceDto;
         }
 
         public List<ServiceDto> GetByUserId(int id)
         {
             if (id < 1) throw new ArgumentNullException(nameof(ServiceDto));
-            var serviceList = repository.Query(x => x.UserId == id).ToList();
+            var serviceList = repository.Query(x => x.UserId == id && x.IsDeleted == false).ToList();
             var serviceListDto = new List<ServiceDto>();
             foreach (var service in serviceList)
             {
@@ -83,6 +86,44 @@ namespace DigitalEventPlaner.Services.Services.Services
             serviceEntity.NumberOfRatings++;
             repository.Update(serviceEntity);
             unit.Commit();
+        }
+
+        public List<ServiceDto> GetDeletedByUserId(int id)
+        {
+            if (id < 1) throw new ArgumentNullException(nameof(ServiceDto));
+            var serviceList = repository.Query(x => x.UserId == id && x.IsDeleted == true).ToList();
+            var serviceListDto = new List<ServiceDto>();
+            foreach (var service in serviceList)
+            {
+                serviceListDto.Add(new ServiceDto().InjectFrom(service) as ServiceDto);
+            }
+            return serviceListDto;
+        }
+
+        public void Undelete(int id)
+        {
+            if (id < 1) throw new ArgumentNullException(nameof(ServiceDto));
+
+            var service = repository.GetById(id);
+            if(service.IsDeleted == true)
+            {
+                service.IsDeleted = false;
+                repository.Update(service);
+                unit.Commit();
+            }
+        }
+
+        public List<ServiceWrapper> GetServiceWrappersByUserId(int id)
+        {
+            if (id < 1) throw new ArgumentNullException(nameof(ServiceDto));
+
+            var serviceList = GetByUserId(id);
+            var wrapperList = new List<ServiceWrapper>();
+            foreach(var service in serviceList)
+            {
+                wrapperList.Add(new ServiceWrapper() { Service = service, ServicePackages = servicePackage.GetByServiceId(service.Id) });
+            };
+            return wrapperList;
         }
     }
 }

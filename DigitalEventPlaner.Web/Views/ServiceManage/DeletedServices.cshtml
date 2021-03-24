@@ -1,0 +1,29 @@
+﻿@using DigitalEventPlaner.Web.Models.Services
+@model List<ServiceViewModel>
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_ServiceLayout";
+}
+
+<h3>Deleted services</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Type</th>
+            <th scope="col">Events per day</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.ServiceType</td>
+                <td>@item.EventsPerDay</td>
+                <td>@Html.ActionLink("Undelete", "Undelete", "ServiceManage", new { item.Id }, new { @class = "btn btn-primary" })</td>
+            </tr>
+        }
+    </tbody>
+</table>

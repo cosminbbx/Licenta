@@ -38,14 +38,14 @@ namespace DigitalEventPlaner.Services.Services.Event
         public EventDto GetById(int id)
         {
             if (id < 1) throw new ArgumentNullException(nameof(EventDto));
-            var eventEntity = repository.Query(x => x.Id == id).FirstOrDefault();
+            var eventEntity = repository.Query(x => x.Id == id && x.IsDeleted == false).FirstOrDefault();
             return eventEntity == null ? null : new EventDto().InjectFrom(eventEntity) as EventDto;
         }
 
         public List<EventDto> GetByUserId(int id)
         {
             if (id < 1) throw new ArgumentNullException(nameof(EventDto));
-            var eventList = repository.Query(x => x.UserId == id).ToList();
+            var eventList = repository.Query(x => x.UserId == id && x.IsDeleted == false).ToList();
             var eventListDto = new List<EventDto>();
             foreach (var eventService in eventList)
             {
