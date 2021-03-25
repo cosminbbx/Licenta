@@ -29,7 +29,6 @@ namespace DigitalEventPlaner.Web.Controllers
         public IActionResult Index()
         {
             var userId = Int32.Parse(HttpContext.User.Claims.ToList()[0].Value);
-            var serviceDtoList = serviceService.GetByUserId(userId);
             var serviceWrapperList = serviceService.GetServiceWrappersByUserId(userId);
             var serviceViewModelList = new List<ServiceWrapperViewModel>();
             foreach(var serviceWrapper in serviceWrapperList)
@@ -45,8 +44,8 @@ namespace DigitalEventPlaner.Web.Controllers
             return View(serviceViewModelList);
         }
 
-        [Authorize(Roles = "Service")]
         [HttpGet]
+        [Authorize(Roles = "Service")]
         public IActionResult AddService()
         {
             var userId = Int32.Parse(HttpContext.User.Claims.ToList()[0].Value);
@@ -115,23 +114,71 @@ namespace DigitalEventPlaner.Web.Controllers
             return RedirectToAction(nameof(ServiceManageController.DeletedServices), "ServiceManage");
         }
 
-        [Authorize(Roles = "Service")]
+        
         [HttpGet]
+        [Authorize(Roles = "Service")]
         public IActionResult AddServicePackage(int Id)
         {
             var model = new ServicePackageViewModel() { ServiceId = Id };
             return View(model);
         }
-        [Authorize(Roles = "Service")]
+        
         [HttpPost]
+        [Authorize(Roles = "Service")]
         public IActionResult AddServicePackage(ServicePackageViewModel model)
         {
             if (ModelState.IsValid)
             {
-                servicePackageService.Create(new ServicePackageDto().InjectFrom(model) as ServicePackageDto);
+                var service = new ServicePackageDto().InjectFrom(model) as ServicePackageDto;
+                service.Id = 0;
+                servicePackageService.Create(service);
                 return RedirectToAction(nameof(ServiceManageController.Index), "ServiceManage");
             }
             return View();
+        }
+        
+        [HttpGet]
+        [Authorize(Roles = "Service")]
+        public IActionResult EditServicePackage(int Id)
+        {
+            var model = new ServicePackageViewModel().InjectFrom(servicePackageService.GetById(Id)) as ServicePackageViewModel;
+            return View(model);
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "Service")]
+        public IActionResult EditServicePackage(ServicePackageViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var service = new ServicePackageDto().InjectFrom(model) as ServicePackageDto;
+                servicePackageService.Update(service);
+                return RedirectToAction(nameof(ServiceManageController.Index), "ServiceManage");
+            }
+            return View();
+        }
+
+        [HttpGet]
+        [Authorize(Roles = "Service")]
+        public IActionResult DeleteServicePackage(int Id)
+        {
+            servicePackageService.SoftDelete(Id);
+            return RedirectToAction(nameof(ServiceManageController.Index), "ServiceManage");
+        }
+
+        [HttpGet]
+        [Authorize(Roles = "Service")]
+        public IActionResult ServiceDetails(int Id)
+        {
+            var dto = serviceService.GetServiceWrapperByServiceId(Id);
+            var servicePackagesViewModels = new List<ServicePackageViewModel>();
+            dto.ServicePackages.ForEach(x => servicePackagesViewModels.Add(new ServicePackageViewModel().InjectFrom(x) as ServicePackageViewModel));
+            var model = new ServiceWrapperViewModel()
+            {
+                Service = new ServiceViewModel().InjectFrom(dto.Service) as ServiceViewModel,
+                ServicePackages = servicePackagesViewModels
+            };
+            return View(model);
         }
     }
 }

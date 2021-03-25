@@ -16,5 +16,6 @@ namespace DigitalEventPlaner.Services.Services.Services
         void Undelete(int id);
         List<ServiceDto> GetDeletedByUserId(int id);
         List<ServiceWrapper> GetServiceWrappersByUserId(int id);
+        ServiceWrapper GetServiceWrapperByServiceId(int id);
     }
 }

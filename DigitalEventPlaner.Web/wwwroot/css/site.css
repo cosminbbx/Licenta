@@ -97,3 +97,26 @@ body {
 .profile-info {
     margin-top: 20px;
 }
+
+.list-group .sublist-item {
+    padding-left: 3rem;
+}
+
+.service-container, .sublist-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.manage-service-container, .package-details {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.small-column{
+    width:50px;
+}
+
+.buttons-column {
+    width: 135px;
+}

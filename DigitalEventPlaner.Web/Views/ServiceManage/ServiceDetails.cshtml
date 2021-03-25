@@ -1,0 +1,36 @@
+﻿@using DigitalEventPlaner.Web.Models.Services
+@model ServiceWrapperViewModel
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_ServiceLayout";
+}
+
+<h3>Service details</h3>
+<h4>@Model.Service.Name</h4>
+
+<div>@Model.Service.Description</div>
+
+<table class="table package-details">
+    <thead>
+        <tr class="package-table-header">
+            <th scope="col">Description</th>
+            <th scope="col" class="small-column">PPP</th>
+            <th scope="col" class="small-column">MC</th>
+            <th scope="col" class="buttons-column"></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var package in Model.ServicePackages)
+    {
+        <tr class="package-table-body">
+            <td>@package.Description</td>
+            <td class="small-column">@package.PricePerParticipant</td>
+            <td class="small-column">@package.MaxCapacity</td>
+            <td class="buttons-column">
+                @Html.ActionLink("Edit", "EditServicePackage", "ServiceManage", new { package.Id }, new { @class = "btn btn-outline-primary btn-sm" })
+                @Html.ActionLink("Delete", "DeleteServicePackage", "ServiceManage", new { package.Id }, new { @class = "btn btn-outline-primary btn-sm" })
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

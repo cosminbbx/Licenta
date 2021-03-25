@@ -125,5 +125,12 @@ namespace DigitalEventPlaner.Services.Services.Services
             };
             return wrapperList;
         }
+
+        public ServiceWrapper GetServiceWrapperByServiceId(int id)
+        {
+            if (id < 1) throw new ArgumentNullException(nameof(ServiceDto));
+
+            return new ServiceWrapper() { Service = GetById(id), ServicePackages = servicePackage.GetByServiceId(id) };
+        }
     }
 }
