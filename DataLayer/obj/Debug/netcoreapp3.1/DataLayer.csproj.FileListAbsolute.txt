@@ -22,3 +22,15 @@
 /Users/cosmin/Documents/GitHub/Licenta/DataLayer/obj/Debug/netcoreapp3.1/DataLayer.dll
 /Users/cosmin/Documents/GitHub/Licenta/DataLayer/obj/Debug/netcoreapp3.1/DataLayer.pdb
 /Users/cosmin/Documents/GitHub/Licenta/DataLayer/obj/Debug/netcoreapp3.1/DataLayer.genruntimeconfig.cache
+/Users/virgacosmin/Documents/GitHub/Licenta/DataLayer/bin/Debug/netcoreapp3.1/DataLayer.deps.json
+/Users/virgacosmin/Documents/GitHub/Licenta/DataLayer/bin/Debug/netcoreapp3.1/DataLayer.runtimeconfig.json
+/Users/virgacosmin/Documents/GitHub/Licenta/DataLayer/bin/Debug/netcoreapp3.1/DataLayer.runtimeconfig.dev.json
+/Users/virgacosmin/Documents/GitHub/Licenta/DataLayer/bin/Debug/netcoreapp3.1/DataLayer.dll
+/Users/virgacosmin/Documents/GitHub/Licenta/DataLayer/bin/Debug/netcoreapp3.1/DataLayer.pdb
+/Users/virgacosmin/Documents/GitHub/Licenta/DataLayer/obj/Debug/netcoreapp3.1/DataLayer.csprojAssemblyReference.cache
+/Users/virgacosmin/Documents/GitHub/Licenta/DataLayer/obj/Debug/netcoreapp3.1/DataLayer.AssemblyInfoInputs.cache
+/Users/virgacosmin/Documents/GitHub/Licenta/DataLayer/obj/Debug/netcoreapp3.1/DataLayer.AssemblyInfo.cs
+/Users/virgacosmin/Documents/GitHub/Licenta/DataLayer/obj/Debug/netcoreapp3.1/DataLayer.csproj.CoreCompileInputs.cache
+/Users/virgacosmin/Documents/GitHub/Licenta/DataLayer/obj/Debug/netcoreapp3.1/DataLayer.dll
+/Users/virgacosmin/Documents/GitHub/Licenta/DataLayer/obj/Debug/netcoreapp3.1/DataLayer.pdb
+/Users/virgacosmin/Documents/GitHub/Licenta/DataLayer/obj/Debug/netcoreapp3.1/DataLayer.genruntimeconfig.cache

@@ -24,6 +24,8 @@
     <Folder Include="Models\Services\" />
     <Folder Include="Helpers\" />
     <Folder Include="Models\ServicePackage\" />
+    <Folder Include="Views\EventPlanning\" />
+    <Folder Include="Models\EventPlanning\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />

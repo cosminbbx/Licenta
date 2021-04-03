@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/cosmin/Documents/GitHub/Licenta/ML.Net_POC_MovieRecommander/ML.Net_POC_MovieRecommander.csproj": {}
+    "/Users/virgacosmin/Documents/GitHub/Licenta/ML.Net_POC_MovieRecommander/ML.Net_POC_MovieRecommander.csproj": {}
   },
   "projects": {
-    "/Users/cosmin/Documents/GitHub/Licenta/ML.Net_POC_MovieRecommander/ML.Net_POC_MovieRecommander.csproj": {
+    "/Users/virgacosmin/Documents/GitHub/Licenta/ML.Net_POC_MovieRecommander/ML.Net_POC_MovieRecommander.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/cosmin/Documents/GitHub/Licenta/ML.Net_POC_MovieRecommander/ML.Net_POC_MovieRecommander.csproj",
+        "projectUniqueName": "/Users/virgacosmin/Documents/GitHub/Licenta/ML.Net_POC_MovieRecommander/ML.Net_POC_MovieRecommander.csproj",
         "projectName": "ML.Net_POC_MovieRecommander",
-        "projectPath": "/Users/cosmin/Documents/GitHub/Licenta/ML.Net_POC_MovieRecommander/ML.Net_POC_MovieRecommander.csproj",
-        "packagesPath": "/Users/cosmin/.nuget/packages/",
-        "outputPath": "/Users/cosmin/Documents/GitHub/Licenta/ML.Net_POC_MovieRecommander/obj/",
+        "projectPath": "/Users/virgacosmin/Documents/GitHub/Licenta/ML.Net_POC_MovieRecommander/ML.Net_POC_MovieRecommander.csproj",
+        "packagesPath": "/Users/virgacosmin/.nuget/packages/",
+        "outputPath": "/Users/virgacosmin/Documents/GitHub/Licenta/ML.Net_POC_MovieRecommander/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/cosmin/.config/NuGet/NuGet.Config"
+          "/Users/virgacosmin/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
