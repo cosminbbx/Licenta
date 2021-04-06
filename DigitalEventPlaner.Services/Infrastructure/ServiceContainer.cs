@@ -3,6 +3,7 @@ using System.ComponentModel.Design;
 using DataLayer.Infrastructure;
 using DigitalEventPlaner.Services.Services.BlobService;
 using DigitalEventPlaner.Services.Services.ContainerName;
+using DigitalEventPlaner.Services.Services.CsvService;
 using DigitalEventPlaner.Services.Services.Event;
 using DigitalEventPlaner.Services.Services.EventService;
 using DigitalEventPlaner.Services.Services.FaceRecognition;
@@ -27,9 +28,11 @@ namespace DigitalEventPlaner.Services.Infrastructure
             services.AddTransient(typeof(Services.Resource.IResourceService), typeof(ResourceService));
             services.AddTransient(typeof(IEventServiceService), typeof(EventServiceService));
             services.AddTransient(typeof(IEventService), typeof(EventService));
+            //services.AddScoped(typeof(IEventService), typeof(EventService));
             services.AddTransient(typeof(IContainerNameService), typeof(ContainerNameService));
             services.AddTransient(typeof(IBlobService), typeof(BlobService));
             services.AddTransient(typeof(IFaceRecognitionService), typeof(FaceRecognitionService));
+            services.AddTransient(typeof(ICsvService), typeof(CsvService));
             return services;
         }
     }

@@ -277,3 +277,4 @@
 /Users/virgacosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Web/obj/Debug/netcoreapp3.1/Razor/Views/ServiceManage/EditServicePackage.cshtml.g.cs
 /Users/virgacosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Web/obj/Debug/netcoreapp3.1/Razor/Views/ServiceManage/ServiceDetails.cshtml.g.cs
 /Users/virgacosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Web/obj/Debug/netcoreapp3.1/Razor/Views/EventPlanning/Step1.cshtml.g.cs
+/Users/cosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Web/obj/Debug/netcoreapp3.1/Razor/Views/EventPlanning/Step1.cshtml.g.cs

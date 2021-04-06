@@ -23,6 +23,7 @@
     <Folder Include="Services\ContainerName\Dto\" />
     <Folder Include="Services\BlobService\" />
     <Folder Include="Services\FaceRecognition\" />
+    <Folder Include="Services\CsvService\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataLayer\DataLayer.csproj" />

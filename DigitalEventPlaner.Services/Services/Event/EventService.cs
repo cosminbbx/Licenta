@@ -26,7 +26,7 @@ namespace DigitalEventPlaner.Services.Services.Event
 
         public List<EventDto> GetAll()
         {
-            var eventList = repository.GetAll();
+            var eventList = repository.GetAll().Where(x => x.IsDeleted == false);
             var eventListDto = new List<EventDto>();
             foreach (var eventItem in eventList)
             {
