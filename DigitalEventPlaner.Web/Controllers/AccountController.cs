@@ -8,7 +8,9 @@ using DataLayer.Enumerations;
 using DigitalEventPlaner.Services.Services.BlobService;
 using DigitalEventPlaner.Services.Services.ContainerName;
 using DigitalEventPlaner.Services.Services.ContainerName.Dto;
+using DigitalEventPlaner.Services.Services.Event;
 using DigitalEventPlaner.Services.Services.FaceRecognition;
+using DigitalEventPlaner.Services.Services.MLService;
 using DigitalEventPlaner.Services.Services.User;
 using DigitalEventPlaner.Services.Services.User.Dto;
 using DigitalEventPlaner.Web.Infrastructure;
@@ -27,12 +29,16 @@ namespace DigitalEventPlaner.Web.Controllers
     {
         private readonly IUserService userService;
         private readonly IBlobService blobService;
+        private readonly IEventGenerator eventGenerator;
+        private readonly IMLService mLService;
         private readonly IContainerNameService containerNameService;
-        public AccountController(IUserService userService, IBlobService blobService, IContainerNameService containerNameService)
+        public AccountController(IUserService userService, IBlobService blobService, IContainerNameService containerNameService, IEventGenerator eventGenerator, IMLService mLService)
         {
             this.userService = userService;
             this.blobService = blobService;
+            this.eventGenerator = eventGenerator;
             this.containerNameService = containerNameService;
+            this.mLService = mLService;
         }
 
         public IActionResult Login()
@@ -178,6 +184,20 @@ namespace DigitalEventPlaner.Web.Controllers
         public IActionResult AccessDenied (string ReturnUrl)
         {
             return View();
+        }
+
+        [AllowAnonymous]
+        public IActionResult GenerateEvents()
+        {
+            eventGenerator.GenerateEvents(10000);
+            return RedirectToAction(nameof(HomeController.Index), "Home");
+        }
+
+        [AllowAnonymous]
+        public IActionResult EstimateBuget()
+        {
+            var x = mLService.BugetEstimation();
+            return RedirectToAction(nameof(HomeController.Index), "Home");
         }
     }
 }

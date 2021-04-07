@@ -5,18 +5,15 @@ namespace ConsoleAppTest
     public class EventBuget
     {
         [LoadColumn(0)]
-        public float EventId;
-
-        [LoadColumn(1)]
         public float UserId;
 
-        [LoadColumn(2)]
+        [LoadColumn(1)]
         public float NumberOfServices;
 
-        [LoadColumn(3)]
+        [LoadColumn(2)]
         public float Participants;
 
-        [LoadColumn(4)]
+        [LoadColumn(3)]
         public float BugetNeeded;
 
     }

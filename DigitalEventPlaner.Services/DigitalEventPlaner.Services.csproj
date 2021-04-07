@@ -24,6 +24,7 @@
     <Folder Include="Services\BlobService\" />
     <Folder Include="Services\FaceRecognition\" />
     <Folder Include="Services\CsvService\" />
+    <Folder Include="Services\MLService\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataLayer\DataLayer.csproj" />
@@ -32,5 +33,7 @@
     <PackageReference Include="Microsoft.Azure.CognitiveServices.Vision.Face" Version="2.5.0-preview.1" />
     <PackageReference Include="ValueInjecter" Version="3.2.0" />
     <PackageReference Include="WindowsAzure.Storage" Version="9.3.3" />
+    <PackageReference Include="Microsoft.ML" Version="1.5.5" />
+    <PackageReference Include="Microsoft.ML.FastTree" Version="1.5.5" />
   </ItemGroup>
 </Project>

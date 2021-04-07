@@ -6,6 +6,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using DigitalEventPlaner.Services.Services.Event;
 using DigitalEventPlaner.Services.Services.Event.Dto;
+using DigitalEventPlaner.Services.Services.Services;
+using DigitalEventPlaner.Services.Services.Services.Dto;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

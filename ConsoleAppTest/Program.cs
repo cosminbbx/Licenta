@@ -124,7 +124,7 @@ namespace ConsoleAppTest
             //.Append(mlContext.Transforms.Text.FeaturizeText("UserIdF", "UserId"))
             //.Append(mlContext.Transforms.Text.FeaturizeText("NumberOfServicesF", "NumberOfServices"))
             //.Append(mlContext.Transforms.Text.FeaturizeText("ParticipantsF", "Participants"))
-            .Append(mlContext.Transforms.Concatenate("Features", "EventId", "UserId", "NumberOfServices", "Participants"))
+            .Append(mlContext.Transforms.Concatenate("Features", "UserId", "NumberOfServices", "Participants"))
             .Append(mlContext.Regression.Trainers.FastTree());
 
             var model = pipeline.Fit(dataView);
@@ -153,12 +153,11 @@ namespace ConsoleAppTest
 
             var eventEntity = new EventBuget()
             {
-                EventId = 20,
                 UserId = random.Next(1, 50),
                 NumberOfServices = random.Next(1, 5),
                 Participants = random.Next(100, 400),
                 BugetNeeded = 0
-          };
+            };
 
             var prediction = predictionFunction.Predict(eventEntity);
             Console.WriteLine($"**********************************************************************");

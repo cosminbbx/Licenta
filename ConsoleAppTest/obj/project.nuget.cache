@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "dgSpecHash": "H42V9oM13El3gNUCtnIpGpfRgex3aHnoBnzUiBY5n3T13w1RK0ujz4pmok5ZutsA9V+6piKVq/M1UxzT5O2p3Q==",
-  "success": true,
+  "dgSpecHash": "Ko04MYq90mIIFQwt07cgXPUxNLTAE5weZ4sKnjV0MK3QoVZGIYZ8+8l7re5T7A66eJaoovXS7voEyObMvEl/LA==",
+  "success": false,
   "projectFilePath": "/Users/cosmin/Documents/GitHub/Licenta/ConsoleAppTest/ConsoleAppTest.csproj",
   "expectedPackageFiles": [
     "/Users/cosmin/.nuget/packages/microsoft.azure.cognitiveservices.vision.face/2.5.0-preview.1/microsoft.azure.cognitiveservices.vision.face.2.5.0-preview.1.nupkg.sha512",
@@ -140,5 +140,24 @@
     "/Users/cosmin/.nuget/packages/valueinjecter/3.2.0/valueinjecter.3.2.0.nupkg.sha512",
     "/Users/cosmin/.nuget/packages/windowsazure.storage/9.3.3/windowsazure.storage.9.3.3.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "Detected package downgrade: Microsoft.ML from 1.5.5 to 1.4.0. Reference the package directly from the project to select a different version. \n ConsoleAppTest -> DigitalEventPlaner.Services -> Microsoft.ML (>= 1.5.5) \n ConsoleAppTest -> Microsoft.ML (>= 1.4.0)",
+      "libraryId": "Microsoft.ML",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "Detected package downgrade: Microsoft.ML.FastTree from 1.5.5 to 1.4.0. Reference the package directly from the project to select a different version. \n ConsoleAppTest -> DigitalEventPlaner.Services -> Microsoft.ML.FastTree (>= 1.5.5) \n ConsoleAppTest -> Microsoft.ML.FastTree (>= 1.4.0)",
+      "libraryId": "Microsoft.ML.FastTree",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
 }

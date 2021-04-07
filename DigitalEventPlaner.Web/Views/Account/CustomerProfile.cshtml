@@ -9,7 +9,7 @@
 @foreach (var uri in Model)
 {
     <div class="profile-image-container">
-        <img src="@uri" class="profile-image"/>
+        <img src="@uri" class="profile-image" />
     </div>
 
 }
@@ -25,6 +25,9 @@
         <input type="submit" value="Create" class="btn btn-default" />
     </div>
 </form>
+
+@Html.ActionLink("Generate", "actionName", "controllerName")
+
 @if (ViewData["SmartRate"] != null)
 {
     <p>Smart rate test @ViewData["SmartRate"]</p>

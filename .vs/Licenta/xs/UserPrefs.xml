@@ -1,52 +1,56 @@
 ﻿<Properties StartupConfiguration="{29B536E6-802B-49EC-8376-40D70D03DCF5}|Default">
   <MonoDevelop.Ide.ItemProperties.DigitalEventPlaner.Web PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.ItemProperties.ConsoleAppTest PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="DigitalEventPlaner.Web/Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DigitalEventPlaner.Services/Services/CsvService/event-test.csv">
     <Files>
-      <File FileName="DigitalEventPlaner.Web/Views/ServiceProfile/Profile.cshtml" />
-      <File FileName="DigitalEventPlaner.Web/Views/Shared/_CustomerLayout.cshtml" />
-      <File FileName="DigitalEventPlaner.Web/Controllers/EventPlanningController.cs" />
-      <File FileName="DigitalEventPlaner.Web/Controllers/HomeController.cs" />
-      <File FileName="DigitalEventPlaner.Web/Controllers/CustomerProfileController.cs" />
-      <File FileName="DigitalEventPlaner.Web/Controllers/AccountController.cs" />
-      <File FileName="DigitalEventPlaner.Web/Controllers/ServiceManageController.cs" />
-      <File FileName="DigitalEventPlaner.Web/Views/EventPlanning/Step1.cshtml" />
-      <File FileName="DigitalEventPlaner.Web/Views/CustomerProfile/Profile.cshtml" />
-      <File FileName="DigitalEventPlaner.Web/Views/ServiceManage/AddService.cshtml" />
-      <File FileName="DigitalEventPlaner.Web/Models/ServicePackage/ServicePackageViewModel.cs" />
-      <File FileName="DigitalEventPlaner.Web/Models/Services/ServiceViewModel.cs" />
-      <File FileName="DataLayer/Enumerations/ServiceType.cs" />
-      <File FileName="DigitalEventPlaner.Web/Views/Account/Register.cshtml" />
-      <File FileName="DigitalEventPlaner.Web/wwwroot/css/site.css" />
-      <File FileName="DigitalEventPlaner.Web/Views/ServiceManage/EditService.cshtml" />
-      <File FileName="DigitalEventPlaner.Web/Views/Account/ServiceProfile.cshtml" />
-      <File FileName="DigitalEventPlaner.Web/Views/Account/Login.cshtml" />
-      <File FileName="DigitalEventPlaner.Web/Views/Account/AccessDenied.cshtml" />
-      <File FileName="DigitalEventPlaner.Web/Views/Account/CustomerProfile.cshtml" />
-      <File FileName="DigitalEventPlaner.Web/Program.cs" Line="12" Column="33" />
-      <File FileName="DataLayer/Infrastructure/Repository.cs" Line="33" Column="24" />
-      <File FileName="DigitalEventPlaner.Web/ScheduleServices/CsvUpdater.cs" Line="27" Column="39" />
-      <File FileName="ConsoleAppTest/EventBuget.cs" Line="27" Column="6" />
+      <File FileName="DigitalEventPlaner.Services/Services/ServicePackage/ServicePackageService.cs" Line="12" Column="9" />
+      <File FileName="DataLayer/Entities/EventService.cs" Line="7" Column="18" />
+      <File FileName="DigitalEventPlaner.Services/Infrastructure/ServiceContainer.cs" Line="39" Column="10" />
+      <File FileName="DigitalEventPlaner.Services/Services/Event/IEventService.cs" Line="7" Column="35" />
+      <File FileName="DigitalEventPlaner.Services/Services/CsvService/event-test.csv" Line="655" Column="15" />
+      <File FileName="DigitalEventPlaner.Services/Services/CsvService/event-train.csv" Line="1" Column="1" />
+      <File FileName="DigitalEventPlaner.Services/Services/MLService/IMLService.cs" Line="6" Column="37" />
+      <File FileName="DigitalEventPlaner.Services/Services/MLService/MLService.cs" Line="86" Column="2" />
+      <File FileName="DigitalEventPlaner.Services/Services/MLService/EventBuget.cs" Line="24" Column="21" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Licenta" expanded="True">
-            <Node name="ConsoleAppTest" expanded="True" />
-            <Node name="DataLayer" expanded="True">
-              <Node name="Infrastructure" expanded="True" />
+            <Node name="ConsoleAppTest" expanded="True">
+              <Node name="Dependencies" expanded="True">
+                <Node name="PackageDependencies" expanded="True" />
+              </Node>
             </Node>
             <Node name="DigitalEventPlaner.Services" expanded="True">
+              <Node name="Dependencies" expanded="True">
+                <Node name="PackageDependencies" expanded="True" />
+              </Node>
               <Node name="Infrastructure" expanded="True" />
               <Node name="Services" expanded="True">
-                <Node name="CsvService" expanded="True" />
+                <Node name="CsvService" expanded="True">
+                  <Node name="event-test.csv" selected="True" />
+                </Node>
                 <Node name="Event" expanded="True" />
+                <Node name="EventService" expanded="True" />
+                <Node name="MLService" expanded="True" />
+                <Node name="ServicePackage" expanded="True" />
+                <Node name="Services" expanded="True" />
               </Node>
             </Node>
             <Node name="DigitalEventPlaner.Web" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Models" expanded="True">
+                <Node name="User" expanded="True" />
+              </Node>
               <Node name="ScheduleServices" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Account" expanded="True" />
+                <Node name="CustomerProfile" expanded="True" />
+                <Node name="EventPlanning" expanded="True" />
+                <Node name="ServiceProfile" expanded="True" />
+              </Node>
               <Node name="wwwroot" expanded="True" />
-              <Node name="Program.cs" selected="True" />
             </Node>
             <Node name="ML.Net_POC" expanded="True" />
           </Node>
@@ -59,7 +63,6 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/cosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Web/Controllers/EventPlanningController.cs" relfile="DigitalEventPlaner.Web/Controllers/EventPlanningController.cs" line="28" column="1" />
-      <Breakpoint file="/Users/cosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Services/Services/CsvService/CsvService.cs" relfile="DigitalEventPlaner.Services/Services/CsvService/CsvService.cs" line="30" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
