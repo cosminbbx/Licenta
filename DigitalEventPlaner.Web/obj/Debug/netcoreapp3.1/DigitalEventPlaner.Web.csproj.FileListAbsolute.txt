@@ -298,3 +298,4 @@
 /Users/cosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Web/bin/Debug/netcoreapp3.1/runtimes/osx-x64/native/libFastTreeNative.dylib
 /Users/cosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Web/bin/Debug/netcoreapp3.1/runtimes/win-x64/native/FastTreeNative.dll
 /Users/cosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Web/bin/Debug/netcoreapp3.1/runtimes/win-x86/native/FastTreeNative.dll
+/Users/cosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Web/obj/Debug/netcoreapp3.1/Razor/Views/EventPlanning/Step2.cshtml.g.cs

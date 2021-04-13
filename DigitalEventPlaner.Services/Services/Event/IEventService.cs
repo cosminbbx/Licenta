@@ -12,5 +12,6 @@ namespace DigitalEventPlaner.Services.Services.Event
         void Create(EventDto eventDto);
         void Update(EventDto eventDto);
         void SoftDelete(int id);
+        Dictionary<int, int> GetServicesIdForDate(DateTime date);
     }
 }

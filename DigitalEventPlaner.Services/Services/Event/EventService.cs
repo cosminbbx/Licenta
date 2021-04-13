@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using DataLayer.Infrastructure;
 using DigitalEventPlaner.Services.Services.Event.Dto;
+using DigitalEventPlaner.Services.Services.EventService;
+using DigitalEventPlaner.Services.Services.Services;
 using Omu.ValueInjecter;
 
 namespace DigitalEventPlaner.Services.Services.Event
@@ -10,10 +12,12 @@ namespace DigitalEventPlaner.Services.Services.Event
     public class EventService : IEventService
     {
         private IRepository<DataLayer.Entities.Event> repository;
+        private IEventServiceService eventServiceService;
         private IUnitOfWork unit;
-        public EventService(IRepository<DataLayer.Entities.Event> repository, IUnitOfWork unit)
+        public EventService(IRepository<DataLayer.Entities.Event> repository, IEventServiceService eventServiceService, IUnitOfWork unit)
         {
             this.repository = repository;
+            this.eventServiceService = eventServiceService;
             this.unit = unit;
         }
 
@@ -71,6 +75,25 @@ namespace DigitalEventPlaner.Services.Services.Event
             if (eventEntity == null) throw new Exception($"Cannot event user with id = {eventDto.Id}");
             repository.Update(eventEntity);
             unit.Commit();
+        }
+
+        public Dictionary<int, int> GetServicesIdForDate(DateTime date)
+        {
+            Dictionary<int,int> serviceDict = new Dictionary<int, int>();
+            var events = repository.Query(x => x.EventDate == date).ToList();
+
+            foreach(var eventItem in events)
+            {
+                var eventServices = eventServiceService.GetByEventId(eventItem.Id);
+                foreach(var eventService in eventServices)
+                {
+                    int currentCount;
+                    serviceDict.TryGetValue(eventService.ServiceId, out currentCount);
+                    serviceDict[eventService.ServiceId] = currentCount + 1;
+                }
+            }
+
+            return serviceDict;
         }
     }
 }

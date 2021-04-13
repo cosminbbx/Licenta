@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using DigitalEventPlaner.Services.Services.Event.Dto;
 using Microsoft.Extensions.Configuration;
 using Microsoft.ML;
 
@@ -14,7 +15,7 @@ namespace DigitalEventPlaner.Services.Services.MLService
             this.configuration = config;
         }
 
-        public float BugetEstimation()
+        public float BugetEstimation(EventDto eventDto)
         {
             MLContext mlContext = new MLContext(seed: 0);
 
@@ -24,7 +25,7 @@ namespace DigitalEventPlaner.Services.Services.MLService
 
             Evaluate(mlContext, model);
 
-            return TestSinglePrediction(mlContext, model);
+            return TestSinglePrediction(mlContext, model, eventDto);
         }
 
         public ITransformer Train(MLContext mlContext, string dataPath)
@@ -61,7 +62,7 @@ namespace DigitalEventPlaner.Services.Services.MLService
             Console.WriteLine($"*       Root Mean Squared Error:      {metrics.RootMeanSquaredError:#.##}");
         }
 
-        private float TestSinglePrediction(MLContext mlContext, ITransformer model)
+        private float TestSinglePrediction(MLContext mlContext, ITransformer model, EventDto eventDto)
         {
             Random random = new Random();
 
@@ -69,9 +70,9 @@ namespace DigitalEventPlaner.Services.Services.MLService
 
             var eventEntity = new EventBuget()
             {
-                UserId = random.Next(1, 50),
-                NumberOfServices = random.Next(1, 5),
-                Participants = random.Next(100, 400),
+                UserId = eventDto.UserId,
+                NumberOfServices = eventDto.NumberOfServices,
+                Participants = eventDto.Participants,
                 BugetNeeded = 0
             };
 

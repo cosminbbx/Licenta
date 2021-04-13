@@ -196,7 +196,7 @@ namespace DigitalEventPlaner.Web.Controllers
         [AllowAnonymous]
         public IActionResult EstimateBuget()
         {
-            var x = mLService.BugetEstimation();
+
             return RedirectToAction(nameof(HomeController.Index), "Home");
         }
     }

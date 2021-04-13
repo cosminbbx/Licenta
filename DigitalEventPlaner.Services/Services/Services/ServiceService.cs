@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using DataLayer.Enumerations;
 using DataLayer.Infrastructure;
+using DigitalEventPlaner.Services.Services.Event;
 using DigitalEventPlaner.Services.Services.ServicePackage;
 using DigitalEventPlaner.Services.Services.Services.Dto;
 using Omu.ValueInjecter;
@@ -13,11 +15,13 @@ namespace DigitalEventPlaner.Services.Services.Services
 
         private IRepository<DataLayer.Entities.Service> repository;
         private IServicePackageService servicePackage;
+        private IEventService eventService;
         private IUnitOfWork unit;
-        public ServiceService(IRepository<DataLayer.Entities.Service> repository, IServicePackageService servicePackage, IUnitOfWork unit)
+        public ServiceService(IRepository<DataLayer.Entities.Service> repository, IServicePackageService servicePackage, IEventService eventService, IUnitOfWork unit)
         {
             this.repository = repository;
             this.servicePackage = servicePackage;
+            this.eventService = eventService;
             this.unit = unit;
         }
 
@@ -131,6 +135,55 @@ namespace DigitalEventPlaner.Services.Services.Services
             if (id < 1) throw new ArgumentNullException(nameof(ServiceDto));
 
             return new ServiceWrapper() { Service = GetById(id), ServicePackages = servicePackage.GetByServiceId(id) };
+        }
+
+        private List<int> GetUnavailableServiceIdsForDate(DateTime date)
+        {
+            var serviceList = new List<int>();
+            var dictServices = eventService.GetServicesIdForDate(date);
+
+            foreach(var item in dictServices)
+            {
+                var service = GetById(item.Key);
+                if(service.EventsPerDay <= item.Value)
+                {
+                    serviceList.Add(service.Id);
+                }
+            }
+
+            return serviceList;
+        }
+
+        private List<ServiceDto> GetServicesByType(ServiceType serviceType)
+        {
+            var serviceList = repository.Query(x => x.ServiceType == serviceType && x.IsDeleted != true).ToList();
+            var serviceListDto = new List<ServiceDto>();
+            foreach (var service in serviceList)
+            {
+                serviceListDto.Add(new ServiceDto().InjectFrom(service) as ServiceDto);
+            }
+            return serviceListDto;
+        }
+
+        public List<ServiceWrapper> GetServiceWrappersByDate( DateTime dateTime, string serviceType)
+        {
+            var type = (ServiceType)Enum.Parse(typeof(ServiceType), serviceType);
+
+            var unavailableServices = GetUnavailableServiceIdsForDate(dateTime);
+
+            var services = GetServicesByType(type);
+
+            var wrapperList = new List<ServiceWrapper>();
+
+            foreach (var service in services)
+            {
+                if (!unavailableServices.Contains(service.Id))
+                {
+                    wrapperList.Add(GetServiceWrapperByServiceId(service.Id));
+                }
+            }
+
+            return wrapperList;
         }
     }
 }
