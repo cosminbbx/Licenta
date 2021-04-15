@@ -18,6 +18,6 @@ namespace DigitalEventPlaner.Services.Services.Services
         List<ServiceDto> GetDeletedByUserId(int id);
         List<ServiceWrapper> GetServiceWrappersByUserId(int id);
         ServiceWrapper GetServiceWrapperByServiceId(int id);
-        List<ServiceWrapper> GetServiceWrappersByDate(DateTime dateTime, string serviceType);
+        List<ServiceWrapper> GetServiceWrappersByDateAndNOP(DateTime dateTime, string serviceType, int numberOfParticipants);
     }
 }

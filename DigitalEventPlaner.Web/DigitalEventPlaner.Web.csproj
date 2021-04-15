@@ -27,6 +27,7 @@
     <Folder Include="Views\EventPlanning\" />
     <Folder Include="Models\EventPlanning\" />
     <Folder Include="ScheduleServices\" />
+    <Folder Include="Models\Validation\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />

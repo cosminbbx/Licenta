@@ -1,9 +1,27 @@
 ﻿<Properties StartupConfiguration="{29B536E6-802B-49EC-8376-40D70D03DCF5}|Default">
   <MonoDevelop.Ide.ItemProperties.DigitalEventPlaner.Web PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.ItemProperties.ConsoleAppTest PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="DigitalEventPlaner.Services/Services/Services/IServiceService.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DigitalEventPlaner.Web/Models/Validation/TempDataExtension.cs">
     <Files>
-      <File FileName="DigitalEventPlaner.Services/Services/Services/IServiceService.cs" Line="22" Column="6" />
+      <File FileName="DigitalEventPlaner.Services/Services/Services/IServiceService.cs" Line="21" Column="60" />
+      <File FileName="DigitalEventPlaner.Web/appsettings.json" Line="25" Column="5" />
+      <File FileName="DigitalEventPlaner.Web/Controllers/EventPlanningController.cs" Line="89" Column="14" />
+      <File FileName="DigitalEventPlaner.Services/Services/Services/ServiceService.cs" Line="206" Column="1" />
+      <File FileName="DigitalEventPlaner.Services/Services/Event/EventService.cs" Line="97" Column="1" />
+      <File FileName="DigitalEventPlaner.Web/Views/EventPlanning/Step1.cshtml" Line="30" Column="9" />
+      <File FileName="DigitalEventPlaner.Web/Models/EventPlanning/EventPlanningStep1ViewModel.cs" Line="18" Column="9" />
+      <File FileName="DigitalEventPlaner.Web/Models/Validation/ListHasElements.cs" Line="13" Column="1" />
+      <File FileName="DigitalEventPlaner.Web/Controllers/ServiceManageController.cs" Line="32" Column="13" />
+      <File FileName="DigitalEventPlaner.Services/DigitalEventPlaner.Services.csproj" Line="1" Column="1" />
+      <File FileName="DigitalEventPlaner.Web/Models/EventPlanning/EventPlanningStep2ViewModel.cs" Line="21" Column="48" />
+      <File FileName="DigitalEventPlaner.Web/Models/Services/ServiceWrapperViewModel.cs" Line="10" Column="31" />
+      <File FileName="DigitalEventPlaner.Web/Views/EventPlanning/Step2.cshtml" Line="10" Column="10" />
+      <File FileName="DigitalEventPlaner.Web/Views/ServiceManage/Index.cshtml" Line="13" Column="1" />
+      <File FileName="DataLayer/Enumerations/ServiceType.cs" Line="4" Column="17" />
+      <File FileName="DigitalEventPlaner.Web/Controllers/AccountController.cs" Line="157" Column="1" />
+      <File FileName="DigitalEventPlaner.Web/Views/ServiceManage/AddService.cshtml" Line="11" Column="5" />
+      <File FileName="DigitalEventPlaner.Web/Models/ServicePackage/ServicePackageViewModel.cs" Line="10" Column="19" />
+      <File FileName="DigitalEventPlaner.Web/Models/Validation/TempDataExtension.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -16,6 +34,7 @@
             </Node>
             <Node name="DataLayer" expanded="True">
               <Node name="Entities" expanded="True" />
+              <Node name="Enumerations" expanded="True" />
             </Node>
             <Node name="DigitalEventPlaner.Services" expanded="True">
               <Node name="Dependencies" expanded="True">
@@ -36,7 +55,6 @@
                 </Node>
                 <Node name="Services" expanded="True">
                   <Node name="Dto" expanded="True" />
-                  <Node name="IServiceService.cs" selected="True" />
                 </Node>
               </Node>
             </Node>
@@ -46,7 +64,9 @@
                 <Node name="EventPlanning" expanded="True" />
                 <Node name="ServicePackage" expanded="True" />
                 <Node name="Services" expanded="True" />
-                <Node name="User" expanded="True" />
+                <Node name="Validation" expanded="True">
+                  <Node name="TempDataExtension.cs" selected="True" />
+                </Node>
               </Node>
               <Node name="ScheduleServices" expanded="True" />
               <Node name="Views" expanded="True">
@@ -67,7 +87,9 @@
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|anycpu" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/cosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Web/Controllers/EventPlanningController.cs" relfile="DigitalEventPlaner.Web/Controllers/EventPlanningController.cs" line="88" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>

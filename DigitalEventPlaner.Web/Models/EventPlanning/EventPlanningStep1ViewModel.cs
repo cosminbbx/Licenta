@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using DataLayer.Enumerations;
+using DigitalEventPlaner.Web.Models.Validation;
 
 namespace DigitalEventPlaner.Web.Models.EventPlanning
 {
@@ -14,7 +15,7 @@ namespace DigitalEventPlaner.Web.Models.EventPlanning
         [Required]
         public List<string> EventTypes { get; set; }
 
-        [Required]
+        [ListHasElements(ErrorMessage = "At least one type of service is needed.")]
         public List<string> EventTypesSelected { get; set; }
 
         [Required]

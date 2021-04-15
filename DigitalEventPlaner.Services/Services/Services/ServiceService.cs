@@ -165,13 +165,32 @@ namespace DigitalEventPlaner.Services.Services.Services
             return serviceListDto;
         }
 
-        public List<ServiceWrapper> GetServiceWrappersByDate( DateTime dateTime, string serviceType)
+        private List<ServiceDto> GetServicesByTypeAndNOP(ServiceType serviceType, int numberOfParticipants)
+        {
+            var services = GetServicesByType(serviceType);
+            var servicesList = new List<ServiceDto>();
+            foreach(var service in services)
+            {
+                var servicePackages = servicePackage.GetByServiceId(service.Id);
+                foreach(var serviceP in servicePackages)
+                {
+                    if(serviceP.MaxCapacity > numberOfParticipants)
+                    {
+                        servicesList.Add(service);
+                    }
+                }
+            }
+
+            return servicesList;
+        }
+
+        public List<ServiceWrapper> GetServiceWrappersByDateAndNOP( DateTime dateTime, string serviceType, int numberOfParticipants)
         {
             var type = (ServiceType)Enum.Parse(typeof(ServiceType), serviceType);
 
             var unavailableServices = GetUnavailableServiceIdsForDate(dateTime);
 
-            var services = GetServicesByType(type);
+            var services = GetServicesByTypeAndNOP(type,numberOfParticipants);
 
             var wrapperList = new List<ServiceWrapper>();
 
