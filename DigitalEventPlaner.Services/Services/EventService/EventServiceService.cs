@@ -20,7 +20,7 @@ namespace DigitalEventPlaner.Services.Services.EventService
         public void Create(EventServiceDto eventService)
         {
             if (eventService == null) throw new ArgumentNullException(nameof(EventServiceDto));
-            repository.Add(new DataLayer.Entities.ServicePackage().InjectFrom(eventService) as DataLayer.Entities.EventService);
+            repository.Add(new DataLayer.Entities.EventService().InjectFrom(eventService) as DataLayer.Entities.EventService);
             unit.Commit();
         }
 

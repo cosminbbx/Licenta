@@ -1,27 +1,51 @@
 ﻿<Properties StartupConfiguration="{29B536E6-802B-49EC-8376-40D70D03DCF5}|Default">
   <MonoDevelop.Ide.ItemProperties.DigitalEventPlaner.Web PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.ItemProperties.ConsoleAppTest PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="DigitalEventPlaner.Web/Models/Validation/TempDataExtension.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DigitalEventPlaner.Web/wwwroot/css/site.css">
     <Files>
-      <File FileName="DigitalEventPlaner.Services/Services/Services/IServiceService.cs" Line="21" Column="60" />
-      <File FileName="DigitalEventPlaner.Web/appsettings.json" Line="25" Column="5" />
-      <File FileName="DigitalEventPlaner.Web/Controllers/EventPlanningController.cs" Line="89" Column="14" />
-      <File FileName="DigitalEventPlaner.Services/Services/Services/ServiceService.cs" Line="206" Column="1" />
-      <File FileName="DigitalEventPlaner.Services/Services/Event/EventService.cs" Line="97" Column="1" />
-      <File FileName="DigitalEventPlaner.Web/Views/EventPlanning/Step1.cshtml" Line="30" Column="9" />
-      <File FileName="DigitalEventPlaner.Web/Models/EventPlanning/EventPlanningStep1ViewModel.cs" Line="18" Column="9" />
-      <File FileName="DigitalEventPlaner.Web/Models/Validation/ListHasElements.cs" Line="13" Column="1" />
-      <File FileName="DigitalEventPlaner.Web/Controllers/ServiceManageController.cs" Line="32" Column="13" />
-      <File FileName="DigitalEventPlaner.Services/DigitalEventPlaner.Services.csproj" Line="1" Column="1" />
-      <File FileName="DigitalEventPlaner.Web/Models/EventPlanning/EventPlanningStep2ViewModel.cs" Line="21" Column="48" />
-      <File FileName="DigitalEventPlaner.Web/Models/Services/ServiceWrapperViewModel.cs" Line="10" Column="31" />
-      <File FileName="DigitalEventPlaner.Web/Views/EventPlanning/Step2.cshtml" Line="10" Column="10" />
-      <File FileName="DigitalEventPlaner.Web/Views/ServiceManage/Index.cshtml" Line="13" Column="1" />
-      <File FileName="DataLayer/Enumerations/ServiceType.cs" Line="4" Column="17" />
-      <File FileName="DigitalEventPlaner.Web/Controllers/AccountController.cs" Line="157" Column="1" />
-      <File FileName="DigitalEventPlaner.Web/Views/ServiceManage/AddService.cshtml" Line="11" Column="5" />
-      <File FileName="DigitalEventPlaner.Web/Models/ServicePackage/ServicePackageViewModel.cs" Line="10" Column="19" />
-      <File FileName="DigitalEventPlaner.Web/Models/Validation/TempDataExtension.cs" Line="1" Column="1" />
+      <File FileName="DigitalEventPlaner.Services/Services/Services/IServiceService.cs" Line="24" Column="23" />
+      <File FileName="DigitalEventPlaner.Web/appsettings.json" Line="11" Column="140" />
+      <File FileName="DigitalEventPlaner.Web/Controllers/EventPlanningController.cs" Line="160" Column="1" />
+      <File FileName="DigitalEventPlaner.Services/Services/Services/ServiceService.cs" Line="223" Column="41" />
+      <File FileName="DigitalEventPlaner.Services/Services/Event/EventService.cs" Line="126" Column="10" />
+      <File FileName="DigitalEventPlaner.Web/Views/EventPlanning/Step1.cshtml" Line="1" Column="1" />
+      <File FileName="DigitalEventPlaner.Web/Models/EventPlanning/EventPlanningStep1ViewModel.cs" />
+      <File FileName="DigitalEventPlaner.Web/Models/Validation/ListHasElements.cs" />
+      <File FileName="DigitalEventPlaner.Web/Controllers/ServiceManageController.cs" Line="33" Column="13" />
+      <File FileName="DigitalEventPlaner.Services/DigitalEventPlaner.Services.csproj" />
+      <File FileName="DigitalEventPlaner.Web/Models/EventPlanning/EventPlanningStep2ViewModel.cs" />
+      <File FileName="DigitalEventPlaner.Web/Models/Services/ServiceWrapperViewModel.cs" Line="12" Column="25" />
+      <File FileName="DigitalEventPlaner.Web/Views/EventPlanning/Step2.cshtml" />
+      <File FileName="DigitalEventPlaner.Web/Views/ServiceManage/Index.cshtml" Line="35" Column="11" />
+      <File FileName="DataLayer/Enumerations/ServiceType.cs" />
+      <File FileName="DigitalEventPlaner.Web/Controllers/AccountController.cs" />
+      <File FileName="DigitalEventPlaner.Web/Views/ServiceManage/AddService.cshtml" />
+      <File FileName="DigitalEventPlaner.Web/Models/ServicePackage/ServicePackageViewModel.cs" />
+      <File FileName="DigitalEventPlaner.Services/Services/Event/Dto/EventDto.cs" Line="14" Column="27" />
+      <File FileName="DigitalEventPlaner.Web/Controllers/CustomerProfileController.cs" Line="54" Column="13" />
+      <File FileName="DigitalEventPlaner.Services/Services/EventService/Step1Dto.cs" />
+      <File FileName="DigitalEventPlaner.Services/Services/EventService/EventServiceService.cs" Line="23" Column="63" />
+      <File FileName="DigitalEventPlaner.Services/Services/ServicePackage/IServicePackageService.cs" />
+      <File FileName="DigitalEventPlaner.Services/Services/ServicePackage/ServicePackageService.cs" />
+      <File FileName="DigitalEventPlaner.Services/Services/EventService/Dto/EventServiceDto.cs" />
+      <File FileName="DataLayer/Infrastructure/IUnitOfWork.cs" />
+      <File FileName="DataLayer/Infrastructure/UnitOfWork.cs" />
+      <File FileName="DigitalEventPlaner.Services/Services/Event/IEventService.cs" Line="13" Column="14" />
+      <File FileName="DigitalEventPlaner.Web/Program.cs" />
+      <File FileName="DigitalEventPlaner.Services/Infrastructure/ServiceContainer.cs" />
+      <File FileName="DataLayer/Infrastructure/Repository.cs" />
+      <File FileName="DigitalEventPlaner.Web/Views/EventPlanning/Step3.cshtml" Line="1" Column="1" />
+      <File FileName="DigitalEventPlaner.Web/Views/CustomerProfile/Profile.cshtml" Line="2" Column="24" />
+      <File FileName="DigitalEventPlaner.Web/Controllers/MyEventsController.cs" Line="30" Column="53" />
+      <File FileName="DigitalEventPlaner.Web/Views/MyEvents/Index.cshtml" Line="10" Column="13" />
+      <File FileName="DigitalEventPlaner.Web/Views/Home/Index.cshtml" Line="1" Column="1" />
+      <File FileName="DigitalEventPlaner.Services/Services/EventService/IEventServiceService.cs" Line="1" Column="1" />
+      <File FileName="DigitalEventPlaner.Services/Services/Event/Dto/EventWrapper.cs" Line="12" Column="26" />
+      <File FileName="DigitalEventPlaner.Web/Models/MyEvents/EventWrapperViewModel.cs" Line="12" Column="29" />
+      <File FileName="DigitalEventPlaner.Web/Helpers/GeneralHelper.cs" Line="38" Column="51" />
+      <File FileName="DigitalEventPlaner.Web/Views/Shared/_CustomerLayout.cshtml" Line="25" Column="114" />
+      <File FileName="DigitalEventPlaner.Services/Services/Services/Dto/ServiceWrapper.cs" Line="12" Column="9" />
+      <File FileName="DigitalEventPlaner.Web/wwwroot/css/site.css" Line="134" Column="18" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -35,6 +59,7 @@
             <Node name="DataLayer" expanded="True">
               <Node name="Entities" expanded="True" />
               <Node name="Enumerations" expanded="True" />
+              <Node name="Infrastructure" expanded="True" />
             </Node>
             <Node name="DigitalEventPlaner.Services" expanded="True">
               <Node name="Dependencies" expanded="True">
@@ -50,6 +75,7 @@
                   <Node name="Dto" expanded="True" />
                 </Node>
                 <Node name="MLService" expanded="True" />
+                <Node name="Resource" expanded="True" />
                 <Node name="ServicePackage" expanded="True">
                   <Node name="Dto" expanded="True" />
                 </Node>
@@ -60,23 +86,24 @@
             </Node>
             <Node name="DigitalEventPlaner.Web" expanded="True">
               <Node name="Controllers" expanded="True" />
+              <Node name="Helpers" expanded="True" />
               <Node name="Models" expanded="True">
-                <Node name="EventPlanning" expanded="True" />
-                <Node name="ServicePackage" expanded="True" />
+                <Node name="MyEvents" expanded="True" />
                 <Node name="Services" expanded="True" />
-                <Node name="Validation" expanded="True">
-                  <Node name="TempDataExtension.cs" selected="True" />
-                </Node>
               </Node>
               <Node name="ScheduleServices" expanded="True" />
               <Node name="Views" expanded="True">
-                <Node name="Account" expanded="True" />
-                <Node name="CustomerProfile" expanded="True" />
                 <Node name="EventPlanning" expanded="True" />
+                <Node name="Home" expanded="True" />
+                <Node name="MyEvents" expanded="True" />
                 <Node name="ServiceManage" expanded="True" />
-                <Node name="ServiceProfile" expanded="True" />
+                <Node name="Shared" expanded="True" />
               </Node>
-              <Node name="wwwroot" expanded="True" />
+              <Node name="wwwroot" expanded="True">
+                <Node name="css" expanded="True">
+                  <Node name="site.css" selected="True" />
+                </Node>
+              </Node>
             </Node>
             <Node name="ML.Net_POC" expanded="True" />
           </Node>
@@ -87,9 +114,7 @@
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|anycpu" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/cosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Web/Controllers/EventPlanningController.cs" relfile="DigitalEventPlaner.Web/Controllers/EventPlanningController.cs" line="88" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>

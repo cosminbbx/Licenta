@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using DataLayer.Infrastructure;
 using DigitalEventPlaner.Services.Services.ServicePackage.Dto;
+using DigitalEventPlaner.Services.Services.Services;
+using DigitalEventPlaner.Services.Services.Services.Dto;
 using Omu.ValueInjecter;
 
 namespace DigitalEventPlaner.Services.Services.ServicePackage
@@ -52,6 +54,12 @@ namespace DigitalEventPlaner.Services.Services.ServicePackage
                 serviceListDto.Add(new ServicePackageDto().InjectFrom(service) as ServicePackageDto);
             }
             return serviceListDto;
+        }
+
+        public int GetServiceIdByServicePackageId(int id)
+        {
+            if (id < 1) throw new ArgumentNullException(nameof(ServicePackageDto));
+            return GetById(id).ServiceId;
         }
 
         public void SoftDelete(int id)

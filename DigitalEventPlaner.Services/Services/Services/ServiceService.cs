@@ -4,6 +4,8 @@ using System.Linq;
 using DataLayer.Enumerations;
 using DataLayer.Infrastructure;
 using DigitalEventPlaner.Services.Services.Event;
+using DigitalEventPlaner.Services.Services.Event.Dto;
+using DigitalEventPlaner.Services.Services.EventService;
 using DigitalEventPlaner.Services.Services.ServicePackage;
 using DigitalEventPlaner.Services.Services.Services.Dto;
 using Omu.ValueInjecter;
@@ -16,12 +18,14 @@ namespace DigitalEventPlaner.Services.Services.Services
         private IRepository<DataLayer.Entities.Service> repository;
         private IServicePackageService servicePackage;
         private IEventService eventService;
+        private IEventServiceService eventServiceService;
         private IUnitOfWork unit;
-        public ServiceService(IRepository<DataLayer.Entities.Service> repository, IServicePackageService servicePackage, IEventService eventService, IUnitOfWork unit)
+        public ServiceService(IRepository<DataLayer.Entities.Service> repository, IServicePackageService servicePackage, IEventService eventService, IEventServiceService eventServiceService, IUnitOfWork unit)
         {
             this.repository = repository;
             this.servicePackage = servicePackage;
             this.eventService = eventService;
+            this.eventServiceService = eventServiceService;
             this.unit = unit;
         }
 
@@ -137,6 +141,16 @@ namespace DigitalEventPlaner.Services.Services.Services
             return new ServiceWrapper() { Service = GetById(id), ServicePackages = servicePackage.GetByServiceId(id) };
         }
 
+        public ServiceWrapper GetServiceWrapperByServiceIdAndServicePackageId(int serviceId, int servicePackageId)
+        {
+            if (serviceId < 1 || servicePackageId < 1) throw new ArgumentNullException(nameof(ServiceDto));
+
+            var servicepackageList = new List<ServicePackage.Dto.ServicePackageDto>();
+            servicepackageList.Add(servicePackage.GetById(servicePackageId));
+
+            return new ServiceWrapper() { Service = GetById(serviceId), ServicePackages = servicepackageList };
+        }
+
         private List<int> GetUnavailableServiceIdsForDate(DateTime date)
         {
             var serviceList = new List<int>();
@@ -172,13 +186,15 @@ namespace DigitalEventPlaner.Services.Services.Services
             foreach(var service in services)
             {
                 var servicePackages = servicePackage.GetByServiceId(service.Id);
+                bool hasCapacity = false;
                 foreach(var serviceP in servicePackages)
                 {
                     if(serviceP.MaxCapacity > numberOfParticipants)
                     {
-                        servicesList.Add(service);
+                        hasCapacity = true;
                     }
                 }
+                if (hasCapacity) servicesList.Add(service);
             }
 
             return servicesList;
@@ -203,6 +219,35 @@ namespace DigitalEventPlaner.Services.Services.Services
             }
 
             return wrapperList;
+        }
+        public List<EventWrapper> GetEventWrappersByUserId(int id)
+        {
+            if (id < 1) throw new ArgumentNullException(nameof(ServiceDto));
+
+            var events = eventService.GetByUserId(id);
+
+            var eventWrapperList = new List<EventWrapper>();
+
+            foreach(var eventItem in events)
+            {
+                var eventWrapper = new EventWrapper();
+                eventWrapper.EventDate = eventItem.EventDate;
+                eventWrapper.EventType = eventItem.EventType;
+                eventWrapper.ServiceWrappers = new List<ServiceWrapper>();
+
+                var eventServices = eventServiceService.GetByEventId(eventItem.Id);
+
+                foreach(var eventService in eventServices)
+                {
+                    var serviceWrapper = GetServiceWrapperByServiceIdAndServicePackageId(eventService.ServiceId, eventService.ServicePackageId);
+                    serviceWrapper.Status = eventService.Status;
+                    eventWrapper.ServiceWrappers.Add(serviceWrapper);
+                }
+
+                eventWrapperList.Add(eventWrapper);
+            }
+
+            return eventWrapperList;
         }
     }
 }

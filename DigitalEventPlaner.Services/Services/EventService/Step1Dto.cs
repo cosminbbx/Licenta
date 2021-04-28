@@ -8,6 +8,7 @@ namespace DigitalEventPlaner.Services.Services.EventService
         public int UserId { get; set; }
         public string EventDate { get; set; }
         public List<string> EventTypesSelected { get; set; }
+        public List<string> ServiceTypesSelected { get; set; }
         public int Participants { get; set; }
         public float Estimation { get; set; }
 

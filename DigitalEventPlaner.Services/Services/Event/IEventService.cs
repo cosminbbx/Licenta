@@ -9,7 +9,8 @@ namespace DigitalEventPlaner.Services.Services.Event
         List<EventDto> GetAll();
         List<EventDto> GetByUserId(int id);
         EventDto GetById(int id);
-        void Create(EventDto eventDto);
+        int Create(EventDto eventDto);
+        void Create(EventDto eventDto, Dictionary<int, int> serviceDict);
         void Update(EventDto eventDto);
         void SoftDelete(int id);
         Dictionary<int, int> GetServicesIdForDate(DateTime date);

@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using DataLayer.Enumerations;
 using DataLayer.Infrastructure;
 using DigitalEventPlaner.Services.Services.Event.Dto;
 using DigitalEventPlaner.Services.Services.EventService;
+using DigitalEventPlaner.Services.Services.EventService.Dto;
+using DigitalEventPlaner.Services.Services.ServicePackage;
 using DigitalEventPlaner.Services.Services.Services;
 using Omu.ValueInjecter;
 
@@ -13,19 +16,26 @@ namespace DigitalEventPlaner.Services.Services.Event
     {
         private IRepository<DataLayer.Entities.Event> repository;
         private IEventServiceService eventServiceService;
+        private IRepository<DataLayer.Entities.Service> serviceRepo;
+        private IServicePackageService servicePackageService;
         private IUnitOfWork unit;
-        public EventService(IRepository<DataLayer.Entities.Event> repository, IEventServiceService eventServiceService, IUnitOfWork unit)
+        public EventService(IRepository<DataLayer.Entities.Event> repository, IRepository<DataLayer.Entities.Service> serviceRepo, IEventServiceService eventServiceService, IServicePackageService servicePackageService, IUnitOfWork unit)
         {
             this.repository = repository;
             this.eventServiceService = eventServiceService;
+            this.servicePackageService = servicePackageService;
+            this.serviceRepo = serviceRepo;
             this.unit = unit;
         }
 
-        public void Create(EventDto eventDto)
+        public int Create(EventDto eventDto)
         {
             if (eventDto == null) throw new ArgumentNullException(nameof(EventDto));
-            repository.Add(new DataLayer.Entities.Event().InjectFrom(eventDto) as DataLayer.Entities.Event);
+            var newEvent = new DataLayer.Entities.Event().InjectFrom(eventDto) as DataLayer.Entities.Event;
+            repository.Add(newEvent);
             unit.Commit();
+
+            return newEvent.Id;
         }
 
         public List<EventDto> GetAll()
@@ -94,6 +104,25 @@ namespace DigitalEventPlaner.Services.Services.Event
             }
 
             return serviceDict;
+        }
+
+        public void Create(EventDto eventDto, Dictionary<int, int> serviceDict)
+        {
+            List<EventServiceDto> eventServiceList = new List<EventServiceDto>();
+            var eventId = Create(eventDto);
+            foreach (var key in serviceDict.Keys)
+            {
+                var serviceId = servicePackageService.GetServiceIdByServicePackageId(serviceDict[key]);
+
+                eventServiceService.Create(new EventServiceDto()
+                {
+                    EventId = eventId,
+                    ServiceId = serviceId,
+                    ServicePackageId = serviceDict[key],
+                    Status = RequestStatus.Requested
+                });
+            }
+            unit.Commit();
         }
     }
 }

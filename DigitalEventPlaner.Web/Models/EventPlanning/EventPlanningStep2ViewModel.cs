@@ -21,5 +21,7 @@ namespace DigitalEventPlaner.Web.Models.EventPlanning
         public List<int> ServicePackageSelected { get; set; }
 
         public List<ServiceWrapperViewModel> ServiceWrappers { get; set; }
+
+        public int BugetNeeded { get; set; }
     }
 }

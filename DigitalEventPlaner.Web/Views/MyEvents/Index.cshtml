@@ -1,0 +1,32 @@
+﻿@using DigitalEventPlaner.Web.Models.MyEvents
+@model List<EventWrapperViewModel>
+@{
+    ViewData["Title"] = "Profile Page";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<h3>My events</h3>
+
+
+@foreach (var ev in Model)
+{
+    <div class="event-container">
+        <h5>@ev.EventDate.ToString("dd/MM/yyyy") EventType: @ev.EventType</h5>
+        @foreach (var service in ev.ServiceWrappers)
+        {
+            <div class="list-group-item service-container">
+                <div> @service.Service.Name</div>
+            </div>
+            <div class="list-group">
+                @foreach (var package in service.ServicePackages)
+                {
+                    <div class="list-group-item sublist-item">
+                        <div>@package.Description</div>
+                        <div>@service.Status</div>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+ }
+    

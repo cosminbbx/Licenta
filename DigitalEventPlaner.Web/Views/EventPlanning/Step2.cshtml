@@ -7,8 +7,11 @@
 
 <h3>@Model.Step1.Estimation</h3>
 <h3>@Model.ServiceType</h3>
+<h3>@Model.BugetNeeded</h3>
 <form method="POST" enctype="multipart/form-data">
-    @Html.HiddenFor(m => m.ServiceSelectedIndex)
+    <input type="hidden" name="ServiceSelectedIndex" value="@Model.ServiceSelectedIndex" />
+    <input type="hidden" name="ServiceType" value="@Model.ServiceType" />
+    <input type="hidden" name="BugetNeeded" value="@Model.BugetNeeded" />
     <div class="list-group manage-service-container">
         @foreach (var item in Model.ServiceWrappers)
         {
@@ -37,6 +40,6 @@
         }
         <span asp-validation-for="ServicePackageSelected" class="text-danger"></span>
     </div>
-    
+
     <button class="btn btn-outline-primary">Submit</button>
 </form>

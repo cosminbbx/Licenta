@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using DataLayer.Enumerations;
+using DigitalEventPlaner.Services.Services.Event.Dto;
 using DigitalEventPlaner.Services.Services.Services.Dto;
 
 namespace DigitalEventPlaner.Services.Services.Services
@@ -18,6 +19,8 @@ namespace DigitalEventPlaner.Services.Services.Services
         List<ServiceDto> GetDeletedByUserId(int id);
         List<ServiceWrapper> GetServiceWrappersByUserId(int id);
         ServiceWrapper GetServiceWrapperByServiceId(int id);
+        ServiceWrapper GetServiceWrapperByServiceIdAndServicePackageId(int serviceId, int servicePackageId);
         List<ServiceWrapper> GetServiceWrappersByDateAndNOP(DateTime dateTime, string serviceType, int numberOfParticipants);
+        List<EventWrapper> GetEventWrappersByUserId(int id);
     }
 }

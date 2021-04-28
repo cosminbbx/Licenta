@@ -12,11 +12,18 @@ namespace DigitalEventPlaner.Web.Models.EventPlanning
         public int UserId { get; set; }
         [Required]
         public string EventDate { get; set; }
+
         [Required]
         public List<string> EventTypes { get; set; }
 
-        [ListHasElements(ErrorMessage = "At least one type of service is needed.")]
+        [ListHasElements(ErrorMessage = "At least one type of Events is needed.")]
         public List<string> EventTypesSelected { get; set; }
+
+        [Required]
+        public List<string> ServiceTypes { get; set; }
+
+        [ListHasElements(ErrorMessage = "At least one type of service is needed.")]
+        public List<string> ServiceTypesSelected { get; set; }
 
         [Required]
         [Range(1, 10000, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
@@ -28,7 +35,8 @@ namespace DigitalEventPlaner.Web.Models.EventPlanning
 
         public EventPlanningStep1ViewModel()
         {
-            EventTypes = Enum.GetNames(typeof(ServiceType)).ToList();
+            EventTypes = Enum.GetNames(typeof(EventType)).ToList();
+            ServiceTypes = Enum.GetNames(typeof(ServiceType)).ToList();
             StringDateNow = DateTime.Now.ToString("yyyy-MM-dd");
         }
     }
