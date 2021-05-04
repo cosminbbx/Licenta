@@ -36,8 +36,34 @@ namespace DigitalEventPlaner.Web.Helpers
                 {
                     Service = new ServiceViewModel().InjectFrom(serviceWrapper.Service) as ServiceViewModel,
                     Status = serviceWrapper.Status,
+                    EventServiceId = serviceWrapper.EventServiceId,
                     ServicePackages = servicePackagesViewModels
                 }) ;
+            }
+            return serviceViewModelList;
+        }
+
+        public static ServiceWrapperViewModel MapServiceWrapper(ServiceWrapper serviceWrapper)
+        {
+            var servicePackagesViewModels = new List<ServicePackageViewModel>();
+            serviceWrapper.ServicePackages.ForEach(x => servicePackagesViewModels.Add(new ServicePackageViewModel().InjectFrom(x) as ServicePackageViewModel));
+            return new ServiceWrapperViewModel()
+            {
+                Service = new ServiceViewModel().InjectFrom(serviceWrapper.Service) as ServiceViewModel,
+                Status = serviceWrapper.Status,
+                ServicePackages = servicePackagesViewModels
+            };
+        }
+
+        public static List<EventRequestViewModel> MapServiceRequestList(List<EventRequestDto> eventRequests)
+        {
+            var serviceViewModelList = new List<EventRequestViewModel>();
+            foreach(var er in eventRequests)
+            {
+                var viewModel = new EventRequestViewModel().InjectFrom(er) as EventRequestViewModel;
+                viewModel.EventService = new EventServiceViewModel().InjectFrom(er.EventService) as EventServiceViewModel;
+                viewModel.ServiceWrapper = MapServiceWrapper(er.ServiceWrapper);
+                serviceViewModelList.Add(viewModel);
             }
             return serviceViewModelList;
         }

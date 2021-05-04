@@ -10,5 +10,6 @@ namespace DigitalEventPlaner.Web.Models.Services
         public ServiceViewModel Service { get; set; }
         public List<ServicePackageViewModel> ServicePackages { get; set; }
         public RequestStatus Status { get; set; }
+        public int EventServiceId { get; set; }
     }
 }

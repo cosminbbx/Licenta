@@ -87,5 +87,31 @@ namespace DigitalEventPlaner.Services.Services.EventService
             repository.Update(eventServiceEntity);
             unit.Commit();
         }
+
+        public void UpdateServicePackage(int eventServiceId, int serviceId, int servicePackageId)
+        {
+            if (eventServiceId < 1) throw new ArgumentNullException(nameof(EventServiceDto));
+
+            var eventService = repository.GetById(eventServiceId);
+            eventService.ServiceId = serviceId;
+            eventService.ServicePackageId = servicePackageId;
+            eventService.Status = DataLayer.Enumerations.RequestStatus.Requested;
+            repository.Update(eventService);
+            unit.Commit();
+        }
+
+        public void Accept(int id)
+        {
+            var eventService = GetById(id);
+            eventService.Status = DataLayer.Enumerations.RequestStatus.Accepted;
+            Update(eventService);
+        }
+
+        public void Decline(int id)
+        {
+            var eventService = GetById(id);
+            eventService.Status = DataLayer.Enumerations.RequestStatus.Cancelled;
+            Update(eventService);
+        }
     }
 }

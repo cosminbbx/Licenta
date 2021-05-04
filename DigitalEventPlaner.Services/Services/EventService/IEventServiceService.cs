@@ -13,5 +13,8 @@ namespace DigitalEventPlaner.Services.Services.EventService
         EventServiceDto GetById(int id);
         void Create(EventServiceDto eventService);
         void Update(EventServiceDto eventService);
+        void UpdateServicePackage(int eventServiceId, int serviceId, int servicePackageId);
+        void Accept(int id);
+        void Decline(int id);
     }
 }

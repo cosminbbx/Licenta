@@ -22,5 +22,6 @@ namespace DigitalEventPlaner.Services.Services.Services
         ServiceWrapper GetServiceWrapperByServiceIdAndServicePackageId(int serviceId, int servicePackageId);
         List<ServiceWrapper> GetServiceWrappersByDateAndNOP(DateTime dateTime, string serviceType, int numberOfParticipants);
         List<EventWrapper> GetEventWrappersByUserId(int id);
+        List<EventRequestDto> GetServiceRequests(int userId);
     }
 }

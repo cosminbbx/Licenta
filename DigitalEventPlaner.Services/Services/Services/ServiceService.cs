@@ -8,6 +8,7 @@ using DigitalEventPlaner.Services.Services.Event.Dto;
 using DigitalEventPlaner.Services.Services.EventService;
 using DigitalEventPlaner.Services.Services.ServicePackage;
 using DigitalEventPlaner.Services.Services.Services.Dto;
+using DigitalEventPlaner.Services.Services.User;
 using Omu.ValueInjecter;
 
 namespace DigitalEventPlaner.Services.Services.Services
@@ -19,13 +20,15 @@ namespace DigitalEventPlaner.Services.Services.Services
         private IServicePackageService servicePackage;
         private IEventService eventService;
         private IEventServiceService eventServiceService;
+        private IUserService userService;
         private IUnitOfWork unit;
-        public ServiceService(IRepository<DataLayer.Entities.Service> repository, IServicePackageService servicePackage, IEventService eventService, IEventServiceService eventServiceService, IUnitOfWork unit)
+        public ServiceService(IRepository<DataLayer.Entities.Service> repository, IServicePackageService servicePackage, IEventService eventService, IEventServiceService eventServiceService, IUserService userService, IUnitOfWork unit)
         {
             this.repository = repository;
             this.servicePackage = servicePackage;
             this.eventService = eventService;
             this.eventServiceService = eventServiceService;
+            this.userService = userService;
             this.unit = unit;
         }
 
@@ -241,6 +244,7 @@ namespace DigitalEventPlaner.Services.Services.Services
                 {
                     var serviceWrapper = GetServiceWrapperByServiceIdAndServicePackageId(eventService.ServiceId, eventService.ServicePackageId);
                     serviceWrapper.Status = eventService.Status;
+                    serviceWrapper.EventServiceId = eventService.Id;
                     eventWrapper.ServiceWrappers.Add(serviceWrapper);
                 }
 
@@ -248,6 +252,37 @@ namespace DigitalEventPlaner.Services.Services.Services
             }
 
             return eventWrapperList;
+        }
+
+        public List<EventRequestDto> GetServiceRequests(int userId)
+        {
+            var services = GetByUserId(userId);
+            var requests = new List<EventRequestDto>();
+
+            foreach(var service in services)
+            {
+                var eventServices = eventServiceService.GetByServiceId(service.Id);
+
+                foreach(var es in eventServices)
+                {
+                    var ev = eventService.GetById(es.EventId);
+
+                    var request = new EventRequestDto();
+                    request.EventService = es;
+                    request.EventType = ev.EventType;
+
+                    var user = userService.GetById(ev.UserId);
+                    request.UserFirstName = user.FirstName;
+                    request.UserLastName = user.LastName;
+                    request.UserPhone = user.Phone;
+
+                    request.ServiceWrapper = GetServiceWrapperByServiceIdAndServicePackageId(es.ServiceId, es.ServicePackageId);
+                    request.ServiceWrapper.Status = es.Status;
+                    requests.Add(request);
+                }
+            }
+
+            return requests;
         }
     }
 }

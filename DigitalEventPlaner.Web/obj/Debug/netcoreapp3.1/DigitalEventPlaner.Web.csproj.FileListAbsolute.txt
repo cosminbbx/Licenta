@@ -301,3 +301,5 @@
 /Users/cosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Web/obj/Debug/netcoreapp3.1/Razor/Views/EventPlanning/Step2.cshtml.g.cs
 /Users/cosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Web/obj/Debug/netcoreapp3.1/Razor/Views/EventPlanning/Step3.cshtml.g.cs
 /Users/cosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Web/obj/Debug/netcoreapp3.1/Razor/Views/MyEvents/Index.cshtml.g.cs
+/Users/cosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Web/obj/Debug/netcoreapp3.1/Razor/Views/RequestManager/Index.cshtml.g.cs
+/Users/cosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Web/obj/Debug/netcoreapp3.1/Razor/Views/MyEvents/ChangeService.cshtml.g.cs

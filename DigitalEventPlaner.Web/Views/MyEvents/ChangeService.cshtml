@@ -1,0 +1,41 @@
+﻿@using DigitalEventPlaner.Web.Models.MyEvents
+@model ChangeServiceViewModel
+@{
+    ViewData["Title"] = "Profile Page";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<h3>@Model.ServiceType</h3>
+<form method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="ServiceType" value="@Model.ServiceType" />
+    <div class="list-group manage-service-container">
+        @foreach (var item in Model.ServiceWrappers)
+        {
+            <div class="list-group-item service-container">
+                <div> <a href="@Url.Action("ServiceDetails", "ServiceManage", new { item.Service.Id })">@item.Service.Name</a></div>
+                <div>
+                    @Html.ActionLink("AddPackage", "AddServicePackage", "ServiceManage", new { item.Service.Id }, new { @class = "btn btn-outline-primary btn-sm" })
+                    @Html.ActionLink("Edit", "EditService", "ServiceManage", new { item.Service.Id }, new { @class = "btn btn-outline-primary btn-sm" })
+                    @Html.ActionLink("Delete", "DeleteService", "ServiceManage", new { item.Service.Id }, new { @class = "btn btn-outline-primary btn-sm" })
+                </div>
+            </div>
+            <div class="list-group">
+                @foreach (var package in item.ServicePackages)
+                {
+
+                    <div class="list-group-item sublist-item">
+                        <input name="ServicePackageSelected" type="checkbox" value="@package.Id" />
+                        <div>@package.Description</div>
+                        <div>
+                            @Html.ActionLink("Edit", "EditServicePackage", "ServiceManage", new { package.Id }, new { @class = "btn btn-outline-primary btn-sm" })
+                            @Html.ActionLink("Delete", "DeleteServicePackage", "ServiceManage", new { package.Id }, new { @class = "btn btn-outline-primary btn-sm" })
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+        <span asp-validation-for="ServicePackageSelected" class="text-danger"></span>
+    </div>
+
+    <button class="btn btn-outline-primary">Submit</button>
+</form>

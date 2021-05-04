@@ -30,6 +30,7 @@
     <Folder Include="Models\Validation\" />
     <Folder Include="Views\MyEvents\" />
     <Folder Include="Models\MyEvents\" />
+    <Folder Include="Views\RequestManager\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
