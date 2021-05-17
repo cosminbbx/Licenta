@@ -1,25 +1,24 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using DigitalEventPlaner.Services.Services.CsvService;
-using Microsoft.Extensions.Configuration;
+using DigitalEventPlaner.Services.Services.Event;
+using DigitalEventPlaner.Services.Services.EventUpdater;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 
 namespace DigitalEventPlaner.Web.ScheduleServices
 {
-    public class CsvUpdater : IHostedService
+    public class EventUpdater : IHostedService
     {
-        private readonly ICsvService csvService;
+        private readonly IEventUpdaterService eventService;
 
-        public CsvUpdater(ICsvService csvService)
+        public EventUpdater(IEventUpdaterService eventService)
         {
-            this.csvService = csvService;
+            this.eventService = eventService;
         }
 
         public Task StartAsync(CancellationToken cancellationToken)
         {
-            csvService.UpdateCsv(cancellationToken);
+            eventService.UpdateEvents(cancellationToken);
             return Task.CompletedTask;
         }
 

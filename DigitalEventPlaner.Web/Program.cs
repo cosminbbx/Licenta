@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DigitalEventPlaner.Services.Services.EventUpdater;
 using DigitalEventPlaner.Web.ScheduleServices;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -23,6 +24,8 @@ namespace DigitalEventPlaner.Web
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                }).ConfigureServices(services => services.AddHostedService<CsvUpdater>());
+                })
+                .ConfigureServices(services => services.AddHostedService<CsvUpdater>())
+                .ConfigureServices(services => services.AddHostedService<EventUpdater>());
     }
 }

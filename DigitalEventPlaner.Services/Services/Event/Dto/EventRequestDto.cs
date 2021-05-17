@@ -11,6 +11,7 @@ namespace DigitalEventPlaner.Services.Services.Event.Dto
         public string UserLastName { get; set; }
         public string UserPhone { get; set; }
         public EventType EventType { get; set; }
+        public DateTime EventDate { get; set; }
         public EventServiceDto EventService { get; set; }
 
         public ServiceWrapper ServiceWrapper { get; set; }

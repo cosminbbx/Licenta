@@ -1,6 +1,7 @@
 ﻿
 
 using System.Collections.Generic;
+using System.Linq;
 using DigitalEventPlaner.Services.Services.Event.Dto;
 using DigitalEventPlaner.Services.Services.Services.Dto;
 using DigitalEventPlaner.Web.Models.MyEvents;
@@ -12,7 +13,7 @@ namespace DigitalEventPlaner.Web.Helpers
 {
     public static class GeneralHelper
     {
-        public static List<EventWrapperViewModel> MapEventWrapperList(List<EventWrapper> eventWrappers)
+        public static EventWrappersSortedViewModel MapEventWrapperList(List<EventWrapper> eventWrappers)
         {
             var viewModelList = new List<EventWrapperViewModel>();
 
@@ -23,7 +24,13 @@ namespace DigitalEventPlaner.Web.Helpers
                 viewModelList.Add(eventWrapper);
             }
 
-            return viewModelList;
+            return new EventWrappersSortedViewModel()
+            {
+                NeedsApproval = viewModelList.Where(x => x.EventStatus == DataLayer.Enumerations.EventStatus.Planning).ToList(),
+                ToBeDone = viewModelList.Where(x => x.EventStatus == DataLayer.Enumerations.EventStatus.ToBeDone).ToList(),
+                Done = viewModelList.Where(x => x.EventStatus == DataLayer.Enumerations.EventStatus.Done).ToList(),
+                Canceled = viewModelList.Where(x => x.EventStatus == DataLayer.Enumerations.EventStatus.Cancelled).ToList()
+            };
         }
         public static List<ServiceWrapperViewModel> MapServiceWrapperList(List<ServiceWrapper> serviceWrappers)
         {

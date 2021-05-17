@@ -9,6 +9,7 @@ namespace DigitalEventPlaner.Web.Models.MyEvents
     {
         public DateTime EventDate { get; set; }
         public EventType EventType { get; set; }
+        public EventStatus EventStatus { get; set; }
         public List<Services.ServiceWrapperViewModel> ServiceWrappers { get; set; }
     }
 }

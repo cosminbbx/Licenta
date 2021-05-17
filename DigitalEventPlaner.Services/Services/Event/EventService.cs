@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using DataLayer.Enumerations;
 using DataLayer.Infrastructure;
 using DigitalEventPlaner.Services.Services.Event.Dto;
@@ -8,6 +10,7 @@ using DigitalEventPlaner.Services.Services.EventService;
 using DigitalEventPlaner.Services.Services.EventService.Dto;
 using DigitalEventPlaner.Services.Services.ServicePackage;
 using DigitalEventPlaner.Services.Services.Services;
+using Microsoft.Extensions.Configuration;
 using Omu.ValueInjecter;
 
 namespace DigitalEventPlaner.Services.Services.Event
@@ -19,13 +22,22 @@ namespace DigitalEventPlaner.Services.Services.Event
         private IRepository<DataLayer.Entities.Service> serviceRepo;
         private IServicePackageService servicePackageService;
         private IUnitOfWork unit;
-        public EventService(IRepository<DataLayer.Entities.Event> repository, IRepository<DataLayer.Entities.Service> serviceRepo, IEventServiceService eventServiceService, IServicePackageService servicePackageService, IUnitOfWork unit)
+        private IConfiguration config;
+
+        public EventService(IRepository<DataLayer.Entities.Event> repository,
+            IRepository<DataLayer.Entities.Service> serviceRepo,
+            IEventServiceService eventServiceService,
+            IServicePackageService servicePackageService,
+            IUnitOfWork unit,
+            IConfiguration config
+            )
         {
             this.repository = repository;
             this.eventServiceService = eventServiceService;
             this.servicePackageService = servicePackageService;
             this.serviceRepo = serviceRepo;
             this.unit = unit;
+            this.config = config;
         }
 
         public int Create(EventDto eventDto)
@@ -123,6 +135,53 @@ namespace DigitalEventPlaner.Services.Services.Event
                 });
             }
             unit.Commit();
+        }
+
+        public void UpdateDoneEvents()
+        {
+            var events = repository.GetAll().Where(x => x.IsDeleted == false);
+            foreach(var eventItem in events)
+            {
+                if(DateTime.Compare(eventItem.EventDate, DateTime.Today) < 0 && eventItem.Status != EventStatus.Done)
+                {
+                    if(eventItem.Status != EventStatus.Cancelled)
+                    {
+                        eventItem.Status = EventStatus.Done;
+                    }
+                    else
+                    {
+                        eventItem.Status = EventStatus.Cancelled;
+                    }
+                    repository.Update(eventItem);
+                }
+            }
+            unit.Commit();
+        }
+
+        public void UpdateToBeDoneStatusById(int eventId)
+        {
+            var eventItem = repository.GetById(eventId);
+            eventItem.Status = EventStatus.ToBeDone;
+            repository.Update(eventItem);
+            unit.Commit();
+        }
+
+        public void AcceptAndUpdateEventService(int id)
+        {
+            var eventServiceItem = eventServiceService.GetById(id);
+            eventServiceItem.Status = DataLayer.Enumerations.RequestStatus.Accepted;
+            eventServiceService.Update(eventServiceItem);
+
+            var allServices = eventServiceService.GetByEventId(eventServiceItem.EventId);
+            var allServicesAccepted = true;
+            foreach (var service in allServices)
+            {
+                if (eventServiceItem.Status != DataLayer.Enumerations.RequestStatus.Accepted)
+                {
+                    allServicesAccepted = false;
+                }
+            }
+            if (allServicesAccepted) UpdateToBeDoneStatusById(eventServiceItem.EventId);
         }
     }
 }

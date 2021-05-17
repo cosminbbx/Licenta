@@ -25,6 +25,7 @@
     <Folder Include="Services\FaceRecognition\" />
     <Folder Include="Services\CsvService\" />
     <Folder Include="Services\MLService\" />
+    <Folder Include="Services\EventUpdater\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataLayer\DataLayer.csproj" />

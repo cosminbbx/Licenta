@@ -236,6 +236,7 @@ namespace DigitalEventPlaner.Services.Services.Services
                 var eventWrapper = new EventWrapper();
                 eventWrapper.EventDate = eventItem.EventDate;
                 eventWrapper.EventType = eventItem.EventType;
+                eventWrapper.EventStatus = eventItem.Status;
                 eventWrapper.ServiceWrappers = new List<ServiceWrapper>();
 
                 var eventServices = eventServiceService.GetByEventId(eventItem.Id);
@@ -251,7 +252,7 @@ namespace DigitalEventPlaner.Services.Services.Services
                 eventWrapperList.Add(eventWrapper);
             }
 
-            return eventWrapperList;
+            return eventWrapperList.OrderByDescending(x => x.EventDate).ToList();
         }
 
         public List<EventRequestDto> GetServiceRequests(int userId)
@@ -270,6 +271,7 @@ namespace DigitalEventPlaner.Services.Services.Services
                     var request = new EventRequestDto();
                     request.EventService = es;
                     request.EventType = ev.EventType;
+                    request.EventDate = ev.EventDate;
 
                     var user = userService.GetById(ev.UserId);
                     request.UserFirstName = user.FirstName;
@@ -282,7 +284,7 @@ namespace DigitalEventPlaner.Services.Services.Services
                 }
             }
 
-            return requests;
+            return requests.OrderByDescending(x => x.EventDate).ToList();
         }
     }
 }

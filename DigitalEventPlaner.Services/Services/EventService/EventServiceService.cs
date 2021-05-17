@@ -1,8 +1,10 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Linq;
 using DataLayer.Infrastructure;
+using DigitalEventPlaner.Services.Services.Event;
 using DigitalEventPlaner.Services.Services.EventService.Dto;
+using DigitalEventPlaner.Services.Services.Services;
 using Omu.ValueInjecter;
 
 namespace DigitalEventPlaner.Services.Services.EventService
@@ -98,13 +100,6 @@ namespace DigitalEventPlaner.Services.Services.EventService
             eventService.Status = DataLayer.Enumerations.RequestStatus.Requested;
             repository.Update(eventService);
             unit.Commit();
-        }
-
-        public void Accept(int id)
-        {
-            var eventService = GetById(id);
-            eventService.Status = DataLayer.Enumerations.RequestStatus.Accepted;
-            Update(eventService);
         }
 
         public void Decline(int id)

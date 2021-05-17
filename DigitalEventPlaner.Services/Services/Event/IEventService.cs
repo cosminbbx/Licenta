@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 using DigitalEventPlaner.Services.Services.Event.Dto;
 
 namespace DigitalEventPlaner.Services.Services.Event
@@ -14,5 +16,8 @@ namespace DigitalEventPlaner.Services.Services.Event
         void Update(EventDto eventDto);
         void SoftDelete(int id);
         Dictionary<int, int> GetServicesIdForDate(DateTime date);
+        void UpdateDoneEvents();
+        void UpdateToBeDoneStatusById(int eventId);
+        void AcceptAndUpdateEventService(int id);
     }
 }
