@@ -32,7 +32,7 @@ namespace DigitalEventPlaner.Web.Controllers
             var userId = Int32.Parse(HttpContext.User.Claims.ToList()[0].Value);
             var eventRequests = serviceService.GetServiceRequests(userId);
 
-            var viewModelList = GeneralHelper.MapServiceRequestList(eventRequests);
+            var viewModelList = GeneralHelper.MapServiceRequestSortedList(eventRequests);
             return View(viewModelList);
         }
 

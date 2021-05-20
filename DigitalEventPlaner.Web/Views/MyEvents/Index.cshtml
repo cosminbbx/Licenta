@@ -102,27 +102,34 @@
     <h3>Done</h3>
     @foreach (var ev in Model.Done)
     {
-        <div class="event-container">
-            <h5>@ev.EventDate.ToString("dd/MM/yyyy") EventType: @ev.EventType Status: @ev.EventStatus</h5>
-            @foreach (var service in ev.ServiceWrappers)
-            {
-                <div class="list-group-item service-container">
-                    <div> @service.Service.Name</div>
-                </div>
-                <div class="list-group">
-                    @foreach (var package in service.ServicePackages)
-                    {
-                        <div class="list-group-item sublist-item">
-                            <div>@package.Description</div>
-                            <div>@service.Status</div>
-                            @if (@service.Status == DataLayer.Enumerations.RequestStatus.Cancelled)
-                            {
-                                @Html.ActionLink("Change service", "ChangeService", "MyEvents", new { eventServiceId = service.EventServiceId, eventType = service.Service.ServiceType, eventDate = ev.EventDate }, new { @class = "btn btn-outline-primary btn-sm" })
-                            }
-                        </div>
-                    }
-                </div>
-            }
-        </div>
+    <div class="event-container">
+        <h5>@ev.EventDate.ToString("dd/MM/yyyy") EventType: @ev.EventType Status: @ev.EventStatus</h5>
+        <form method="post" asp-controller="MyEvents" asp-action="UploadForSmartRating" enctype="multipart/form-data">
+            <input type="hidden" name="EventId" value="@ev.EventId" />
+            <div class="form-group">
+                <input type="file" name="Imagelist" accept="image/x-png,image/gif,image/jpeg, image/jpg" multiple />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Upload" class="btn btn-default" />
+            </div>
+        </form>
+        @foreach (var service in ev.ServiceWrappers)
+        {
+            <div class="list-group-item service-container">
+                <div> @service.Service.Name</div>
+            </div>
+
+            <div class="list-group">
+                @foreach (var package in service.ServicePackages)
+                {
+                    <div class="list-group-item sublist-item">
+                        <div>@package.Description</div>
+                        <div>@service.Status</div>
+
+                    </div>
+                }
+            </div>
+        }
+    </div>
     }
 }

@@ -234,6 +234,7 @@ namespace DigitalEventPlaner.Services.Services.Services
             foreach(var eventItem in events)
             {
                 var eventWrapper = new EventWrapper();
+                eventWrapper.EventId = eventItem.Id;
                 eventWrapper.EventDate = eventItem.EventDate;
                 eventWrapper.EventType = eventItem.EventType;
                 eventWrapper.EventStatus = eventItem.Status;
@@ -268,23 +269,73 @@ namespace DigitalEventPlaner.Services.Services.Services
                 {
                     var ev = eventService.GetById(es.EventId);
 
-                    var request = new EventRequestDto();
-                    request.EventService = es;
-                    request.EventType = ev.EventType;
-                    request.EventDate = ev.EventDate;
+                    if (DateTime.Compare(ev.EventDate, DateTime.Today) >= 0)
+                    {
+                        var request = new EventRequestDto();
+                        request.EventService = es;
+                        request.EventType = ev.EventType;
+                        request.EventDate = ev.EventDate;
 
-                    var user = userService.GetById(ev.UserId);
-                    request.UserFirstName = user.FirstName;
-                    request.UserLastName = user.LastName;
-                    request.UserPhone = user.Phone;
+                        var user = userService.GetById(ev.UserId);
+                        request.UserFirstName = user.FirstName;
+                        request.UserLastName = user.LastName;
+                        request.UserPhone = user.Phone;
 
-                    request.ServiceWrapper = GetServiceWrapperByServiceIdAndServicePackageId(es.ServiceId, es.ServicePackageId);
-                    request.ServiceWrapper.Status = es.Status;
-                    requests.Add(request);
+                        request.ServiceWrapper = GetServiceWrapperByServiceIdAndServicePackageId(es.ServiceId, es.ServicePackageId);
+                        request.ServiceWrapper.Status = es.Status;
+                        requests.Add(request);
+                    }
                 }
             }
 
             return requests.OrderByDescending(x => x.EventDate).ToList();
+        }
+
+        public List<EventRequestDto> GetCalendar(int userId)
+        {
+            var services = GetByUserId(userId);
+            var requests = new List<EventRequestDto>();
+
+            foreach (var service in services)
+            {
+                var eventServices = eventServiceService.GetByServiceId(service.Id);
+
+                foreach (var es in eventServices)
+                {
+                    var ev = eventService.GetById(es.EventId);
+
+                    if(es.Status == RequestStatus.Accepted && DateTime.Compare(ev.EventDate,DateTime.Today) >= 0)
+                    {
+                        var request = new EventRequestDto();
+                        request.EventService = es;
+                        request.EventType = ev.EventType;
+                        request.EventDate = ev.EventDate;
+
+                        var user = userService.GetById(ev.UserId);
+                        request.UserFirstName = user.FirstName;
+                        request.UserLastName = user.LastName;
+                        request.UserPhone = user.Phone;
+
+                        request.ServiceWrapper = GetServiceWrapperByServiceIdAndServicePackageId(es.ServiceId, es.ServicePackageId);
+                        request.ServiceWrapper.Status = es.Status;
+                        requests.Add(request);
+                    }
+                }
+            }
+
+            return requests.OrderByDescending(x => x.EventDate).ToList();
+        }
+
+        public void UpdateSmartRating (double smartRatingValue, int eventId)
+        {
+            var eventServices = eventServiceService.GetByEventId(eventId);
+            foreach(var eventServiceItem in eventServices)
+            {
+                var service = GetById(eventServiceItem.ServiceId);
+                service.SmartRate = service.SmartRate + smartRatingValue;
+                service.NumberOfRatings = service.NumberOfRatings + 1;
+                Update(service);
+            }
         }
     }
 }

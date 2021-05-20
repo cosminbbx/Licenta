@@ -23,5 +23,7 @@ namespace DigitalEventPlaner.Services.Services.Services
         List<ServiceWrapper> GetServiceWrappersByDateAndNOP(DateTime dateTime, string serviceType, int numberOfParticipants);
         List<EventWrapper> GetEventWrappersByUserId(int id);
         List<EventRequestDto> GetServiceRequests(int userId);
+        List<EventRequestDto> GetCalendar(int userId);
+        void UpdateSmartRating(double smartRatingValue, int eventId);
     }
 }

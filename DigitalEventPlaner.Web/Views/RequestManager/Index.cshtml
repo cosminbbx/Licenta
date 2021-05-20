@@ -1,5 +1,5 @@
 ﻿@using DigitalEventPlaner.Web.Models.MyEvents
-@model List<EventRequestViewModel>
+@model EventRequestSortedViewModel
 @{
     ViewData["Title"] = "Profile Page";
     Layout = "_ServiceLayout";
@@ -7,31 +7,101 @@
 
 <h3>Manage requests</h3>
 
-@foreach (var request in Model)
+@if (Model.NeedsApproval.Count() > 0)
 {
-<div class="event-container">
-    <h5>EventType: @request.EventType</h5>
-    <h5>First name: @request.UserFirstName</h5>
-    <h5>Last name: @request.UserLastName</h5>
-    <h5>Phone: @request.UserPhone</h5>
-    <h5>Date: @request.EventDate</h5>
+    <h3>Needs approval</h3>
+    @foreach (var request in Model.NeedsApproval)
+    {
+        <div class="event-container">
+            <h5>EventType: @request.EventType</h5>
+            <h5>First name: @request.UserFirstName</h5>
+            <h5>Last name: @request.UserLastName</h5>
+            <h5>Phone: @request.UserPhone</h5>
+            <h5>Date: @request.EventDate</h5>
 
-    <div class="list-group-item service-container">
-        <div> @request.ServiceWrapper.Service.Name</div>
-    </div>
-    <div class="list-group">
-        @foreach (var package in request.ServiceWrapper.ServicePackages)
-        {
-            <div class="list-group-item sublist-item">
-                <div>@package.Description</div>
-                <div>@request.ServiceWrapper.Status</div>
-                @if (@request.ServiceWrapper.Status == DataLayer.Enumerations.RequestStatus.Requested)
+            <div class="list-group-item service-container">
+                <div> @request.ServiceWrapper.Service.Name</div>
+            </div>
+            <div class="list-group">
+                @foreach (var package in request.ServiceWrapper.ServicePackages)
                 {
-                    @Html.ActionLink("Accept", "Accept", "RequestManager", new { eventServiceId = request.EventService.Id }, new { @class = "btn btn-outline-primary btn-sm" })
-                    @Html.ActionLink("Decline", "Decline", "RequestManager", new { eventServiceId = request.EventService.Id }, new { @class = "btn btn-outline-primary btn-sm" })
+                    <div class="list-group-item sublist-item">
+                        <div>@package.Description</div>
+                        <div>@request.ServiceWrapper.Status</div>
+                        @if (@request.ServiceWrapper.Status == DataLayer.Enumerations.RequestStatus.Requested)
+                        {
+                            @Html.ActionLink("Accept", "Accept", "RequestManager", new { eventServiceId = request.EventService.Id }, new { @class = "btn btn-outline-primary btn-sm" })
+                            @Html.ActionLink("Decline", "Decline", "RequestManager", new { eventServiceId = request.EventService.Id }, new { @class = "btn btn-outline-primary btn-sm" })
+                        }
+                    </div>
                 }
             </div>
-        }
-    </div>
-</div>
+        </div>
+    }
+}
+
+@if (Model.Accepted.Count() > 0)
+{
+    <h3>Accepted request</h3>
+    @foreach (var request in Model.Accepted)
+    {
+        <div class="event-container">
+            <h5>EventType: @request.EventType</h5>
+            <h5>First name: @request.UserFirstName</h5>
+            <h5>Last name: @request.UserLastName</h5>
+            <h5>Phone: @request.UserPhone</h5>
+            <h5>Date: @request.EventDate</h5>
+
+            <div class="list-group-item service-container">
+                <div> @request.ServiceWrapper.Service.Name</div>
+            </div>
+            <div class="list-group">
+                @foreach (var package in request.ServiceWrapper.ServicePackages)
+                {
+                    <div class="list-group-item sublist-item">
+                        <div>@package.Description</div>
+                        <div>@request.ServiceWrapper.Status</div>
+                        @if (@request.ServiceWrapper.Status == DataLayer.Enumerations.RequestStatus.Requested)
+                        {
+                            @Html.ActionLink("Accept", "Accept", "RequestManager", new { eventServiceId = request.EventService.Id }, new { @class = "btn btn-outline-primary btn-sm" })
+                            @Html.ActionLink("Decline", "Decline", "RequestManager", new { eventServiceId = request.EventService.Id }, new { @class = "btn btn-outline-primary btn-sm" })
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+    }
+}
+
+@if (Model.Canceled.Count() > 0)
+{
+    <h3>Canceled requests</h3>
+    @foreach (var request in Model.Canceled)
+    {
+        <div class="event-container">
+            <h5>EventType: @request.EventType</h5>
+            <h5>First name: @request.UserFirstName</h5>
+            <h5>Last name: @request.UserLastName</h5>
+            <h5>Phone: @request.UserPhone</h5>
+            <h5>Date: @request.EventDate</h5>
+
+            <div class="list-group-item service-container">
+                <div> @request.ServiceWrapper.Service.Name</div>
+            </div>
+            <div class="list-group">
+                @foreach (var package in request.ServiceWrapper.ServicePackages)
+                {
+                    <div class="list-group-item sublist-item">
+                        <div>@package.Description</div>
+                        <div>@request.ServiceWrapper.Status</div>
+                        @if (@request.ServiceWrapper.Status == DataLayer.Enumerations.RequestStatus.Requested)
+                        {
+                            @Html.ActionLink("Accept", "Accept", "RequestManager", new { eventServiceId = request.EventService.Id }, new { @class = "btn btn-outline-primary btn-sm" })
+                            @Html.ActionLink("Decline", "Decline", "RequestManager", new { eventServiceId = request.EventService.Id }, new { @class = "btn btn-outline-primary btn-sm" })
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+    }
 }

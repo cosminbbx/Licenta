@@ -7,6 +7,7 @@ namespace DigitalEventPlaner.Services.Services.Event.Dto
 {
     public class EventWrapper
     {
+        public int EventId { get; set; }
         public DateTime EventDate { get; set; }
         public EventType EventType { get; set; }
         public EventStatus EventStatus { get; set; }

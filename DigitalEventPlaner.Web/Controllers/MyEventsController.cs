@@ -1,9 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using DataLayer.Enumerations;
+using DigitalEventPlaner.Services.Services.BlobService;
+using DigitalEventPlaner.Services.Services.ContainerName;
+using DigitalEventPlaner.Services.Services.ContainerName.Dto;
 using DigitalEventPlaner.Services.Services.EventService;
 using DigitalEventPlaner.Services.Services.EventService.Dto;
+using DigitalEventPlaner.Services.Services.FaceRecognition;
 using DigitalEventPlaner.Services.Services.ServicePackage;
 using DigitalEventPlaner.Services.Services.Services;
 using DigitalEventPlaner.Web.Helpers;
@@ -12,6 +18,7 @@ using DigitalEventPlaner.Web.Models.ServicePackage;
 using DigitalEventPlaner.Web.Models.Services;
 using DigitalEventPlaner.Web.Models.Validation;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Omu.ValueInjecter;
 
@@ -22,11 +29,17 @@ namespace DigitalEventPlaner.Web.Controllers
         private readonly IServiceService serviceService;
         private readonly IEventServiceService eventServiceService;
         private readonly IServicePackageService servicePackageService;
-        public MyEventsController(IServiceService serviceService, IEventServiceService eventServiceService, IServicePackageService servicePackageService)
+        private readonly IBlobService blobService;
+        private readonly IContainerNameService containerNameService;
+        private readonly IFaceRecognitionService faceRecognitionService;
+        public MyEventsController(IServiceService serviceService, IEventServiceService eventServiceService, IServicePackageService servicePackageService, IBlobService blobService, IContainerNameService containerNameService, IFaceRecognitionService faceRecognitionService)
         {
             this.serviceService = serviceService;
             this.eventServiceService = eventServiceService;
             this.servicePackageService = servicePackageService;
+            this.blobService = blobService;
+            this.containerNameService = containerNameService;
+            this.faceRecognitionService = faceRecognitionService;
         }
 
         [Authorize(Roles = "Customer")]
@@ -104,6 +117,42 @@ namespace DigitalEventPlaner.Web.Controllers
             };
             TempData.Put("ServiceWrappers", serviceWrappers);
             return View(viewModel);
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "Customer")]
+        public async Task<IActionResult> UploadForSmartRating(UploadViewModel model)
+        {
+            var userId = Int32.Parse(HttpContext.User.Claims.ToList()[0].Value);
+            var imageNames = await UploadSmartRateImages(model.Imagelist, userId);
+            var smartRateValue = await faceRecognitionService.GetSmartRateForImages(imageNames);
+            serviceService.UpdateSmartRating(smartRateValue, model.EventId);
+
+            return RedirectToAction(nameof(MyEventsController.Index), "MyEvents");
+        }
+
+        private async Task<List<string>> UploadSmartRateImages(List<IFormFile> imagelist, int userId)
+        {
+            var imageList = new List<string>();
+            foreach (var image in imagelist)
+            {
+                using (var stream = new MemoryStream())
+                {
+                    await image.CopyToAsync(stream);
+                    var fileName = Guid.NewGuid() + Path.GetExtension(image.FileName);
+                    await blobService.UploadSmartRateImage(stream.GetBuffer(), image.FileName, fileName);
+
+                    var smartRatingDto = new ContainerNameDto()
+                    {
+                        Name = fileName,
+                        ContainerType = ContainerType.SmartRateImage,
+                        UserId = userId
+                    };
+                    containerNameService.Create(smartRatingDto);
+                    imageList.Add(fileName);
+                }
+            }
+            return imageList;
         }
     }
 }

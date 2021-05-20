@@ -36,7 +36,22 @@ namespace DigitalEventPlaner.Web.Controllers
         [Authorize(Roles = "Customer")]
         public IActionResult Step1()
         {
-            return View(new EventPlanningStep1ViewModel());
+            var viewModel = new EventPlanningStep1ViewModel();
+            viewModel.ServiceTypes = GetServiceTypes(serviceService.GetAll());
+            return View(viewModel);
+        }
+
+        private List<string> GetServiceTypes(List<ServiceDto> services)
+        {
+            var serviceTypesList = new List<string>();
+            foreach (ServiceType type in Enum.GetValues(typeof(ServiceType)))
+            {
+                if (services.Any(x => x.ServiceType == type))
+                {
+                    serviceTypesList.Add(type.ToString());
+                }
+            }
+            return serviceTypesList;
         }
 
         [HttpPost]
@@ -47,12 +62,12 @@ namespace DigitalEventPlaner.Web.Controllers
             //model.EventTypes = Enum.GetValues(typeof(ServiceType)).Cast<string>().ToList();
             if (ModelState.IsValid)
             {
-                model.Estimation = mLService.BugetEstimation(new Services.Services.Event.Dto.EventDto()
-                {
-                    UserId = model.UserId,
-                    NumberOfServices = model.EventTypesSelected.Count(),
-                    Participants = model.Participants
-                });
+                //model.Estimation = mLService.BugetEstimation(new Services.Services.Event.Dto.EventDto()
+                //{
+                    //UserId = model.UserId,
+                    //NumberOfServices = model.EventTypesSelected.Count(),
+                    //Participants = model.Participants
+                //});
                 model.UserId = Int32.Parse(HttpContext.User.Claims.ToList()[0].Value);
                 //var viewModel = new EventPlanningStep2ViewModel() { Estimation = estimation, Step1 = new Step1Dto().InjectFrom(model) as Step1Dto };
                 return RedirectToAction(nameof(EventPlanningController.Step2), "EventPlanning", model);

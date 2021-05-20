@@ -11,7 +11,8 @@ namespace DigitalEventPlaner.Services.Services.Services.Dto
         public string Name { get; set; }
         public string Description { get; set; }
         public int EventsPerDay { get; set; }
-        public float SmartRate { get; set; }
+        public double SmartRate { get; set; }
+        public int NumberOfRatings { get; set; }
         public bool IsDeleted { get; set; }
     }
 }

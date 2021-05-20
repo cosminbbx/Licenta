@@ -6,6 +6,6 @@ namespace DigitalEventPlaner.Services.Services.FaceRecognition
 {
     public interface IFaceRecognitionService
     {
-        Task<List<double>> GetSmartRateForImages(List<string> imageFileNames);
+        Task<double> GetSmartRateForImages(List<string> imageFileNames);
     }
 }

@@ -62,7 +62,7 @@ namespace DigitalEventPlaner.Web.Helpers
             };
         }
 
-        public static List<EventRequestViewModel> MapServiceRequestList(List<EventRequestDto> eventRequests)
+        public static EventRequestSortedViewModel MapServiceRequestSortedList(List<EventRequestDto> eventRequests)
         {
             var serviceViewModelList = new List<EventRequestViewModel>();
             foreach(var er in eventRequests)
@@ -72,6 +72,26 @@ namespace DigitalEventPlaner.Web.Helpers
                 viewModel.ServiceWrapper = MapServiceWrapper(er.ServiceWrapper);
                 serviceViewModelList.Add(viewModel);
             }
+
+            return new EventRequestSortedViewModel()
+            {
+                NeedsApproval = serviceViewModelList.Where(x => x.EventService.Status == DataLayer.Enumerations.RequestStatus.Requested).ToList(),
+                Accepted = serviceViewModelList.Where(x => x.EventService.Status == DataLayer.Enumerations.RequestStatus.Accepted).ToList(),
+                Canceled = serviceViewModelList.Where(x => x.EventService.Status == DataLayer.Enumerations.RequestStatus.Cancelled).ToList()
+            };
+        }
+
+        public static List<EventRequestViewModel> MapServiceRequestList(List<EventRequestDto> eventRequests)
+        {
+            var serviceViewModelList = new List<EventRequestViewModel>();
+            foreach (var er in eventRequests)
+            {
+                var viewModel = new EventRequestViewModel().InjectFrom(er) as EventRequestViewModel;
+                viewModel.EventService = new EventServiceViewModel().InjectFrom(er.EventService) as EventServiceViewModel;
+                viewModel.ServiceWrapper = MapServiceWrapper(er.ServiceWrapper);
+                serviceViewModelList.Add(viewModel);
+            }
+
             return serviceViewModelList;
         }
     }

@@ -53,9 +53,9 @@ namespace DigitalEventPlaner.Web.Controllers
         {
             var userId = Int32.Parse(HttpContext.User.Claims.ToList()[0].Value);
             var imageNames = await UploadSmartRateImages(imagelist, userId);
-            var x = await faceRecognitionService.GetSmartRateForImages(imageNames);
+            var smartRateValue = await faceRecognitionService.GetSmartRateForImages(imageNames);
             return RedirectToAction("Profile", new RouteValueDictionary(
-            new { controller = "CustomerProfile", action = "Profile", SmartRating = x[1] / x[0] }));
+            new { controller = "CustomerProfile", action = "Profile", smartRateValue }));
         }
 
         private async Task<List<string>> UploadSmartRateImages(List<IFormFile> imagelist, int userId)

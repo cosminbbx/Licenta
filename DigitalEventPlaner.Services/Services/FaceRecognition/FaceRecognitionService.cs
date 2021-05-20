@@ -23,18 +23,15 @@ namespace DigitalEventPlaner.Services.Services.FaceRecognition
 
         }
 
-        public async Task<List<double>> GetSmartRateForImages(List<string> imageFileNames)
+        public async Task<double> GetSmartRateForImages(List<string> imageFileNames)
         {
             return await DetectFaceExtract(client, IMAGE_BASE_URL, RECOGNITION_MODEL, imageFileNames);
         }
 
-        public async Task<List<double>> DetectFaceExtract(IFaceClient client, string url, string recognitionModel, List<string> imageFileNames)
+        public async Task<double> DetectFaceExtract(IFaceClient client, string url, string recognitionModel, List<string> imageFileNames)
         {
             Console.WriteLine("========DETECT FACES========");
             Console.WriteLine();
-
-            // Create a list of images
-            var intList = new List<double>();
             double facesCount = 0.0;
             double smartRate = 0;
 
@@ -120,9 +117,8 @@ namespace DigitalEventPlaner.Services.Services.FaceRecognition
                     Console.WriteLine();
                 }
             }
-            intList.Add(facesCount);
-            intList.Add(smartRate);
-            return intList;
+
+            return smartRate / facesCount;
         }
     }
 }
