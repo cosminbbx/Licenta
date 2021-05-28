@@ -32,6 +32,7 @@
     <Folder Include="Models\MyEvents\" />
     <Folder Include="Views\RequestManager\" />
     <Folder Include="Views\Calendar\" />
+    <Folder Include="wwwroot\img\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />

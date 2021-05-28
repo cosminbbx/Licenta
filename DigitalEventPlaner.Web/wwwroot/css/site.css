@@ -134,3 +134,121 @@ body {
 .event-container{
     padding-bottom: 20px;
 }
+
+.gradient-background, body, html {
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(10,117,191,1) 0%, rgba(10,191,129,1) 100%);
+}
+
+@font-face {
+    font-family: 'Bebas';
+    src: url('BebasNeue-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Bitcrusher';
+    src: url('bitcrusher condensed bd.ttf');
+}
+
+@font-face {
+    font-family: 'Finserif';
+    src: url('FinSerifDisplay-Italic.ttf');
+}
+
+.font-bebas {
+    font-family: 'Bebas';
+    font-size: 30px;
+    color: white;
+}
+
+.font-bit {
+    font-family: 'Bitcrusher';
+    font-size: 40px;
+    color: white;
+}
+
+.font-fin {
+    font-family: 'Finserif';
+    font-size: 15px;
+    color: white;
+}
+
+a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.box-shadow {
+    box-shadow: 0 0.25rem 0.75rem rgb(0 0 0 / 20%);
+}
+
+.border-bottom {
+    border-bottom: none !important;
+}
+
+.border-top {
+    border-top: none !important;
+}
+
+.mb-3, .my-3 {
+    margin-bottom: 0rem !important;
+}
+
+.container-inside {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.pb-3, .py-3 {
+    padding-top: 1rem;
+}
+
+.logo-dep{
+    width:400px;
+    height:400px;
+}
+
+.logo-dep-small {
+    width: 40px;
+    height: 40px;
+}
+
+.flex-container-start {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-bottom: 40px;
+    padding-top:40px;
+}
+
+.left-container-start, .right-container-start {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+}
+
+.btn{
+    font-family: 'Bebas';
+}
+
+.btn-outline-primary {
+    color: white;
+    border-color: white;
+    padding-left: 35px;
+    padding-right: 35px;
+    border-radius: 1.5rem;
+    margin-left:20px;   
+}
+
+    .btn-outline-primary:hover {
+        color: #fff;
+        background-color: rgba(255, 255, 255, 0.2) !important;
+        border-color: white;
+    }
+
+.text-container-start {
+    width: 400px;
+    text-align: center;
+    margin-bottom:20px;
+    margin-top:20px;
+}
