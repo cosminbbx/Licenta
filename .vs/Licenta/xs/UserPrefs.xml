@@ -1,21 +1,21 @@
 ﻿<Properties StartupConfiguration="{29B536E6-802B-49EC-8376-40D70D03DCF5}|Default">
   <MonoDevelop.Ide.ItemProperties.DigitalEventPlaner.Web PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.ItemProperties.ConsoleAppTest PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="DigitalEventPlaner.Web/wwwroot/css/site.css">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DigitalEventPlaner.Web/Program.cs">
     <Files>
       <File FileName="DigitalEventPlaner.Web/Views/CustomerProfile/Profile.cshtml" Line="29" Column="1" IsPinned="True" />
       <File FileName="DigitalEventPlaner.Web/Controllers/MyEventsController.cs" />
       <File FileName="DigitalEventPlaner.Web/Views/MyEvents/Index.cshtml" />
-      <File FileName="DigitalEventPlaner.Web/Views/Home/Index.cshtml" Line="18" Column="69" />
+      <File FileName="DigitalEventPlaner.Web/Views/Home/Index.cshtml" />
       <File FileName="DigitalEventPlaner.Services/Services/EventService/IEventServiceService.cs" />
       <File FileName="DigitalEventPlaner.Services/Services/Event/Dto/EventWrapper.cs" />
       <File FileName="DigitalEventPlaner.Web/Models/MyEvents/EventWrapperViewModel.cs" />
       <File FileName="DigitalEventPlaner.Web/Helpers/GeneralHelper.cs" />
       <File FileName="DigitalEventPlaner.Web/Views/Shared/_CustomerLayout.cshtml" />
       <File FileName="DigitalEventPlaner.Services/Services/Services/Dto/ServiceWrapper.cs" />
-      <File FileName="DigitalEventPlaner.Web/wwwroot/css/site.css" Line="12" Column="18" />
+      <File FileName="DigitalEventPlaner.Web/wwwroot/css/site.css" />
       <File FileName="DigitalEventPlaner.Web/Controllers/RequestManagerController.cs" />
-      <File FileName="DigitalEventPlaner.Web/Views/Shared/_ServiceLayout.cshtml" Line="13" Column="34" />
+      <File FileName="DigitalEventPlaner.Web/Views/Shared/_ServiceLayout.cshtml" />
       <File FileName="DigitalEventPlaner.Web/Views/RequestManager/Index.cshtml" />
       <File FileName="DigitalEventPlaner.Services/Services/ServicePackage/Dto/ServicePackageDto.cs" />
       <File FileName="DigitalEventPlaner.Services/Services/Event/Dto/EventRequestDto.cs" />
@@ -24,7 +24,7 @@
       <File FileName="DigitalEventPlaner.Web/Models/MyEvents/EventServiceViewModel.cs" />
       <File FileName="DigitalEventPlaner.Web/Views/ServiceManage/AddServicePackage.cshtml" />
       <File FileName="DigitalEventPlaner.Web/Controllers/HomeController.cs" />
-      <File FileName="DigitalEventPlaner.Web/Views/MyEvents/ChangeService.cshtml" Line="40" Column="44" />
+      <File FileName="DigitalEventPlaner.Web/Views/MyEvents/ChangeService.cshtml" />
       <File FileName="DigitalEventPlaner.Web/Models/MyEvents/ChangeServiceViewModel.cs" />
       <File FileName="DigitalEventPlaner.Web/Models/Services/ServiceViewModel.cs" />
       <File FileName="DigitalEventPlaner.Web/appsettings.json" />
@@ -67,7 +67,9 @@
       <File FileName="DigitalEventPlaner.Services/Services/MLService/MLService.cs" />
       <File FileName="DigitalEventPlaner.Services/Services/Event/EventGenerator.cs" />
       <File FileName="DigitalEventPlaner.Web/Views/Shared/_Layout.cshtml" />
-      <File FileName="DigitalEventPlaner.Web/Views/Shared/_BlankLayout.cshtml" Line="14" Column="130" />
+      <File FileName="DigitalEventPlaner.Web/Views/Shared/_BlankLayout.cshtml" />
+      <File FileName="DigitalEventPlaner.Web/Views/Account/Login.cshtml" />
+      <File FileName="DigitalEventPlaner.Web/Views/Account/Register.cshtml" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -116,6 +118,7 @@
               </Node>
               <Node name="ScheduleServices" expanded="True" />
               <Node name="Views" expanded="True">
+                <Node name="Account" expanded="True" />
                 <Node name="Calendar" expanded="True" />
                 <Node name="CustomerProfile" expanded="True" />
                 <Node name="Home" expanded="True" />
@@ -124,12 +127,11 @@
                 <Node name="Shared" expanded="True" />
               </Node>
               <Node name="wwwroot" expanded="True">
-                <Node name="css" expanded="True">
-                  <Node name="site.css" selected="True" />
-                </Node>
+                <Node name="css" expanded="True" />
                 <Node name="img" expanded="True" />
               </Node>
               <Node name="appsettings.json" expanded="True" />
+              <Node name="Program.cs" selected="True" />
             </Node>
             <Node name="ML.Net_POC" expanded="True" />
           </Node>

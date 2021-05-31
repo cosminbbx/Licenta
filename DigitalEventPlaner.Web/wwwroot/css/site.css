@@ -155,10 +155,124 @@ body {
     src: url('FinSerifDisplay-Italic.ttf');
 }
 
+@font-face {
+    font-family: 'Quicksand';
+    src: url('Quicksand-Light.otf');
+}
+
+@font-face {
+    font-family: 'QuicksandBold';
+    src: url('Quicksand-Bold.otf');
+}
+
 .font-bebas {
     font-family: 'Bebas';
     font-size: 30px;
     color: white;
+}
+
+.font-quicksand {
+    font-family: 'QuicksandBold';
+    font-size: 30px;
+    color: white;
+}
+
+.font-quicksand-small, label {
+    font-family: 'Quicksand';
+    font-size: 19px;
+    color: white;
+}
+
+label {
+    font-family: 'QuicksandBold';
+    font-size: 20px;
+}
+
+.font-quicksand-smallest, footer .container {
+    font-family: 'Quicksand';
+    font-size: 14px;
+    color: white;
+}
+
+.form-group input, .form-group select {
+    background-color: rgba(255, 255, 255, 0.4);
+    font-family: 'QuicksandBold';
+    color: white;
+    border-radius: 1.5rem;
+    padding-left: 20px;
+    padding-right: 20px;
+    height:46px;
+}
+
+.form-group select {
+    appearance: none;
+}
+
+.select::after {
+    content: "";
+    width: 0.8em;
+    height: 0.5em;
+    background-color: var(--select-arrow);
+    clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+}
+
+.form-control:focus {
+    background-color: rgba(255, 255, 255, 0.4);
+    font-family: 'QuicksandBold';
+    color: white;
+}
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    textarea:-webkit-autofill,
+    textarea:-webkit-autofill:hover,
+    textarea:-webkit-autofill:focus,
+    select:-webkit-autofill,
+    select:-webkit-autofill:hover,
+    select:-webkit-autofill:focus {
+        -webkit-text-fill-color: white !important;
+        transition: background-color 5000s ease-in-out 0s;
+    }
+
+input[type=file]::-webkit-file-upload-button {
+    border: none;
+    padding: .2em .4em;
+    border-radius: .2em;
+    background-color: #a29bfe;
+    transition: 1s;
+}
+
+input[type=file]::file-selector-button {
+    border: 1px solid rgba(255, 255, 255, 1);
+    padding: .2em .4em;
+    border-radius: 1.5rem;
+    background-color: rgba(255, 255, 255, 0);
+    transition: 1s;
+    color: white;
+}
+
+input[type=file]::-webkit-file-upload-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+}
+
+input[type=file]::file-selector-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+}
+
+::placeholder {
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-family: 'Quicksand';
+}
+
+a {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+a:hover {
+    color: rgba(255, 255, 255, 0.6) !important;
 }
 
 .font-bit {
@@ -237,7 +351,7 @@ a:hover {
     padding-left: 35px;
     padding-right: 35px;
     border-radius: 1.5rem;
-    margin-left:20px;   
+    margin-right:20px;   
 }
 
     .btn-outline-primary:hover {
@@ -251,4 +365,21 @@ a:hover {
     text-align: center;
     margin-bottom:20px;
     margin-top:20px;
+}
+
+.login-container {
+    width: 35%;
+    margin-top: 100px;
+    margin-bottom:100px;
+}
+
+.center {
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+}
+
+.register-from{
+    margin-top:50px;
+    margin-bottom:50px;
 }
