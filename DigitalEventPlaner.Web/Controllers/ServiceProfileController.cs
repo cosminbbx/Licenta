@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using DigitalEventPlaner.Services.Services.BlobService;
@@ -29,6 +30,13 @@ namespace DigitalEventPlaner.Web.Controllers
             var model = new ProfileViewModel().InjectFrom(user) as ProfileViewModel;
             model.ProfilePictureUrl = profilePicture;
             return View(model);
+        }
+
+        public async void GetProfilePictureUri()
+        {
+            var userId = Int32.Parse(HttpContext.User.Claims.ToList()[0].Value);
+            var profilePicture = await blobService.GetProfilePicture(userId);
+            ViewData["ProfilePicture"] = profilePicture.First();
         }
     }
 }

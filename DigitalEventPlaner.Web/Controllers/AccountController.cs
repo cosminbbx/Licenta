@@ -146,6 +146,7 @@ namespace DigitalEventPlaner.Web.Controllers
                 new Claim("Id",userId.ToString()),
                 new Claim(ClaimTypes.Name,username),
                 new Claim(ClaimTypes.Email,email),
+                new Claim("ProfilePicture",GetProfilePictureUri(userId).Result),
                 new Claim(ClaimTypes.Role,userType.ToString()),
             };
 
@@ -156,6 +157,12 @@ namespace DigitalEventPlaner.Web.Controllers
             HttpContext.SignInAsync(userPrincipal);
 
             //return RedirectToAction("Index");
+        }
+
+        public async Task<string> GetProfilePictureUri(int userId)
+        {
+            var profilePicture = await blobService.GetProfilePicture(userId);
+            return profilePicture.First();
         }
 
         [Authorize]
@@ -199,5 +206,6 @@ namespace DigitalEventPlaner.Web.Controllers
 
             return RedirectToAction(nameof(HomeController.Index), "Home");
         }
+
     }
 }
