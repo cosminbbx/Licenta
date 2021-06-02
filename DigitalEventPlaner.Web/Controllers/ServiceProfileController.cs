@@ -28,7 +28,7 @@ namespace DigitalEventPlaner.Web.Controllers
             var profilePicture = await blobService.GetProfilePicture(userId);
             var user = userService.GetById(userId);
             var model = new ProfileViewModel().InjectFrom(user) as ProfileViewModel;
-            model.ProfilePictureUrl = profilePicture;
+            model.ProfilePictureUrl = profilePicture.First();
             return View(model);
         }
 

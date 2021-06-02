@@ -35,7 +35,7 @@ CREATE TABLE Services(
     [Name] VARCHAR(150) not null,
     [Description] varchar(500),
     EventsPerDay int not null,
-    SmartRate real not null,
+    SmartRate float not null,
     NumberOfRatings int not null,
     IsDeleted bit not null,
     CONSTRAINT FK_Users_Services FOREIGN KEY (UserId)

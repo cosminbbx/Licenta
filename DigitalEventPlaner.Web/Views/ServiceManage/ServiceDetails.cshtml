@@ -8,7 +8,7 @@
 <h3>Service details</h3>
 <h4>@Model.Service.Name</h4>
 
-<div>@Model.Service.Description</div>
+<div><textarea>@Model.Service.Description</textarea></div>
 
 <table class="table package-details">
     <thead>
@@ -23,7 +23,7 @@
     @foreach (var package in Model.ServicePackages)
     {
         <tr class="package-table-body">
-            <td>@package.Description</td>
+            <td><textarea>@package.Description</textarea></td>
             <td class="small-column">@package.PricePerParticipant</td>
             <td class="small-column">@package.MaxCapacity</td>
             <td class="buttons-column">

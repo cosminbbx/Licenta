@@ -5,36 +5,49 @@
     Layout = "_ServiceLayout";
 }
 
-<h3>Manage Services</h3>
+
+<div class="container container-inside">
+    <div class="font-quicksand page-title">MANAGE SERVICES</div>
 
 
-<input type="button" class="btn btn-outline-primary btn-sm" value="Add service" onclick="window.location='@Url.Action("AddService", "ServiceManage")'" />
+    <input type="button" class="btn btn-outline-primary btn-sm" value="Add service" onclick="window.location='@Url.Action("AddService", "ServiceManage")'" />
 
-<div class="list-group manage-service-container">
-@foreach (var item in Model)
-{
-    <div class="list-group-item service-container">
-        <div> <a href="@Url.Action("ServiceDetails", "ServiceManage", new { item.Service.Id })">@item.Service.Name</a></div>
-        <div>
-            @Html.ActionLink("AddPackage", "AddServicePackage", "ServiceManage", new { item.Service.Id }, new { @class = "btn btn-outline-primary btn-sm" })
-            @Html.ActionLink("Edit", "EditService", "ServiceManage", new { item.Service.Id }, new { @class = "btn btn-outline-primary btn-sm" })
-            @Html.ActionLink("Delete", "DeleteService", "ServiceManage", new { item.Service.Id }, new { @class = "btn btn-outline-primary btn-sm" })
-        </div>
-    </div>
-    <div class="list-group">
-    @foreach (var package in item.ServicePackages)
-    {
-        <div class="list-group-item sublist-item">
-            <div>@package.Description</div>
-            <div>
-                @Html.ActionLink("Edit", "EditServicePackage", "ServiceManage", new { package.Id }, new { @class = "btn btn-outline-primary btn-sm" })
-                @Html.ActionLink("Delete", "DeleteServicePackage", "ServiceManage", new { package.Id }, new { @class = "btn btn-outline-primary btn-sm" })
+    <div class="list-group manage-service-container">
+        @foreach (var item in Model)
+        {
+            <div class="service-wrapper">
+                <div class="service-container">
+                    <div class="font-quicksand-bold-small"> <a href="@Url.Action("ServiceDetails", "ServiceManage", new { item.Service.Id })">@item.Service.Name</a></div>
+                    <div>
+                        @Html.ActionLink("Add Package", "AddServicePackage", "ServiceManage", new { item.Service.Id }, new { @class = "btn btn-outline-primary btn-sm" })
+                        @Html.ActionLink("Edit", "EditService", "ServiceManage", new { item.Service.Id }, new { @class = "btn btn-outline-primary btn-sm" })
+                        @Html.ActionLink("Delete", "DeleteService", "ServiceManage", new { item.Service.Id }, new { @class = "btn btn-outline-primary btn-sm" })
+                    </div>
+                </div>
+                @if (item.ServicePackages.Count() > 0)
+                {
+                    <div class="list-group">
+
+                        @foreach (var package in item.ServicePackages)
+                        {
+                            <div class="sublist-item">
+                                <div class="font-quicksand-small">@package.Description</div>
+                                <div>
+                                    @Html.ActionLink("Edit", "EditServicePackage", "ServiceManage", new { package.Id }, new { @class = "btn btn-outline-primary btn-sm" })
+                                    @Html.ActionLink("Delete", "DeleteServicePackage", "ServiceManage", new { package.Id }, new { @class = "btn btn-outline-primary btn-sm" })
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                }
             </div>
+          }
         </div>
-    }
+
+    <div class="btn btn-outline-primary btn-sm">
+        @Html.ActionLink("View deleted services", "DeletedServices", "ServiceManage", new { @class = "btn btn-outline-primary btn-sm" })
     </div>
-}
+    
+
 </div>
-
-@Html.ActionLink("View deleted services", "DeletedServices", "ServiceManage", new { @class = "btn btn-primary" })
-

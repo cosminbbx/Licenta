@@ -5,23 +5,36 @@
     Layout = "~/Views/Shared/_CustomerLayout.cshtml";
 }
 
-<h3>Customer Profile</h3>
-
-<div class="profile-info-container">
-    @foreach (var uri in Model.ProfilePictureUrl)
-    {
-        <div class="profile-image-container">
-            <img src="@uri" class="profile-image" />
+<div class="container container-inside">
+    <div class="font-quicksand">CUSTOMER PROFILE</div>
+    <div class="profile-info-container">
+        <div class="profile-wrapper-big">
+            <div class="profile-middle-big">
+                <div class="profile-box-big">
+                    <img src="@Model.ProfilePictureUrl" class="profile-image" />
+                </div>
+            </div>
         </div>
-
-    }
-    <div class="profile-info">
-        <div>Username: @Model.UserName</div>
-        <div>FirstName: @Model.FirstName</div>
-        <div>LastName: @Model.LastName</div>
-        <div>Email: @Model.Email</div>
-        <div>Phone: @Model.Phone</div>
-        <div>Address: @Model.Address</div>
+        <div class="profile-info">
+            <div class="info">
+                <div class="font-quicksand-bold-small">Username:</div><div class="font-quicksand-small"> @Model.UserName</div>
+            </div>
+            <div class="info">
+                <div class="font-quicksand-bold-small">FirstName:</div><div class="font-quicksand-small"> @Model.FirstName</div>
+            </div>
+            <div class="info">
+                <div class="font-quicksand-bold-small">LastName:</div><div class="font-quicksand-small"> @Model.LastName</div>
+            </div>
+            <div class="info">
+                <div class="font-quicksand-bold-small">Email:</div><div class="font-quicksand-small"> @Model.Email</div>
+            </div>
+            <div class="info">
+                <div class="font-quicksand-bold-small">Phone:</div><div class="font-quicksand-small"> @Model.Phone</div>
+            </div>
+            <div class="info">
+                <div class="font-quicksand-bold-small">Address:</div><div class="font-quicksand-small"> @Model.Address</div>
+            </div>
+        </div>
     </div>
 </div>
 

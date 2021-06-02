@@ -11,6 +11,6 @@ namespace DigitalEventPlaner.Web.Models.User
         public string Phone { get; set; }
         public string Email { get; set; }
         public string Address { get; set; }
-        public List<string> ProfilePictureUrl { get; set; }
+        public string ProfilePictureUrl { get; set; }
     }
 }
