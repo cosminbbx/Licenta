@@ -49,32 +49,32 @@ CREATE TABLE EventServices(
 )
 
 insert into Services (UserId,ServiceType,[Name],[Description],EventsPerDay,SmartRate,NumberOfRatings,IsDeleted)
-values (1,1,'Service1','Description1',1,0,0,0)
+values (1,1,'Service1','Description1',1,0,0,1)
 
 insert into Services (UserId,ServiceType,[Name],[Description],EventsPerDay,SmartRate,NumberOfRatings,IsDeleted)
-values (1,2,'Service2','Description2',1,0,0,0)
+values (1,2,'Service2','Description2',1,0,0,1)
 
 insert into Services (UserId,ServiceType,[Name],[Description],EventsPerDay,SmartRate,NumberOfRatings,IsDeleted)
-values (1,3,'Service3','Description3',1,0,0,0)
+values (1,3,'Service3','Description3',1,0,0,1)
 
 insert into Services (UserId,ServiceType,[Name],[Description],EventsPerDay,SmartRate,NumberOfRatings,IsDeleted)
-values (1,4,'Service4','Description4',1,0,0,0)
+values (1,4,'Service4','Description4',1,0,0,1)
 
 insert into Services (UserId,ServiceType,[Name],[Description],EventsPerDay,SmartRate,NumberOfRatings,IsDeleted)
-values (1,5,'Service5','Description5',1,0,0,0)
+values (1,5,'Service5','Description5',1,0,0,1)
 
 
 insert into ServicePackages (ServiceID,PricePerParticipant,[Description],MaxCapacity,IsDeleted)
-values (1,100,'Description1',300,0)
+values (1,100,'Description1',300,1)
 
 insert into ServicePackages (ServiceID,PricePerParticipant,[Description],MaxCapacity,IsDeleted)
-values (2,150,'Description2',300,0)
+values (2,150,'Description2',300,1)
 
 insert into ServicePackages (ServiceID,PricePerParticipant,[Description],MaxCapacity,IsDeleted)
-values (3,200,'Description3',300,0)
+values (3,200,'Description3',300,1)
 
 insert into ServicePackages (ServiceID,PricePerParticipant,[Description],MaxCapacity,IsDeleted)
-values (4,250,'Description4',300,0)
+values (4,250,'Description4',300,1)
 
 insert into ServicePackages (ServiceID,PricePerParticipant,[Description],MaxCapacity,IsDeleted)
-values (5,300,'Description5',300,0)
+values (5,300,'Description5',300,1)

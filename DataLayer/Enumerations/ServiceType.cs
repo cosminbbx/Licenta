@@ -9,5 +9,11 @@ namespace DataLayer.Enumerations
         Flowers = 4,
         Baloons = 5,
         Katering = 6,
+        Entartainer = 7,
+        StandUp = 8,
+        Photo = 9,
+        Video = 10,
+        CarbonicIce = 11,
+        AmbientLighting = 12,
     }
 }

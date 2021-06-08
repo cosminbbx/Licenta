@@ -1,9 +1,9 @@
 ﻿<Properties StartupConfiguration="{29B536E6-802B-49EC-8376-40D70D03DCF5}|Default">
   <MonoDevelop.Ide.ItemProperties.DigitalEventPlaner.Web PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.ItemProperties.ConsoleAppTest PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="DataLayer/Enumerations/ServiceType.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DigitalEventPlaner.Services/Services/Event/IEventService.cs">
     <Files>
-      <File FileName="DigitalEventPlaner.Web/Views/CustomerProfile/Profile.cshtml" Line="15" Column="23" IsPinned="True" />
+      <File FileName="DigitalEventPlaner.Web/Views/CustomerProfile/Profile.cshtml" Line="41" Column="45" IsPinned="True" />
       <File FileName="DigitalEventPlaner.Web/Views/MyEvents/Index.cshtml" />
       <File FileName="DigitalEventPlaner.Web/Models/MyEvents/EventWrapperSortedViewModel.cs" />
       <File FileName="DigitalEventPlaner.Web/Models/MyEvents/EventWrapperViewModel.cs" />
@@ -21,7 +21,7 @@
       <File FileName="DigitalEventPlaner.Web/Views/EventPlanning/Step2.cshtml" />
       <File FileName="DigitalEventPlaner.Web/Controllers/CustomerProfileController.cs" />
       <File FileName="DigitalEventPlaner.Web/Controllers/EventPlanningController.cs" />
-      <File FileName="DigitalEventPlaner.Services/Services/Event/EventService.cs" />
+      <File FileName="DigitalEventPlaner.Services/Services/Event/EventService.cs" Line="64" Column="16" />
       <File FileName="DigitalEventPlaner.Web/Views/EventPlanning/Step3.cshtml" />
       <File FileName="DigitalEventPlaner.Web/Views/ServiceManage/ServiceDetails.cshtml" />
       <File FileName="DigitalEventPlaner.Web/Views/ServiceManage/Index.cshtml" />
@@ -34,7 +34,13 @@
       <File FileName="DigitalEventPlaner.Web/Views/Shared/_CustomerLayout.cshtml" Line="1" Column="1" />
       <File FileName="DigitalEventPlaner.Web/Helpers/GeneralHelper.cs" Line="84" Column="167" />
       <File FileName="DataLayer/Enumerations/EventType.cs" Line="6" Column="21" />
-      <File FileName="DataLayer/Enumerations/ServiceType.cs" Line="11" Column="22" />
+      <File FileName="DataLayer/Enumerations/ServiceType.cs" Line="18" Column="6" />
+      <File FileName="DigitalEventPlaner.Web/Controllers/AccountController.cs" Line="199" Column="36" />
+      <File FileName="DigitalEventPlaner.Services/Services/Event/EventGenerator.cs" Line="28" Column="32" />
+      <File FileName="DigitalEventPlaner.Services/Services/MLService/MLService.cs" Line="18" Column="22" />
+      <File FileName="DigitalEventPlaner.Services/Services/MLService/EventBuget.cs" Line="1" Column="1" />
+      <File FileName="DigitalEventPlaner.Services/Services/CsvService/CsvService.cs" Line="55" Column="45" />
+      <File FileName="DigitalEventPlaner.Services/Services/Event/IEventService.cs" Line="12" Column="43" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -42,9 +48,7 @@
           <Node name="Licenta" expanded="True">
             <Node name="DataLayer" expanded="True">
               <Node name="Entities" expanded="True" />
-              <Node name="Enumerations" expanded="True">
-                <Node name="ServiceType.cs" selected="True" />
-              </Node>
+              <Node name="Enumerations" expanded="True" />
               <Node name="Infrastructure" expanded="True" />
             </Node>
             <Node name="DigitalEventPlaner.Services" expanded="True">
@@ -60,6 +64,7 @@
                 <Node name="CsvService" expanded="True" />
                 <Node name="Event" expanded="True">
                   <Node name="Dto" expanded="True" />
+                  <Node name="IEventService.cs" selected="True" />
                 </Node>
                 <Node name="EventService" expanded="True" />
                 <Node name="EventUpdater" expanded="True" />
