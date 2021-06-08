@@ -5,131 +5,373 @@
     Layout = "~/Views/Shared/_CustomerLayout.cshtml";
 }
 
-<h3>My events</h3>
+<div class="container container-inside">
+    <div class="font-quicksand page-title">MY EVENTS</div>
 
-@if (Model.NeedsApproval.Count() > 0)
-{
-    <h3>Awaiting approval</h3>
-    @foreach (var ev in Model.NeedsApproval)
+    @if (Model.NeedsApproval.Count() > 0)
     {
-        <div class="event-container">
-            <h5>@ev.EventDate.ToString("dd/MM/yyyy") EventType: @ev.EventType Status: @ev.EventStatus</h5>
-            @foreach (var service in ev.ServiceWrappers)
-            {
-                <div class="list-group-item service-container">
-                    <div> @service.Service.Name</div>
-                </div>
-                <div class="list-group">
-                    @foreach (var package in service.ServicePackages)
-                    {
-                        <div class="list-group-item sublist-item">
-                            <div>@package.Description</div>
-                            <div>@service.Status</div>
-                            @if (@service.Status == DataLayer.Enumerations.RequestStatus.Cancelled)
-                            {
-                                @Html.ActionLink("Change service", "ChangeService", "MyEvents", new { eventServiceId = service.EventServiceId, eventType = service.Service.ServiceType, eventDate = ev.EventDate }, new { @class = "btn btn-outline-primary btn-sm" })
-                            }
-                        </div>
-                    }
-                </div>
-            }
-        </div>
-    }
-}
-
-@if (Model.Canceled.Count() > 0)
-{
-    <h3>Canceled</h3>
-    @foreach (var ev in Model.Canceled)
-    {
-        <div class="event-container">
-            <h5>@ev.EventDate.ToString("dd/MM/yyyy") EventType: @ev.EventType Status: @ev.EventStatus</h5>
-            @foreach (var service in ev.ServiceWrappers)
-            {
-                <div class="list-group-item service-container">
-                    <div> @service.Service.Name</div>
-                </div>
-                <div class="list-group">
-                    @foreach (var package in service.ServicePackages)
-                    {
-                        <div class="list-group-item sublist-item">
-                            <div>@package.Description</div>
-                            <div>@service.Status</div>
-                            @if (@service.Status == DataLayer.Enumerations.RequestStatus.Cancelled)
-                            {
-                                @Html.ActionLink("Change service", "ChangeService", "MyEvents", new { eventServiceId = service.EventServiceId, eventType = service.Service.ServiceType, eventDate = ev.EventDate }, new { @class = "btn btn-outline-primary btn-sm" })
-                            }
-                        </div>
-                    }
-                </div>
-            }
-        </div>
-    }
-}
-
-@if (Model.ToBeDone.Count() > 0)
-{
-    <h3>To be done</h3>
-    @foreach (var ev in Model.ToBeDone)
-    {
-        <div class="event-container">
-            <h5>@ev.EventDate.ToString("dd/MM/yyyy") EventType: @ev.EventType Status: @ev.EventStatus</h5>
-            @foreach (var service in ev.ServiceWrappers)
-            {
-                <div class="list-group-item service-container">
-                    <div> @service.Service.Name</div>
-                </div>
-                <div class="list-group">
-                    @foreach (var package in service.ServicePackages)
-                    {
-                        <div class="list-group-item sublist-item">
-                            <div>@package.Description</div>
-                            <div>@service.Status</div>
-                            @if (@service.Status == DataLayer.Enumerations.RequestStatus.Cancelled)
-                            {
-                                @Html.ActionLink("Change service", "ChangeService", "MyEvents", new { eventServiceId = service.EventServiceId, eventType = service.Service.ServiceType, eventDate = ev.EventDate }, new { @class = "btn btn-outline-primary btn-sm" })
-                            }
-                        </div>
-                    }
-                </div>
-            }
-        </div>
-    }
-}
-
-@if (Model.Done.Count() > 0)
-{
-    <h3>Done</h3>
-    @foreach (var ev in Model.Done)
-    {
-    <div class="event-container">
-        <h5>@ev.EventDate.ToString("dd/MM/yyyy") EventType: @ev.EventType Status: @ev.EventStatus</h5>
-        <form method="post" asp-controller="MyEvents" asp-action="UploadForSmartRating" enctype="multipart/form-data">
-            <input type="hidden" name="EventId" value="@ev.EventId" />
-            <div class="form-group">
-                <input type="file" name="Imagelist" accept="image/x-png,image/gif,image/jpeg, image/jpg" multiple />
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Upload" class="btn btn-default" />
-            </div>
-        </form>
-        @foreach (var service in ev.ServiceWrappers)
+        <div class="font-quicksand page-title">Awaiting approval</div>
+        @foreach (var ev in Model.NeedsApproval)
         {
-            <div class="list-group-item service-container">
-                <div> @service.Service.Name</div>
-            </div>
-
-            <div class="list-group">
-                @foreach (var package in service.ServicePackages)
+            <div class="event-container">
+                <div>
+                    <div class="font-quicksand-bold-small" style="float:left;margin-right:5px;">Event date:</div><div class="font-quicksand-small">@ev.EventDate.ToString("dd/MM/yyyy")</div>
+                </div>
+                <div>
+                    <div class="font-quicksand-bold-small" style="float:left;margin-right:5px;">EventType:</div><div class="font-quicksand-small">@ev.EventType</div>
+                </div>
+                @foreach (var service in ev.ServiceWrappers)
                 {
-                    <div class="list-group-item sublist-item">
-                        <div>@package.Description</div>
-                        <div>@service.Status</div>
+                    <div class="font-quicksand-bold-small">@service.Service.ServiceType</div>
+                    <div class="planning-service-info" style="display:flex">
+                        <div class="user-info">
+                            <div class="info-header">
+                                <div class="profile-wrapper">
+                                    <div class="profile-middle">
+                                        <div class="profile-box">
+                                            <img src="@service.ProfilePictureUri" class="profile-image" />
+                                        </div>
+                                    </div>
+                                </div>
 
+                                <div class="user-name">
+                                    <div class="font-quicksand-bold-small" style="margin-top: 5px;">@service.User.UserName</div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="font-quicksand-bold-small" style="float:left;margin-right:5px;">Address:</div><div class="font-quicksand-small"> @service.User.Address</div>
+                            </div>
+                            <div>
+                                <div class="font-quicksand-bold-small" style="float:left;margin-right:5px;">Email:</div><div class="font-quicksand-small"> @service.User.Email</div>
+                            </div>
+                            <div>
+                                <div class="font-quicksand-bold-small" style="float:left;margin-right:5px;">Phone:</div><div class="font-quicksand-small"> @service.User.Phone</div>
+                            </div>
+
+                        </div>
+                        <div class="service-wrapper">
+                            <div class="service-container">
+                                <div class="font-quicksand-bold-small">@service.Service.Name</div>
+                                @if (service.Service.NumberOfRatings > 0)
+                                {
+                                    <div style="display:flex;">
+                                        <div class="font-quicksand-bold-small" style="margin-right:5px;">Rating:</div><div class="font-quicksand-small">@Math.Round(service.Service.SmartRate * 5 / service.Service.NumberOfRatings, 1, MidpointRounding.ToEven)/5</div>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div style="display:flex;">
+                                        <div class="font-quicksand-small">No rating</div>
+                                    </div>
+                                }
+
+                            </div>
+                            @if (service.ServicePackages.Count() > 0)
+                            {
+                                <div class="list-group">
+
+                                    @foreach (var package in service.ServicePackages)
+                                    {
+                                        <div class="sublist-item">
+                                            <div style="display: flex;align-items: center;width:50%;">
+                                                <textarea class="form-control" readonly>@package.Description</textarea>
+                                            </div>
+
+                                            <div class="font-quicksand-bold-small">
+                                                @if (@service.Status == DataLayer.Enumerations.RequestStatus.Cancelled)
+                                                {
+                                                    @Html.ActionLink("Change service", "ChangeService", "MyEvents", new { eventServiceId = service.EventServiceId, eventType = service.Service.ServiceType, eventDate = ev.EventDate }, new { @class = "btn btn-outline-primary btn-sm" })
+                                                }
+                                            </div>
+                                        </div>
+                                    }
+
+                                </div>
+                            }
+                        </div>
                     </div>
                 }
             </div>
         }
-    </div>
     }
-}
+
+    @if (Model.Canceled.Count() > 0)
+    {
+        <div class="font-quicksand page-title">Canceled</div>
+        @foreach (var ev in Model.Canceled)
+        {
+            <div class="event-container">
+                <div>
+                    <div class="font-quicksand-bold-small" style="float:left;margin-right:5px;">Event date:</div><div class="font-quicksand-small">@ev.EventDate.ToString("dd/MM/yyyy")</div>
+                </div>
+                <div>
+                    <div class="font-quicksand-bold-small" style="float:left;margin-right:5px;">EventType:</div><div class="font-quicksand-small">@ev.EventType</div>
+                </div>
+                @foreach (var service in ev.ServiceWrappers)
+                {
+                    <div class="font-quicksand-bold-small">@service.Service.ServiceType</div>
+                    <div class="planning-service-info" style="display:flex">
+                        <div class="user-info">
+                            <div class="info-header">
+                                <div class="profile-wrapper">
+                                    <div class="profile-middle">
+                                        <div class="profile-box">
+                                            <img src="@service.ProfilePictureUri" class="profile-image" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="user-name">
+                                    <div class="font-quicksand-bold-small" style="margin-top: 5px;">@service.User.UserName</div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="font-quicksand-bold-small" style="float:left;margin-right:5px;">Address:</div><div class="font-quicksand-small"> @service.User.Address</div>
+                            </div>
+                            <div>
+                                <div class="font-quicksand-bold-small" style="float:left;margin-right:5px;">Email:</div><div class="font-quicksand-small"> @service.User.Email</div>
+                            </div>
+                            <div>
+                                <div class="font-quicksand-bold-small" style="float:left;margin-right:5px;">Phone:</div><div class="font-quicksand-small"> @service.User.Phone</div>
+                            </div>
+
+
+                        </div>
+                        <div class="service-wrapper">
+                            <div class="service-container">
+                                <div class="font-quicksand-bold-small">@service.Service.Name</div>
+                                @if (service.Service.NumberOfRatings > 0)
+                                {
+                                    <div style="display:flex;">
+                                        <div class="font-quicksand-bold-small" style="margin-right:5px;">Rating:</div><div class="font-quicksand-small">@Math.Round(service.Service.SmartRate * 5 / service.Service.NumberOfRatings, 1, MidpointRounding.ToEven)/5</div>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div style="display:flex;">
+                                        <div class="font-quicksand-small">No rating</div>
+                                    </div>
+                                }
+                            </div>
+                            @if (service.ServicePackages.Count() > 0)
+                            {
+                                <div class="list-group">
+
+                                    @foreach (var package in service.ServicePackages)
+                                    {
+                                        <div class="sublist-item">
+                                            <div style="display: flex;align-items: center;width:50%;">
+                                                <textarea class="form-control" readonly>@package.Description</textarea>
+                                            </div>
+
+                                            <div class="font-quicksand-bold-small">
+                                                @if (@service.Status == DataLayer.Enumerations.RequestStatus.Cancelled)
+                                                {
+                                                    @Html.ActionLink("Change service", "ChangeService", "MyEvents", new { eventServiceId = service.EventServiceId, eventType = service.Service.ServiceType, eventDate = ev.EventDate }, new { @class = "btn btn-outline-primary btn-sm" })
+                                                }
+                                            </div>
+                                        </div>
+                                    }
+
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="list-group-item service-container">
+                        <div> @service.Service.Name</div>
+                    </div>
+                    <div class="list-group">
+                        @foreach (var package in service.ServicePackages)
+                        {
+                            <div class="list-group-item sublist-item">
+                                <div>@package.Description</div>
+                                <div>@service.Status</div>
+                                @if (@service.Status == DataLayer.Enumerations.RequestStatus.Cancelled)
+                                {
+                                    @Html.ActionLink("Change service", "ChangeService", "MyEvents", new { eventServiceId = service.EventServiceId, eventType = service.Service.ServiceType, eventDate = ev.EventDate }, new { @class = "btn btn-outline-primary btn-sm" })
+                                }
+                            </div>
+                        }
+                    </div>
+                }
+            </div>
+        }
+    }
+
+    @if (Model.ToBeDone.Count() > 0)
+    {
+        <div class="font-quicksand page-title">To be done</div>
+        @foreach (var ev in Model.ToBeDone)
+        {
+            <div class="event-container">
+                <div>
+                    <div class="font-quicksand-bold-small" style="float:left;margin-right:5px;">Event date:</div><div class="font-quicksand-small">@ev.EventDate.ToString("dd/MM/yyyy")</div>
+                </div>
+                <div>
+                    <div class="font-quicksand-bold-small" style="float:left;margin-right:5px;">EventType:</div><div class="font-quicksand-small">@ev.EventType</div>
+                </div>
+                @foreach (var service in ev.ServiceWrappers)
+                {
+                    <div class="font-quicksand-bold-small">@service.Service.ServiceType</div>
+                    <div class="planning-service-info" style="display:flex">
+                        <div class="user-info">
+                            <div class="info-header">
+                                <div class="profile-wrapper">
+                                    <div class="profile-middle">
+                                        <div class="profile-box">
+                                            <img src="@service.ProfilePictureUri" class="profile-image" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="user-name">
+                                    <div class="font-quicksand-bold-small" style="margin-top: 5px;">@service.User.UserName</div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="font-quicksand-bold-small" style="float:left;margin-right:5px;">Address:</div><div class="font-quicksand-small"> @service.User.Address</div>
+                            </div>
+                            <div>
+                                <div class="font-quicksand-bold-small" style="float:left;margin-right:5px;">Email:</div><div class="font-quicksand-small"> @service.User.Email</div>
+                            </div>
+                            <div>
+                                <div class="font-quicksand-bold-small" style="float:left;margin-right:5px;">Phone:</div><div class="font-quicksand-small"> @service.User.Phone</div>
+                            </div>
+
+
+                        </div>
+                        <div class="service-wrapper">
+                            <div class="service-container">
+                                <div class="font-quicksand-bold-small">@service.Service.Name</div>
+                                @if (service.Service.NumberOfRatings > 0)
+                                {
+                                    <div style="display:flex;">
+                                        <div class="font-quicksand-bold-small" style="margin-right:5px;">Rating:</div><div class="font-quicksand-small">@Math.Round(service.Service.SmartRate * 5 / service.Service.NumberOfRatings, 1, MidpointRounding.ToEven)/5</div>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div style="display:flex;">
+                                        <div class="font-quicksand-small">No rating</div>
+                                    </div>
+                                }
+                            </div>
+                            @if (service.ServicePackages.Count() > 0)
+                            {
+                                <div class="list-group">
+
+                                    @foreach (var package in service.ServicePackages)
+                                    {
+                                        <div class="sublist-item">
+                                            <div style="display: flex;align-items: center;width:100%;">
+                                                <textarea class="form-control" readonly>@package.Description</textarea>
+                                            </div>
+
+                                            <div class="font-quicksand-bold-small">
+                                                @if (@service.Status == DataLayer.Enumerations.RequestStatus.Cancelled)
+                                                {
+                                                    @Html.ActionLink("Change service", "ChangeService", "MyEvents", new { eventServiceId = service.EventServiceId, eventType = service.Service.ServiceType, eventDate = ev.EventDate }, new { @class = "btn btn-outline-primary btn-sm" })
+                                                }
+                                            </div>
+                                        </div>
+                                    }
+
+                                </div>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    }
+
+    @if (Model.Done.Count() > 0)
+    {
+        <div class="font-quicksand page-title">Done</div>
+        @foreach (var ev in Model.Done)
+        {
+            <div class="event-container">
+                <div>
+                    <div class="font-quicksand-bold-small" style="float:left;margin-right:5px;">Event date:</div><div class="font-quicksand-small">@ev.EventDate.ToString("dd/MM/yyyy")</div>
+                </div>
+                <div>
+                    <div class="font-quicksand-bold-small" style="float:left;margin-right:5px;">EventType:</div><div class="font-quicksand-small">@ev.EventType</div>
+                </div>
+                @foreach (var service in ev.ServiceWrappers)
+                {
+                    <div class="font-quicksand-bold-small">@service.Service.ServiceType</div>
+                    <div class="planning-service-info" style="display:flex">
+                        <div class="user-info">
+                            <div class="info-header">
+                                <div class="profile-wrapper">
+                                    <div class="profile-middle">
+                                        <div class="profile-box">
+                                            <img src="@service.ProfilePictureUri" class="profile-image" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="user-name">
+                                    <div class="font-quicksand-bold-small" style="margin-top: 5px;">@service.User.UserName</div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="font-quicksand-bold-small" style="float:left;margin-right:5px;">Address:</div><div class="font-quicksand-small"> @service.User.Address</div>
+                            </div>
+                            <div>
+                                <div class="font-quicksand-bold-small" style="float:left;margin-right:5px;">Email:</div><div class="font-quicksand-small"> @service.User.Email</div>
+                            </div>
+                            <div>
+                                <div class="font-quicksand-bold-small" style="float:left;margin-right:5px;">Phone:</div><div class="font-quicksand-small"> @service.User.Phone</div>
+                            </div>
+
+
+                        </div>
+                        <div class="service-wrapper">
+                            <div class="service-container">
+                                <div class="font-quicksand-bold-small">@service.Service.Name</div>
+                                @if (service.Service.NumberOfRatings > 0)
+                                {
+                                    <div style="display:flex;">
+                                        <div class="font-quicksand-bold-small" style="margin-right:5px;">Rating:</div><div class="font-quicksand-small">@Math.Round(service.Service.SmartRate * 5 / service.Service.NumberOfRatings, 1, MidpointRounding.ToEven)/5</div>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div style="display:flex;">
+                                        <div class="font-quicksand-small">No rating</div>
+                                    </div>
+                                }
+                            </div>
+                            @if (service.ServicePackages.Count() > 0)
+                            {
+                                <div class="list-group">
+
+                                    @foreach (var package in service.ServicePackages)
+                                    {
+                                        <div class="sublist-item">
+                                            <div style="display: flex;align-items: center;width:100%;">
+                                                <textarea class="form-control" readonly>@package.Description</textarea>
+                                                
+                                            </div>
+                                        </div>
+                                    }
+
+                                </div>
+                            }
+                        </div>
+                    </div>
+                }
+                <form method="post" asp-controller="MyEvents" asp-action="UploadForSmartRating" enctype="multipart/form-data" style="display:flex;">
+                    <input type="hidden" name="EventId" value="@ev.EventId" />
+                    <div class="form-group" style="margin-right:15px;">
+                        <input type="file" name="Imagelist" accept="image/x-png,image/gif,image/jpeg, image/jpg" multiple style="padding-top: 6px;"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Upload" class="btn btn-default" />
+                    </div>
+                </form>
+            </div>
+        }
+    }
+</div>

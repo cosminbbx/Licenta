@@ -330,3 +330,5 @@
 /Users/virgacosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Web/obj/Debug/netcoreapp3.1/Razor/Views/MyEvents/ChangeService.cshtml.g.cs
 /Users/virgacosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Web/obj/Debug/netcoreapp3.1/Razor/Views/MyEvents/Index.cshtml.g.cs
 /Users/virgacosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Web/obj/Debug/netcoreapp3.1/Razor/Views/RequestManager/Index.cshtml.g.cs
+/Users/virgacosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Web/obj/Debug/netcoreapp3.1/Razor/Views/EventPlanning/ServiceDetails.cshtml.g.cs
+/Users/virgacosmin/Documents/GitHub/Licenta/DigitalEventPlaner.Web/obj/Debug/netcoreapp3.1/Razor/Views/Calendar/CustomerCalendar.cshtml.g.cs

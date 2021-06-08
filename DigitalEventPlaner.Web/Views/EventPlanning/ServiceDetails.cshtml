@@ -2,7 +2,7 @@
 @model ServiceWrapperViewModel
 @{
     ViewData["Title"] = "Home Page";
-    Layout = "_ServiceLayout";
+    Layout = "_CustomerLayout";
 }
 
 <div class="container container-inside">
@@ -10,16 +10,14 @@
 
     <div style="display:flex">
         <div class="font-quicksand-bold-small" style="margin-right:15px;">Service name: @Model.Service.Name</div>
-        @Html.ActionLink("Edit", "EditService", "ServiceManage", new { Model.Service.Id }, new { @class = "btn btn-outline-primary btn-sm" })
     </div>
 
     <div><textarea class="form-control description" readonly>@Model.Service.Description</textarea></div>
 
     <div style="display:flex;margin-bottom:20px;align-items: center;">
         <div class="font-quicksand" style="margin-right:20px">PACKAGES</div>
-        <div>@Html.ActionLink("Add Package", "AddServicePackage", "ServiceManage", new { Model.Service.Id }, new { @class = "btn btn-outline-primary btn-sm" })</div>
     </div>
-  
+
     <table class="table package-details">
         <thead>
             <tr class="package-table-header">
@@ -37,8 +35,6 @@
                     <td class="small-column">@package.PricePerParticipant</td>
                     <td class="small-column">@package.MaxCapacity</td>
                     <td class="buttons-column">
-                        @Html.ActionLink("Edit", "EditServicePackage", "ServiceManage", new { package.Id }, new { @class = "btn btn-outline-primary btn-sm" })
-                        @Html.ActionLink("Delete", "DeleteServicePackage", "ServiceManage", new { package.Id }, new { @class = "btn btn-outline-primary btn-sm" })
                     </td>
                 </tr>
             }

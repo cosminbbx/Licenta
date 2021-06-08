@@ -5,50 +5,53 @@
     Layout = "~/Views/Shared/_CustomerLayout.cshtml";
 }
 
-<h3>Step 1</h3>
+<div class="container container-inside">
+    <div class="font-quicksand page-title">STEP 1</div>
 
-<form method="POST" enctype="multipart/form-data" class="planning-step1-form">
-    @Html.HiddenFor(m => m.UserId)
-    <div class="form-group">
-        <label for="EventDate">Event date</label>
-        <input type="date" class="form-control" name="EventDate" asp-for="EventDate" placeholder="Event date" value="@Model.StringDateNow"
-               min="@Model.StringDateNow" />
-        <span asp-validation-for="EventDate" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label for="EventTypesSelected">Choose the types of services you need for your event</label>
-        @foreach (var item in Model.EventTypes)
-        {
-            <div class="checkbox">
-                <label class="form-check-label">
-                    <input type="checkbox"
-                           name="EventTypesSelected"
-                           value="@item" /> @item
-                    </label>
-                </div>
-            }
-        <span asp-validation-for="EventTypesSelected" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label for="EventTypesSelected">Choose the types of services you need for your event</label>
-        @foreach (var item in Model.ServiceTypes)
-        {
-            <div class="checkbox">
-                <label class="form-check-label">
-                    <input type="checkbox"
-                           name="ServiceTypesSelected"
-                           value="@item" /> @item
-                    </label>
-                </div>
-            }
-        <span asp-validation-for="ServiceTypesSelected" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label for="Participants">Participants number</label>
-        <input type="number" class="form-control" name="Participants" asp-for="Participants" placeholder="Participants number" value="1" min="1" max="10000" />
-        <span asp-validation-for="EventDate" class="text-danger"></span>
-    </div>
+    <form method="POST" enctype="multipart/form-data" class="planning-step1-form">
+        @Html.HiddenFor(m => m.UserId)
+        <div class="form-group">
+            <label for="EventDate">Event date</label>
+            <input type="date" class="form-control" name="EventDate" asp-for="EventDate" placeholder="Event date" value="@Model.StringDateNow"
+                   min="@Model.StringDateNow" />
+            <span asp-validation-for="EventDate" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="EventTypesSelected">Choose the types of services you need for your event</label>
+            <div class="checkbox-list font-quicksand-small">
+                @foreach (var item in Model.EventTypes)
+                {
+                    <div>
+                        <input type="checkbox"
+                               name="EventTypesSelected"
+                               value="@item" />
+                        <label class="form-check-label">@item</label>
+                    </div>
+                }
+            </div>
+            <span asp-validation-for="EventTypesSelected" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="EventTypesSelected">Choose the types of services you need for your event</label>
+            <div class="checkbox-list font-quicksand-small">
+                @foreach (var item in Model.ServiceTypes)
+                {
+                    <div class="checkbox">
+                        <input type="checkbox"
+                               name="ServiceTypesSelected"
+                               value="@item" />
+                        <label class="form-check-label">@item</label>
+                    </div>
+                }
+            </div>
+            <span asp-validation-for="ServiceTypesSelected" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="Participants">Participants number</label>
+                <input type="number" class="form-control" name="Participants" asp-for="Participants" placeholder="Participants number" value="1" min="1" max="10000" />
+                <span asp-validation-for="EventDate" class="text-danger"></span>
+            </div>
 
-
-    <button class="btn btn-outline-primary">Submit</button>
+            <button class="btn btn-outline-primary">Submit</button>
 </form>
+</div>

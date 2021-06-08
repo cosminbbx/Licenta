@@ -25,6 +25,9 @@
                         <li class="nav-item">
                             <a class="nav-link font-quicksand-bold-small" asp-area="" asp-controller="MyEvents" asp-action="Index">MY EVENTS</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-quicksand-bold-small" asp-area="" asp-controller="Calendar" asp-action="CustomerCalendar">CALENDAR</a>
+                        </li>
                     </ul>
                     @if (Context.User.Identity.IsAuthenticated)
                     {

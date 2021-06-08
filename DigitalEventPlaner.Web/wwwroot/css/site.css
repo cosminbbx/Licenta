@@ -165,7 +165,7 @@ body {
 }
 
 .buttons-column {
-    width: 135px;
+    display: flex;
 }
 
 .register-container, .planning-step1-form {
@@ -230,7 +230,7 @@ body {
     color: white;
 }
 
-.font-quicksand-bold-small {
+.font-quicksand-bold-small, .package-table-header th, .small-column, .deleted-table th, .deleted-table td {
     font-family: 'QuicksandBold';
     font-size: 19px;
     color: white;
@@ -257,7 +257,7 @@ label {
     box-shadow: 0 0 0 0.1rem rgb(255 255 255 / 25%);
 }
 
-.form-group input, .form-group select, .form-group textarea {
+.form-group input, .form-group select, .form-group textarea, textarea {
     background-color: rgba(255, 255, 255, 0.4);
     font-family: 'QuicksandBold';
     color: white;
@@ -488,4 +488,82 @@ a:hover {
 .btn-outline-primary:not(:disabled):not(.disabled).active:focus, .btn-outline-primary:not(:disabled):not(.disabled):active:focus, .show > .btn-outline-primary.dropdown-toggle:focus {
     box-shadow: 0 0 0 0.1rem rgb(255 255 255 / 50%);
     border-color: white;
+}
+
+.form-control[readonly] {
+    background-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+textarea.description {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+textarea {
+    border-radius: 1.5rem !important;
+    color: white !important;
+}
+
+th.small-column{
+    cursor:pointer;
+}
+
+.form-group input[type='checkbox'] {
+    height:unset;
+}
+
+.checkbox-list{
+    display:flex;
+    flex-direction:column;
+}
+
+    .checkbox-list label {
+        font-family: 'Quicksand';
+    }
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid white;
+    border-radius: 1.5rem;
+    padding: 10px;
+    margin-right: 15px;
+    box-shadow: 0 0.15rem 0.55rem rgb(0 0 0 / 20%);
+    height: 220px;
+}
+
+.planning-service-info{
+    display:flex;
+    margin-bottom:20px;
+}
+
+    .planning-service-info .service-wrapper{
+        width:70%;
+    }
+
+    .planning-service-info .user-info {
+        width:30%;
+    }
+
+.planning-service-info textarea{
+    width:100%;
+    height:80px !important;
+}
+
+    .planning-service-info .profile-wrapper {
+        width: 40px;
+        height: 40px;
+    }
+
+.user-info .profile-wrapper{
+    margin-right: 15px;
+}
+
+.user-name{
+    height: 40px;
+}
+
+.info-header{
+    display:flex;
+    margin-bottom:5px;
 }

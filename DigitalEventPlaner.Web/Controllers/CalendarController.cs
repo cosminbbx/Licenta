@@ -24,5 +24,15 @@ namespace DigitalEventPlaner.Web.Controllers
             var viewModelList = GeneralHelper.MapServiceRequestList(eventRequests);
             return View(viewModelList);
         }
+
+        [Authorize(Roles = "Customer")]
+        public IActionResult CustomerCalendar()
+        {
+            var userId = Int32.Parse(HttpContext.User.Claims.ToList()[0].Value);
+            var eventRequests = serviceService.GetCustomerCalendar(userId);
+
+            var viewModelList = GeneralHelper.MapServiceRequestList(eventRequests);
+            return View(viewModelList);
+        }
     }
 }

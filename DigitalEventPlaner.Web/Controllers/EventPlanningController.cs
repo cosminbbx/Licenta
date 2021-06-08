@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using DataLayer.Enumerations;
+using DigitalEventPlaner.Services.Services.BlobService;
 using DigitalEventPlaner.Services.Services.Event;
 using DigitalEventPlaner.Services.Services.Event.Dto;
 using DigitalEventPlaner.Services.Services.EventService;
@@ -12,6 +14,7 @@ using DigitalEventPlaner.Services.Services.Services.Dto;
 using DigitalEventPlaner.Web.Models.EventPlanning;
 using DigitalEventPlaner.Web.Models.ServicePackage;
 using DigitalEventPlaner.Web.Models.Services;
+using DigitalEventPlaner.Web.Models.User;
 using DigitalEventPlaner.Web.Models.Validation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -25,12 +28,14 @@ namespace DigitalEventPlaner.Web.Controllers
         private readonly IServiceService serviceService;
         private readonly IEventService eventService;
         private readonly IServicePackageService servicePackageService;
-        public EventPlanningController(IMLService mLService,IServiceService serviceService, IEventService eventService, IServicePackageService servicePackageService)
+        private readonly IBlobService blobService;
+        public EventPlanningController(IMLService mLService,IServiceService serviceService, IEventService eventService, IServicePackageService servicePackageService, IBlobService blobService)
         {
             this.mLService = mLService;
             this.serviceService = serviceService;
             this.eventService = eventService;
             this.servicePackageService = servicePackageService;
+            this.blobService = blobService;
         }
 
         [Authorize(Roles = "Customer")]
@@ -72,6 +77,7 @@ namespace DigitalEventPlaner.Web.Controllers
                 //var viewModel = new EventPlanningStep2ViewModel() { Estimation = estimation, Step1 = new Step1Dto().InjectFrom(model) as Step1Dto };
                 return RedirectToAction(nameof(EventPlanningController.Step2), "EventPlanning", model);
             }
+            model.ServiceTypes = GetServiceTypes(serviceService.GetAll());
             return View(model);
         }
 
@@ -86,6 +92,8 @@ namespace DigitalEventPlaner.Web.Controllers
                 serviceViewModelList.Add(new ServiceWrapperViewModel()
                 {
                     Service = new ServiceViewModel().InjectFrom(serviceWrapper.Service) as ServiceViewModel,
+                    User = new UserViewModel().InjectFrom(serviceWrapper.User) as UserViewModel,
+                    ProfilePictureUri = GetProfilePictureUri(serviceWrapper.User.Id).Result,
                     ServicePackages = servicePackagesViewModels
                 });
             }
@@ -96,6 +104,11 @@ namespace DigitalEventPlaner.Web.Controllers
         public IActionResult Step2(EventPlanningStep1ViewModel model)
         {
             var serviceViewModelList = GetServiceWrapperViewModels(DateTime.Parse(model.EventDate), model.ServiceTypes[0], model.Participants);
+
+            foreach(var viewModel in serviceViewModelList)
+            {
+                viewModel.ProfilePictureUri = GetProfilePictureUri(viewModel.User.Id).Result;
+            }
 
             //model.EventTypesSelected.ForEach(x => wrapperDict[(ServiceType)Enum.Parse(typeof(ServiceType), x)] = serviceService.GetServiceWrappersByDateAndNOP(DateTime.Parse(model.EventDate), x,model.Participants));
             TempData.Put("Step1", new Step1Dto().InjectFrom(model) as Step1Dto);
@@ -109,6 +122,12 @@ namespace DigitalEventPlaner.Web.Controllers
                 ServiceWrappers = serviceViewModelList,
                 BugetNeeded = 0
             });
+        }
+
+        private async Task<string> GetProfilePictureUri(int userId)
+        {
+            var profilePicture = await blobService.GetProfilePicture(userId);
+            return profilePicture.First();
         }
 
         [Authorize(Roles = "Customer")]
@@ -147,7 +166,7 @@ namespace DigitalEventPlaner.Web.Controllers
                     };
                     eventService.Create(ecentDto, servicePackageDict);
 
-                    return RedirectToAction(nameof(EventPlanningController.Step3), "EventPlanning");
+                    return RedirectToAction(nameof(EventPlanningController.Step3), "EventPlanning", new { buget = model.BugetNeeded });
                 }
 
                 var serviceWrappers = GetServiceWrapperViewModels(DateTime.Parse(model.Step1.EventDate), model.Step1.ServiceTypesSelected[model.ServiceSelectedIndex + 1], model.Step1.Participants);
@@ -172,19 +191,36 @@ namespace DigitalEventPlaner.Web.Controllers
             var step1 = TempData.Get<Step1Dto>("Step1");
             TempData.Put("Step1", step1);
             var serviceWrappers = TempData.Get<List<ServiceWrapperViewModel>>("ServiceWrappers");
+            var serviceTypeValue = model.ServiceSelectedIndex < step1.EventTypesSelected.Count() ? model.ServiceSelectedIndex : model.ServiceSelectedIndex - 1;
+            var parsedType = (ServiceType)Enum.Parse(typeof(ServiceType), step1.ServiceTypesSelected[serviceTypeValue]);
             return View(new EventPlanningStep2ViewModel()
             {
                 Step1 = step1,
-                ServiceType = (ServiceType)Enum.Parse(typeof(ServiceType), step1.EventTypesSelected[model.ServiceSelectedIndex < step1.EventTypesSelected.Count() ? model.ServiceSelectedIndex : model.ServiceSelectedIndex - 1]),
+                ServiceType = parsedType,
                 ServiceSelectedIndex = model.ServiceSelectedIndex,
                 ServiceWrappers = serviceWrappers,
             });
         }
         [Authorize(Roles = "Customer")]
         [HttpGet]
-        public IActionResult Step3()
+        public IActionResult Step3(int buget)
         {
-            return View();
+            return View(buget);
+        }
+
+        [HttpGet]
+        [Authorize(Roles = "Customer")]
+        public IActionResult ServiceDetails(int Id)
+        {
+            var dto = serviceService.GetServiceWrapperByServiceId(Id);
+            var servicePackagesViewModels = new List<ServicePackageViewModel>();
+            dto.ServicePackages.ForEach(x => servicePackagesViewModels.Add(new ServicePackageViewModel().InjectFrom(x) as ServicePackageViewModel));
+            var model = new ServiceWrapperViewModel()
+            {
+                Service = new ServiceViewModel().InjectFrom(dto.Service) as ServiceViewModel,
+                ServicePackages = servicePackagesViewModels
+            };
+            return View(model);
         }
     }
 }

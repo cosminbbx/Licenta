@@ -5,37 +5,91 @@
     Layout = "~/Views/Shared/_CustomerLayout.cshtml";
 }
 
-<h3>@Model.ServiceType</h3>
-<form method="POST" enctype="multipart/form-data">
-    <input type="hidden" name="ServiceType" value="@Model.ServiceType" />
-    <div class="list-group manage-service-container">
-        @foreach (var item in Model.ServiceWrappers)
-        {
-            <div class="list-group-item service-container">
-                <div> <a href="@Url.Action("ServiceDetails", "ServiceManage", new { item.Service.Id })">@item.Service.Name</a></div>
-                <div>
-                    @Html.ActionLink("AddPackage", "AddServicePackage", "ServiceManage", new { item.Service.Id }, new { @class = "btn btn-outline-primary btn-sm" })
-                    @Html.ActionLink("Edit", "EditService", "ServiceManage", new { item.Service.Id }, new { @class = "btn btn-outline-primary btn-sm" })
-                    @Html.ActionLink("Delete", "DeleteService", "ServiceManage", new { item.Service.Id }, new { @class = "btn btn-outline-primary btn-sm" })
-                </div>
-            </div>
-            <div class="list-group">
-                @foreach (var package in item.ServicePackages)
-                {
-
-                    <div class="list-group-item sublist-item">
-                        <input name="ServicePackageSelected" type="checkbox" value="@package.Id" />
-                        <div>@package.Description</div>
-                        <div>
-                            @Html.ActionLink("Edit", "EditServicePackage", "ServiceManage", new { package.Id }, new { @class = "btn btn-outline-primary btn-sm" })
-                            @Html.ActionLink("Delete", "DeleteServicePackage", "ServiceManage", new { package.Id }, new { @class = "btn btn-outline-primary btn-sm" })
-                        </div>
-                    </div>
-                }
-            </div>
-        }
-        <span asp-validation-for="ServicePackageSelected" class="text-danger"></span>
+<div class="container container-inside">
+    <div class="font-quicksand page-title">CHANGE SERVICE</div>
+    <div>
+        <div class="font-quicksand-bold-small" style="float:left;margin-right:5px;">Service type:</div><div class="font-quicksand-small">@Model.ServiceType</div>
     </div>
 
-    <button class="btn btn-outline-primary">Submit</button>
-</form>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="ServiceType" value="@Model.ServiceType" />
+        <div class="list-group manage-service-container">
+            @foreach (var item in Model.ServiceWrappers)
+            {
+                <div class="planning-service-info" style="display:flex">
+                    <div class="user-info">
+                        <div class="info-header">
+                            <div class="profile-wrapper">
+                                <div class="profile-middle">
+                                    <div class="profile-box">
+                                        <img src="@item.ProfilePictureUri" class="profile-image" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="user-name">
+                                <div class="font-quicksand-bold-small" style="margin-top: 5px;">@item.User.UserName</div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="font-quicksand-bold-small" style="float:left;margin-right:5px;">Address:</div><div class="font-quicksand-small"> @item.User.Address</div>
+                        </div>
+                        <div>
+                            <div class="font-quicksand-bold-small" style="float:left;margin-right:5px;">Email:</div><div class="font-quicksand-small"> @item.User.Email</div>
+                        </div>
+                        <div>
+                            <div class="font-quicksand-bold-small" style="float:left;margin-right:5px;">Phone:</div><div class="font-quicksand-small"> @item.User.Phone</div>
+                        </div>
+
+
+                    </div>
+                    <div class="service-wrapper">
+                        <div class="service-container">
+                            <div class="font-quicksand-bold-small">@item.Service.Name</div>
+                            @if (item.Service.NumberOfRatings > 0)
+                            {
+                                <div style="display:flex;">
+                                    <div class="font-quicksand-bold-small" style="margin-right:5px;">Rating:</div><div class="font-quicksand-small">@Math.Round(item.Service.SmartRate * 5 / item.Service.NumberOfRatings, 1, MidpointRounding.ToEven)/5</div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div style="display:flex;">
+                                    <div class="font-quicksand-small">No rating</div>
+                                </div>
+                            }
+                        </div>
+                        @if (item.ServicePackages.Count() > 0)
+                        {
+                            <div class="list-group">
+
+                                @foreach (var package in item.ServicePackages)
+                                {
+                                    <div class="sublist-item">
+                                        <div style="display: flex;align-items: center;width:60%;">
+                                            <input name="ServicePackageSelected" type="checkbox" value="@package.Id" style="margin-right:10px;" />
+                                            <textarea class="form-control" readonly>@package.Description</textarea>
+                                        </div>
+
+                                        <div class="font-quicksand-bold-small">
+                                            <div style="display:flex;flex-direction:column">
+                                                <div>PPP: @package.PricePerParticipant</div>
+                                                <div>MC: @package.MaxCapacity</div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                }
+
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+            <span asp-validation-for="ServicePackageSelected" class="text-danger"></span>
+        </div>
+
+        <button class="btn btn-outline-primary">Submit</button>
+    </form>
+</div>

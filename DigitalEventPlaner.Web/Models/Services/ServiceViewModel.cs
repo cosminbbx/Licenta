@@ -18,6 +18,10 @@ namespace DigitalEventPlaner.Web.Models.Services
 
         public string Description { get; set; }
 
+        public double SmartRate { get; set; }
+
+        public int NumberOfRatings { get; set; }
+
         [Required]
         [Range(1, 20, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
         public int EventsPerDay { get; set; }

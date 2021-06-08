@@ -5,31 +5,33 @@
     Layout = "_ServiceLayout";
 }
 
-<h3>Edit service</h3>
+<div class="container container-inside">
+    <div class="font-quicksand page-title">EDIT SERVICE</div>
 
-<form method="POST" enctype="multipart/form-data">
-    @Html.HiddenFor(m => m.UserId)
-    <div class="form-group">
-        <label for="Name">Name</label>
-        <input type="text" class="form-control" name="Name" asp-for="Name" value="@Model.Name" />
-        <span asp-validation-for="Name" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label for="ServiceType">Service Type</label>
-        <select class="form-control" asp-for="ServiceType" asp-items="Html.GetEnumSelectList<ServiceType>()">
-            <option selected="selected" value="">Select Type</option>
-        </select>
-        <span asp-validation-for="ServiceType" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label for="Description">Description</label>
-        <input type="text" class="form-control" name="Description" asp-for="Description" value="@Model.Description" />
-        <span asp-validation-for="Description" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label for="EventsPerDay">Events per day</label>
-        <input type="number" class="form-control" name="EventsPerDay" asp-for="EventsPerDay" value="@Model.EventsPerDay" min="1" max="20" />
-        <span asp-validation-for="EventsPerDay" class="text-danger"></span>
-    </div>
-    <button class="btn btn-default">Submit</button>
-</form>
+    <form method="POST" enctype="multipart/form-data">
+        @Html.HiddenFor(m => m.UserId)
+        <div class="form-group">
+            <label for="Name">Name</label>
+            <input type="text" class="form-control" name="Name" asp-for="Name" value="@Model.Name" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="ServiceType">Service Type</label>
+            <select class="form-control" asp-for="ServiceType" asp-items="Html.GetEnumSelectList<ServiceType>()">
+                <option selected="selected" value="">Select Type</option>
+            </select>
+            <span asp-validation-for="ServiceType" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="Description">Description</label>
+            <textarea type="text" class="form-control" name="Description" asp-for="Description" value="@Model.Description" ></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="EventsPerDay">Events per day</label>
+            <input type="number" class="form-control" name="EventsPerDay" asp-for="EventsPerDay" value="@Model.EventsPerDay" min="1" max="20" />
+            <span asp-validation-for="EventsPerDay" class="text-danger"></span>
+        </div>
+        <button class="btn btn-outline-primary btn-sm">Save</button>
+    </form>
+</div>

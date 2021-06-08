@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using DataLayer.Enumerations;
 using DigitalEventPlaner.Web.Models.Services;
+using DigitalEventPlaner.Web.Models.User;
 
 namespace DigitalEventPlaner.Web.Models.MyEvents
 {

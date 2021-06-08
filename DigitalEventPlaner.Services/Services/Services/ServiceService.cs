@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using DataLayer.Enumerations;
 using DataLayer.Infrastructure;
+using DigitalEventPlaner.Services.Services.BlobService;
 using DigitalEventPlaner.Services.Services.Event;
 using DigitalEventPlaner.Services.Services.Event.Dto;
 using DigitalEventPlaner.Services.Services.EventService;
@@ -21,8 +23,9 @@ namespace DigitalEventPlaner.Services.Services.Services
         private IEventService eventService;
         private IEventServiceService eventServiceService;
         private IUserService userService;
+        private IBlobService blobService;
         private IUnitOfWork unit;
-        public ServiceService(IRepository<DataLayer.Entities.Service> repository, IServicePackageService servicePackage, IEventService eventService, IEventServiceService eventServiceService, IUserService userService, IUnitOfWork unit)
+        public ServiceService(IRepository<DataLayer.Entities.Service> repository, IServicePackageService servicePackage, IEventService eventService, IEventServiceService eventServiceService, IUserService userService, IUnitOfWork unit, IBlobService blobService)
         {
             this.repository = repository;
             this.servicePackage = servicePackage;
@@ -30,6 +33,7 @@ namespace DigitalEventPlaner.Services.Services.Services
             this.eventServiceService = eventServiceService;
             this.userService = userService;
             this.unit = unit;
+            this.blobService = blobService;
         }
 
         public void Create(ServiceDto service)
@@ -141,7 +145,9 @@ namespace DigitalEventPlaner.Services.Services.Services
         {
             if (id < 1) throw new ArgumentNullException(nameof(ServiceDto));
 
-            return new ServiceWrapper() { Service = GetById(id), ServicePackages = servicePackage.GetByServiceId(id) };
+            var service = GetById(id);
+
+            return new ServiceWrapper() { Service = service, ServicePackages = servicePackage.GetByServiceId(id), User = userService.GetById(service.UserId) };
         }
 
         public ServiceWrapper GetServiceWrapperByServiceIdAndServicePackageId(int serviceId, int servicePackageId)
@@ -247,6 +253,8 @@ namespace DigitalEventPlaner.Services.Services.Services
                     var serviceWrapper = GetServiceWrapperByServiceIdAndServicePackageId(eventService.ServiceId, eventService.ServicePackageId);
                     serviceWrapper.Status = eventService.Status;
                     serviceWrapper.EventServiceId = eventService.Id;
+                    serviceWrapper.User = userService.GetById(serviceWrapper.Service.UserId);
+                    serviceWrapper.ProfilePictureUri = GetProfilePictureUri(serviceWrapper.Service.UserId).Result;
                     eventWrapper.ServiceWrappers.Add(serviceWrapper);
                 }
 
@@ -280,6 +288,8 @@ namespace DigitalEventPlaner.Services.Services.Services
                         request.UserFirstName = user.FirstName;
                         request.UserLastName = user.LastName;
                         request.UserPhone = user.Phone;
+                        request.ProfilePicture = GetProfilePictureUri(user.Id).Result;
+                        request.User = user;
 
                         request.ServiceWrapper = GetServiceWrapperByServiceIdAndServicePackageId(es.ServiceId, es.ServicePackageId);
                         request.ServiceWrapper.Status = es.Status;
@@ -289,6 +299,12 @@ namespace DigitalEventPlaner.Services.Services.Services
             }
 
             return requests.OrderByDescending(x => x.EventDate).ToList();
+        }
+
+        private async Task<string> GetProfilePictureUri(int userId)
+        {
+            var profilePicture = await blobService.GetProfilePicture(userId);
+            return profilePicture.First();
         }
 
         public List<EventRequestDto> GetCalendar(int userId)
@@ -315,6 +331,8 @@ namespace DigitalEventPlaner.Services.Services.Services
                         request.UserFirstName = user.FirstName;
                         request.UserLastName = user.LastName;
                         request.UserPhone = user.Phone;
+                        request.User = user;
+                        request.ProfilePicture = GetProfilePictureUri(user.Id).Result;
 
                         request.ServiceWrapper = GetServiceWrapperByServiceIdAndServicePackageId(es.ServiceId, es.ServicePackageId);
                         request.ServiceWrapper.Status = es.Status;
@@ -323,7 +341,45 @@ namespace DigitalEventPlaner.Services.Services.Services
                 }
             }
 
-            return requests.OrderByDescending(x => x.EventDate).ToList();
+            return requests.OrderBy(x => x.EventDate).ToList();
+        }
+
+        public List<EventRequestDto> GetCustomerCalendar(int userId)
+        {
+            var events = eventService.GetByUserId(userId);
+            var requests = new List<EventRequestDto>();
+
+            foreach (var eventItem in events)
+            {
+                var eventServices = eventServiceService.GetByEventId(eventItem.Id);
+
+                foreach (var es in eventServices)
+                {
+
+                    if (es.Status == RequestStatus.Accepted && DateTime.Compare(eventItem.EventDate, DateTime.Today) >= 0)
+                    {
+                        var request = new EventRequestDto();
+                        request.EventService = es;
+                        request.EventType = eventItem.EventType;
+                        request.EventDate = eventItem.EventDate;
+
+                        var service = GetById(es.ServiceId);
+
+                        var user = userService.GetById(service.UserId);
+                        request.UserFirstName = user.FirstName;
+                        request.UserLastName = user.LastName;
+                        request.UserPhone = user.Phone;
+                        request.User = user;
+                        request.ProfilePicture = GetProfilePictureUri(user.Id).Result;
+
+                        request.ServiceWrapper = GetServiceWrapperByServiceIdAndServicePackageId(es.ServiceId, es.ServicePackageId);
+                        request.ServiceWrapper.Status = es.Status;
+                        requests.Add(request);
+                    }
+                }
+            }
+
+            return requests.OrderBy(x => x.EventDate).ToList();
         }
 
         public void UpdateSmartRating (double smartRatingValue, int eventId)

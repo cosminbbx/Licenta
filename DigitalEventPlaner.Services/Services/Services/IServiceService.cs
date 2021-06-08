@@ -24,6 +24,7 @@ namespace DigitalEventPlaner.Services.Services.Services
         List<EventWrapper> GetEventWrappersByUserId(int id);
         List<EventRequestDto> GetServiceRequests(int userId);
         List<EventRequestDto> GetCalendar(int userId);
+        List<EventRequestDto> GetCustomerCalendar(int userId);
         void UpdateSmartRating(double smartRatingValue, int eventId);
     }
 }

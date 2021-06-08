@@ -1,12 +1,23 @@
-﻿@{
+﻿@model int
+@{
     ViewData["Title"] = "Profile Page";
     Layout = "~/Views/Shared/_CustomerLayout.cshtml";
 }
 
-<h3>Step 3</h3>
 
-<h3>You successfully added an event request</h3>
+<div class="container container-inside">
+    <div class="font-quicksand page-title">STEP 3</div>
 
-@Html.ActionLink("Profile", "Profile", "CustomerProfile")
+    <div class="font-quicksand-bold-small" style="margin-bottom:20px;">You successfully added an event request</div>
 
-@Html.ActionLink("My events", "AddServicePackage", "ServiceManage")
+    <div class="font-quicksand-bold-small" style="margin-bottom:20px;">Buget needed: @Model</div>
+
+    <div class="btn btn-outline-primary btn-sm">
+        @Html.ActionLink("Profile", "Profile", "CustomerProfile")
+    </div>
+
+    <div class="btn btn-outline-primary btn-sm">
+        @Html.ActionLink("My events", "AddServicePackage", "ServiceManage")
+    </div>
+
+</div>

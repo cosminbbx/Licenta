@@ -5,25 +5,28 @@
     Layout = "_ServiceLayout";
 }
 
-<h3>Deleted services</h3>
+<div class="container container-inside">
+    <div class="font-quicksand page-title">DELETED SERVICES</div>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Type</th>
-            <th scope="col">Events per day</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+    <table class="table deleted-table">
+        <thead>
             <tr>
-                <td>@item.Name</td>
-                <td>@item.ServiceType</td>
-                <td>@item.EventsPerDay</td>
-                <td>@Html.ActionLink("Undelete", "Undelete", "ServiceManage", new { item.Id }, new { @class = "btn btn-primary" })</td>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Events per day</th>
+                <th scope="col"></th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.ServiceType</td>
+                    <td>@item.EventsPerDay</td>
+                    <td>@Html.ActionLink("Undelete", "Undelete", "ServiceManage", new { item.Id }, new { @class = "btn btn-outline-primary btn-sm" })</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

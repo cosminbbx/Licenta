@@ -16,6 +16,7 @@ using DigitalEventPlaner.Web.Helpers;
 using DigitalEventPlaner.Web.Models.MyEvents;
 using DigitalEventPlaner.Web.Models.ServicePackage;
 using DigitalEventPlaner.Web.Models.Services;
+using DigitalEventPlaner.Web.Models.User;
 using DigitalEventPlaner.Web.Models.Validation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -63,10 +64,18 @@ namespace DigitalEventPlaner.Web.Controllers
                 serviceViewModelList.Add(new ServiceWrapperViewModel()
                 {
                     Service = new ServiceViewModel().InjectFrom(serviceWrapper.Service) as ServiceViewModel,
+                    User = new UserViewModel().InjectFrom(serviceWrapper.User) as UserViewModel,
+                    ProfilePictureUri = GetProfilePictureUri(serviceWrapper.User.Id).Result,
                     ServicePackages = servicePackagesViewModels
                 });
             }
             return serviceViewModelList;
+        }
+
+        private async Task<string> GetProfilePictureUri(int userId)
+        {
+            var profilePicture = await blobService.GetProfilePicture(userId);
+            return profilePicture.First();
         }
 
         [HttpGet]
