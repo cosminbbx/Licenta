@@ -198,7 +198,7 @@ namespace DigitalEventPlaner.Services.Services.Services
                 bool hasCapacity = false;
                 foreach(var serviceP in servicePackages)
                 {
-                    if(serviceP.MaxCapacity > numberOfParticipants)
+                    if(serviceP.MaxCapacity >= numberOfParticipants)
                     {
                         hasCapacity = true;
                     }

@@ -9,6 +9,7 @@ namespace DigitalEventPlaner.Services.Services.Event
     public interface IEventService
     {
         List<EventDto> GetAll();
+        List<EventDto> GetAllWithDeleted();
         List<EventDto> GetByUserId(int id);
         EventDto GetById(int id);
         int Create(EventDto eventDto);

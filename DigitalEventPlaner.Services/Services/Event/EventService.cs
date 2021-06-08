@@ -61,6 +61,17 @@ namespace DigitalEventPlaner.Services.Services.Event
             return eventListDto;
         }
 
+        public List<EventDto> GetAllWithDeleted()
+        {
+            var eventList = repository.GetAll();
+            var eventListDto = new List<EventDto>();
+            foreach (var eventItem in eventList)
+            {
+                eventListDto.Add(new EventDto().InjectFrom(eventItem) as EventDto);
+            }
+            return eventListDto;
+        }
+
         public EventDto GetById(int id)
         {
             if (id < 1) throw new ArgumentNullException(nameof(EventDto));

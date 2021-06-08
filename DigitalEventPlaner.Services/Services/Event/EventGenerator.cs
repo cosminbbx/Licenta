@@ -28,6 +28,7 @@ namespace DigitalEventPlaner.Services.Services.Event
                     UserId = 1,
                     NumberOfServices = random.Next(1, 5),
                     Participants = random.Next(100, 400),
+                    IsDeleted = true
                 };
 
                 var buget = 0;

@@ -52,7 +52,7 @@ namespace DigitalEventPlaner.Services.Services.CsvService
             using (var scope = serviceProvider.CreateScope())
             {
                 var eventService = scope.ServiceProvider.GetService<IEventService>();
-                eventList = eventService.GetAll();
+                eventList = eventService.GetAllWithDeleted();
             }
 
             for (var i = 0; i <= (eventList.Count / 2) - 1; i++)
