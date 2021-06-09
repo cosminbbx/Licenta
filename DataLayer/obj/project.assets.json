@@ -4960,19 +4960,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/virgacosmin/.nuget/packages/": {}
+    "/Users/cosmin/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/virgacosmin/Documents/GitHub/Licenta/DataLayer/DataLayer.csproj",
+      "projectUniqueName": "/Users/cosmin/Documents/GitHub/Licenta/DataLayer/DataLayer.csproj",
       "projectName": "DataLayer",
-      "projectPath": "/Users/virgacosmin/Documents/GitHub/Licenta/DataLayer/DataLayer.csproj",
-      "packagesPath": "/Users/virgacosmin/.nuget/packages/",
-      "outputPath": "/Users/virgacosmin/Documents/GitHub/Licenta/DataLayer/obj/",
+      "projectPath": "/Users/cosmin/Documents/GitHub/Licenta/DataLayer/DataLayer.csproj",
+      "packagesPath": "/Users/cosmin/.nuget/packages/",
+      "outputPath": "/Users/cosmin/Documents/GitHub/Licenta/DataLayer/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/virgacosmin/.config/NuGet/NuGet.Config"
+        "/Users/cosmin/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"

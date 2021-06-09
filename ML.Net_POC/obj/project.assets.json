@@ -5558,19 +5558,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/virgacosmin/.nuget/packages/": {}
+    "/Users/cosmin/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/virgacosmin/Documents/GitHub/Licenta/ML.Net_POC/ML.Net_POC.csproj",
+      "projectUniqueName": "/Users/cosmin/Documents/GitHub/Licenta/ML.Net_POC/ML.Net_POC.csproj",
       "projectName": "ML.Net_POC",
-      "projectPath": "/Users/virgacosmin/Documents/GitHub/Licenta/ML.Net_POC/ML.Net_POC.csproj",
-      "packagesPath": "/Users/virgacosmin/.nuget/packages/",
-      "outputPath": "/Users/virgacosmin/Documents/GitHub/Licenta/ML.Net_POC/obj/",
+      "projectPath": "/Users/cosmin/Documents/GitHub/Licenta/ML.Net_POC/ML.Net_POC.csproj",
+      "packagesPath": "/Users/cosmin/.nuget/packages/",
+      "outputPath": "/Users/cosmin/Documents/GitHub/Licenta/ML.Net_POC/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/virgacosmin/.config/NuGet/NuGet.Config"
+        "/Users/cosmin/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
