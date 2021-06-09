@@ -23,6 +23,7 @@ namespace DigitalEventPlaner.Services.Services.FaceRecognition
 
         }
 
+        //cod preluat de pe https://docs.microsoft.com apoi prelucrat pentru cazul curent
         public async Task<double> GetSmartRateForImages(List<string> imageFileNames)
         {
             return await DetectFaceExtract(client, IMAGE_BASE_URL, RECOGNITION_MODEL, imageFileNames);

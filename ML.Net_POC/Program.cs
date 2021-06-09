@@ -20,6 +20,7 @@ namespace ML.Net_POC
             TestSinglePrediction(mlContext, model);
         }
 
+        //cod preluat de pe https://docs.microsoft.com apoi prelucrat pentru cazul curent
         public static ITransformer Train(MLContext mlContext, string dataPath)
         {
             IDataView dataView = mlContext.Data.LoadFromTextFile<TaxiTrip>(dataPath, hasHeader: true, separatorChar: ',');

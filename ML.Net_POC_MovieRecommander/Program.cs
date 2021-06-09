@@ -7,6 +7,7 @@ namespace ML.Net_POC_MovieRecommander
 {
     public class Program
     {
+        //cod preluat de pe https://docs.microsoft.com apoi prelucrat pentru cazul curent
         static void Main(string[] args)
         {
             MLContext mlContext = new MLContext();

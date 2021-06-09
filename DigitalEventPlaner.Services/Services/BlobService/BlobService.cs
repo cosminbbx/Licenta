@@ -24,6 +24,7 @@ namespace DigitalEventPlaner.Services.Services.BlobService
             this.containerNameService = containerNameService;
         }
 
+        //cod preluat de pe https://docs.microsoft.com apoi prelucrat pentru cazul curent
         public async Task<List<string>> GetProfilePicture(int id)
         {
             var profilePicture = containerNameService.GetProfilePictureByUserId(id);

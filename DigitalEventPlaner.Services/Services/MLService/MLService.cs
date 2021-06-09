@@ -15,6 +15,7 @@ namespace DigitalEventPlaner.Services.Services.MLService
             this.configuration = config;
         }
 
+        //cod preluat de pe https://docs.microsoft.com apoi prelucrat pentru cazul curent
         public float BugetEstimation(EventDto eventDto)
         {
             MLContext mlContext = new MLContext(seed: 0);

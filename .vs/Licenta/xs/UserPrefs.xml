@@ -1,116 +1,25 @@
 ﻿<Properties StartupConfiguration="{29B536E6-802B-49EC-8376-40D70D03DCF5}|Default">
   <MonoDevelop.Ide.ItemProperties.DigitalEventPlaner.Web PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.ItemProperties.ConsoleAppTest PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="DigitalEventPlaner.Services/Services/FaceRecognition/FaceRecognitionService.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ML.Net_POC_MovieRecommander/Program.cs">
     <Files>
-      <File FileName="DigitalEventPlaner.Web/Views/CustomerProfile/Profile.cshtml" Line="41" Column="45" IsPinned="True" />
-      <File FileName="DigitalEventPlaner.Web/Views/MyEvents/Index.cshtml" />
-      <File FileName="DigitalEventPlaner.Web/Models/MyEvents/EventWrapperSortedViewModel.cs" />
-      <File FileName="DigitalEventPlaner.Web/Models/MyEvents/EventWrapperViewModel.cs" />
-      <File FileName="DigitalEventPlaner.Web/Models/Services/ServiceWrapperViewModel.cs" />
-      <File FileName="DigitalEventPlaner.Web/Models/Services/ServiceViewModel.cs" />
-      <File FileName="DigitalEventPlaner.Services/Services/Services/ServiceService.cs" />
-      <File FileName="DigitalEventPlaner.Services/Services/Services/Dto/ServiceDto.cs" />
-      <File FileName="DigitalEventPlaner.Web/Program.cs" />
-      <File FileName="DigitalEventPlaner.Web/wwwroot/css/site.css" />
-      <File FileName="DigitalEventPlaner.Web/Controllers/MyEventsController.cs" />
-      <File FileName="DigitalEventPlaner.Web/appsettings.json" />
-      <File FileName="DigitalEventPlaner.Services/Services/FaceRecognition/FaceRecognitionService.cs" Line="12" Column="41" />
-      <File FileName="DigitalEventPlaner.Web/Views/MyEvents/ChangeService.cshtml" />
-      <File FileName="DigitalEventPlaner.Web/Models/MyEvents/ChangeServiceViewModel.cs" />
-      <File FileName="DigitalEventPlaner.Web/Views/EventPlanning/Step2.cshtml" />
-      <File FileName="DigitalEventPlaner.Web/Controllers/CustomerProfileController.cs" Line="41" Column="58" />
-      <File FileName="DigitalEventPlaner.Web/Controllers/EventPlanningController.cs" />
-      <File FileName="DigitalEventPlaner.Services/Services/Event/EventService.cs" />
-      <File FileName="DigitalEventPlaner.Web/Views/EventPlanning/Step3.cshtml" />
-      <File FileName="DigitalEventPlaner.Web/Views/ServiceManage/ServiceDetails.cshtml" />
-      <File FileName="DigitalEventPlaner.Web/Views/ServiceManage/Index.cshtml" />
-      <File FileName="DigitalEventPlaner.Web/Controllers/ServiceManageController.cs" />
-      <File FileName="DigitalEventPlaner.Web/Views/EventPlanning/ServiceDetails.cshtml" />
-      <File FileName="DigitalEventPlaner.Web/Controllers/CalendarController.cs" />
-      <File FileName="DigitalEventPlaner.Web/Views/Calendar/CustomerCalendar.cshtml" />
-      <File FileName="DigitalEventPlaner.Web/Views/Calendar/Index.cshtml" />
-      <File FileName="DigitalEventPlaner.Services/Services/Services/IServiceService.cs" />
-      <File FileName="DigitalEventPlaner.Web/Views/Shared/_CustomerLayout.cshtml" />
-      <File FileName="DigitalEventPlaner.Web/Helpers/GeneralHelper.cs" />
-      <File FileName="DataLayer/Enumerations/EventType.cs" />
-      <File FileName="DataLayer/Enumerations/ServiceType.cs" />
-      <File FileName="DigitalEventPlaner.Web/Controllers/AccountController.cs" />
-      <File FileName="DigitalEventPlaner.Services/Services/Event/EventGenerator.cs" />
-      <File FileName="DigitalEventPlaner.Services/Services/MLService/MLService.cs" />
-      <File FileName="DigitalEventPlaner.Services/Services/MLService/EventBuget.cs" />
-      <File FileName="DigitalEventPlaner.Services/Services/CsvService/CsvService.cs" />
-      <File FileName="DigitalEventPlaner.Services/Services/Event/IEventService.cs" />
+      <File FileName="ML.Net_POC_MovieRecommander/Program.cs" Line="11" Column="15" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Licenta" expanded="True">
-            <Node name="DataLayer" expanded="True">
-              <Node name="Entities" expanded="True" />
-              <Node name="Enumerations" expanded="True" />
-              <Node name="Infrastructure" expanded="True" />
-            </Node>
             <Node name="DigitalEventPlaner.Services" expanded="True">
-              <Node name="Dependencies" expanded="True">
-                <Node name="PackageDependencies" expanded="True" />
-              </Node>
-              <Node name="Infrastructure" expanded="True" />
               <Node name="Services" expanded="True">
                 <Node name="BlobService" expanded="True" />
-                <Node name="ContainerName" expanded="True">
-                  <Node name="Dto" expanded="True" />
-                </Node>
-                <Node name="CsvService" expanded="True" />
-                <Node name="Event" expanded="True">
-                  <Node name="Dto" expanded="True" />
-                </Node>
-                <Node name="EventService" expanded="True" />
-                <Node name="EventUpdater" expanded="True" />
-                <Node name="FaceRecognition" expanded="True">
-                  <Node name="FaceRecognitionService.cs" selected="True" />
-                </Node>
+                <Node name="FaceRecognition" expanded="True" />
                 <Node name="MLService" expanded="True" />
-                <Node name="ServicePackage" expanded="True">
-                  <Node name="Dto" expanded="True" />
-                </Node>
-                <Node name="Services" expanded="True">
-                  <Node name="Dto" expanded="True" />
-                </Node>
-                <Node name="User" expanded="True">
-                  <Node name="Dto" expanded="True" />
-                </Node>
               </Node>
-            </Node>
-            <Node name="DigitalEventPlaner.Web" expanded="True">
-              <Node name="Controllers" expanded="True" />
-              <Node name="Helpers" expanded="True" />
-              <Node name="Models" expanded="True">
-                <Node name="EventPlanning" expanded="True" />
-                <Node name="MyEvents" expanded="True" />
-                <Node name="ServicePackage" expanded="True" />
-                <Node name="Services" expanded="True" />
-                <Node name="User" expanded="True" />
-              </Node>
-              <Node name="ScheduleServices" expanded="True" />
-              <Node name="Views" expanded="True">
-                <Node name="Account" expanded="True" />
-                <Node name="Calendar" expanded="True" />
-                <Node name="CustomerProfile" expanded="True" />
-                <Node name="EventPlanning" expanded="True" />
-                <Node name="Home" expanded="True" />
-                <Node name="MyEvents" expanded="True" />
-                <Node name="RequestManager" expanded="True" />
-                <Node name="ServiceManage" expanded="True" />
-                <Node name="ServiceProfile" expanded="True" />
-                <Node name="Shared" expanded="True" />
-              </Node>
-              <Node name="wwwroot" expanded="True">
-                <Node name="css" expanded="True" />
-              </Node>
-              <Node name="appsettings.json" expanded="True" />
             </Node>
             <Node name="ML.Net_POC" expanded="True" />
+            <Node name="ML.Net_POC_MovieRecommander" expanded="True">
+              <Node name="Program.cs" selected="True" />
+            </Node>
           </Node>
         </State>
       </Pad>
