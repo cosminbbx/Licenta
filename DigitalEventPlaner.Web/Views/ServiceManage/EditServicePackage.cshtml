@@ -5,24 +5,26 @@
     Layout = "_ServiceLayout";
 }
 
-<h3>Edit package</h3>
+<div class="container container-inside">
+    <div class="font-quicksand page-title">EDIT PACKAGE</div>
 
-<form method="POST" enctype="multipart/form-data">
-    @Html.HiddenFor(m => m.ServiceId)
-    <div class="form-group">
-        <label for="Description">Description</label>
-        <input type="text" class="form-control" name="Description" asp-for="Description" value="@Model.Description" />
-        <span asp-validation-for="Description" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label for="PricePerParticipant">Price per participant</label>
-        <input type="number" class="form-control" name="PricePerParticipant" asp-for="PricePerParticipant" placeholder="Price per articipant" value="@Model.PricePerParticipant" min="1" max="10000" />
-        <span asp-validation-for="PricePerParticipant" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label for="MaxCapacity">MaxCapacity</label>
-        <input type="number" class="form-control" name="MaxCapacity" asp-for="MaxCapacity" placeholder="MaxCapacity" value="@Model.MaxCapacity" min="1" max="10000" />
-        <span asp-validation-for="MaxCapacity" class="text-danger"></span>
-    </div>
-    <button class="btn btn-outline-primary btn-sm">Save</button>
-</form>
+    <form method="POST" enctype="multipart/form-data">
+        @Html.HiddenFor(m => m.ServiceId)
+        <div class="form-group">
+            <label for="Description">Description</label>
+            <textarea type="text" class="form-control" name="Description" asp-for="Description" placeholder="Enter Description"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="PricePerParticipant">Price per participant</label>
+            <input type="number" class="form-control" name="PricePerParticipant" asp-for="PricePerParticipant" placeholder="Price per articipant" value="1" min="1" max="10000" />
+            <span asp-validation-for="PricePerParticipant" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="MaxCapacity">MaxCapacity</label>
+            <input type="number" class="form-control" name="MaxCapacity" asp-for="MaxCapacity" placeholder="MaxCapacity" value="1" min="1" max="10000" />
+            <span asp-validation-for="MaxCapacity" class="text-danger"></span>
+        </div>
+        <button class="btn btn-outline-primary btn-sm">Submit</button>
+    </form>
+</div>

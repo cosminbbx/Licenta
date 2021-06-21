@@ -103,7 +103,7 @@ namespace DigitalEventPlaner.Web.Controllers
         [Authorize(Roles = "Customer")]
         public IActionResult Step2(EventPlanningStep1ViewModel model)
         {
-            var serviceViewModelList = GetServiceWrapperViewModels(DateTime.Parse(model.EventDate), model.ServiceTypes[0], model.Participants);
+            var serviceViewModelList = GetServiceWrapperViewModels(DateTime.Parse(model.EventDate), model.ServiceTypesSelected[0], model.Participants);
 
             foreach(var viewModel in serviceViewModelList)
             {
